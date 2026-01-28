@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ROOT MENU -->
+    <menuitem id="menu_sisi_root"
+              name="SISi"
+              web_icon="sisi,static/description/icon.png"
+              sequence="5"/>
+
+    <!-- MAIN MODEL LIST MENUS -->
+
+    <menuitem id="menu_sisi_school_management"
+              name="School Management"
+              parent="menu_sisi_root"
+              sequence="5"/>
+
+    <menuitem id="menu_sisi_school"
+              name="School Buildings"
+              parent="menu_sisi_school_management"
+              action="action_school"
+              sequence="10"/>
+
+    <menuitem id="menu_sisi_room"
+              name="School Rooms"
+              parent="menu_sisi_school_management"
+              action="action_room"
+              sequence="20"/>
+
+    <menuitem id="menu_sisi_department"
+              name="Departments"
+              parent="menu_sisi_school_management"
+              action="action_department"
+              sequence="30"/>
+
+    <menuitem id="menu_sisi_role"
+              name="Roles"
+              parent="menu_sisi_school_management"
+              action="action_role"
+              sequence="40"/>
+
+    <menuitem id="menu_sisi_person_management"
+              name="Person Management"
+              parent="menu_sisi_root"
+              sequence="45"/>
+
+    <menuitem id="menu_sisi_user"
+              name="Users"
+              parent="menu_sisi_person_management"
+              action="action_user"
+              sequence="50"/>
+
+    <menuitem id="menu_sisi_employee"
+              name="Employees"
+              parent="menu_sisi_person_management"
+              action="action_employee"
+              sequence="60"/>
+
+    <menuitem id="menu_sisi_teacher"
+              name="Teachers"
+              parent="menu_sisi_person_management"
+              action="action_teacher"
+              sequence="70"/>"
+
+    <menuitem id="menu_sisi_student"
+              name="Students"
+              parent="menu_sisi_person_management"
+              action="action_student"
+              sequence="80"/>
+
+    <menuitem id="menu_sisi_academic_management"
+              name="Academic Management"
+              parent="menu_sisi_root"
+              sequence="85"/>
+
+    <menuitem id="menu_sisi_program"
+              name="Programs"
+              parent="menu_sisi_academic_management"
+              action="action_program"
+              sequence="90"/>
+
+    <menuitem id="menu_sisi_course"
+              name="Courses"
+              parent="menu_sisi_academic_management"
+              action="action_course"
+              sequence="100"/>
+
+    <menuitem id="menu_sisi_active_course"
+              name="Active Courses"
+              parent="menu_sisi_academic_management"
+              action="action_active_course"
+              sequence="110"/>
+
+    <menuitem id="menu_sisi_course_selection"
+              name="Course Selections"
+              parent="menu_sisi_academic_management"
+              action="action_course_selection"
+              sequence="120"/>
+
+    <menuitem id="menu_sisi_student_plan_item"
+              name="Student Plan"
+              parent="menu_sisi_academic_management"
+              action="action_student_plan_item"
+              sequence="130"/>
+
+    <!--    <menuitem id="menu_sisi_journal"-->
+    <!--              name="Journals"-->
+    <!--              parent="menu_sisi_academic_management"-->
+    <!--              action="action_journal"-->
+    <!--              sequence="130"/>-->
+
+    <menuitem id="menu_sisi_grade"
+              name="Grades"
+              parent="menu_sisi_academic_management"
+              action="action_grade"
+              sequence="140"/>
+
+    <!--    <menuitem id="menu_sisi_assignment"-->
+    <!--              name="Assignments"-->
+    <!--              parent="menu_sisi_academic_management"-->
+    <!--              action="action_assignment"-->
+    <!--              sequence="150"/>-->
+
+    <!--    <menuitem id="menu_sisi_assignment_item"-->
+    <!--              name="Assignment Submissions"-->
+    <!--              parent="menu_sisi_academic_management"-->
+    <!--              action="action_assignment_item"-->
+    <!--              sequence="160"/>-->
+
+    <!--    <menuitem id="menu_sisi_attendance"-->
+    <!--              name="Attendances"-->
+    <!--              parent="menu_sisi_academic_management"-->
+    <!--              action="action_attendance"-->
+    <!--              sequence="170"/>-->
+
+    <!--    <menuitem id="menu_sisi_attendence_item"-->
+    <!--              name="Attendance Records"-->
+    <!--              parent="menu_sisi_academic_management"-->
+    <!--              action="action_attendance_item"-->
+    <!--              sequence="180"/>-->
+
+
+    <!-- REPORTS OPERATION MENUS -->
+
+</odoo>

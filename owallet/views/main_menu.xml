@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- OWALLET MAIN MENU -->
+    <!-- ============================================ -->
+    <menuitem id="menu_owallet_root"
+              name="oWallet"
+              sequence="20"
+              web_icon="owallet,static/src/icon.png"/>
+
+    <!-- ============================================ -->
+    <!-- STUDENT MENUS -->
+    <!-- ============================================ -->
+    <menuitem id="menu_owallet_student"
+              name="My Wallet"
+              parent="menu_owallet_root"
+              sequence="10"
+              groups="olearn2.group_student"/>
+
+    <menuitem id="menu_my_wallet"
+              name="My Balance"
+              parent="menu_owallet_student"
+              action="owallet.action_my_wallet"
+              sequence="10"
+              groups="olearn2.group_student"/>
+
+
+    <menuitem id="menu_my_transactions"
+              name="My Transactions"
+              parent="menu_owallet_student"
+              action="action_my_transactions"
+              sequence="20"
+              groups="olearn2.group_student"/>
+
+    <!-- ============================================ -->
+    <!-- TEACHER MENUS -->
+    <!-- ============================================ -->
+    <menuitem id="menu_owallet_teacher"
+              name="My Earnings"
+              parent="menu_owallet_root"
+              sequence="20"
+              groups="olearn2.group_teacher"/>
+
+    <menuitem id="menu_my_bonuses"
+              name="My Bonuses"
+              parent="menu_owallet_teacher"
+              action="action_my_bonuses"
+              sequence="10"
+              groups="olearn2.group_teacher"/>
+
+    <menuitem id="menu_teacher_wallet"
+              name="My Balance"
+              parent="menu_owallet_teacher"
+              action="action_my_wallet"
+              sequence="20"
+              groups="olearn2.group_teacher"/>
+
+    <!-- ============================================ -->
+    <!-- ACCOUNTANT MENUS -->
+    <!-- ============================================ -->
+    <menuitem id="menu_owallet_accountant"
+              name="Financial Management"
+              parent="menu_owallet_root"
+              sequence="30"
+              groups="owallet.group_accountant"/>
+
+    <!-- Wallets Submenu -->
+    <menuitem id="menu_owallet_wallets"
+              name="Wallets"
+              parent="menu_owallet_accountant"
+              sequence="10"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_all_balances"
+              name="All Wallets"
+              parent="menu_owallet_wallets"
+              action="action_owallet_balance"
+              sequence="10"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_master_balance"
+              name="Master Balance"
+              parent="menu_owallet_wallets"
+              action="action_master_balance"
+              sequence="20"
+              groups="owallet.group_accountant"/>
+
+    <!-- Transactions Submenu -->
+    <menuitem id="menu_owallet_transactions"
+              name="Transactions"
+              parent="menu_owallet_accountant"
+              sequence="20"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_all_transactions"
+              name="All Transactions"
+              parent="menu_owallet_transactions"
+              action="action_owallet_transaction"
+              sequence="10"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_create_deposit"
+              name="Create Deposit"
+              parent="menu_owallet_transactions"
+              action="action_owallet_create_deposit"
+              sequence="20"
+              groups="owallet.group_accountant"/>
+
+    <!-- Bonuses Submenu -->
+    <menuitem id="menu_owallet_bonuses"
+              name="Teacher Bonuses"
+              parent="menu_owallet_accountant"
+              sequence="30"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_all_bonuses"
+              name="All Bonuses"
+              parent="menu_owallet_bonuses"
+              action="action_owallet_bonus"
+              sequence="10"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_pending_bonuses"
+              name="Pending Payments"
+              parent="menu_owallet_bonuses"
+              action="action_pending_bonuses"
+              sequence="20"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_calculate_bonuses"
+              name="Calculate All Bonuses"
+              parent="menu_owallet_bonuses"
+              action="action_server_calculate_all_bonuses"
+              sequence="30"
+              groups="owallet.group_accountant"/>
+
+    <!-- Reports Submenu -->
+    <menuitem id="menu_owallet_reports"
+              name="Reports"
+              parent="menu_owallet_accountant"
+              sequence="40"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_course_payments_report"
+              name="Course Payments"
+              parent="menu_owallet_reports"
+              action="action_course_payments_report"
+              sequence="10"
+              groups="owallet.group_accountant"/>
+
+    <menuitem id="menu_bonus_payments_report"
+              name="Bonus Payments"
+              parent="menu_owallet_reports"
+              action="action_bonus_payments_report"
+              sequence="20"
+              groups="owallet.group_accountant"/>
+
+    <!-- ============================================ -->
+    <!-- ADMIN/MANAGER MENUS -->
+    <!-- ============================================ -->
+    <menuitem id="menu_owallet_admin"
+              name="Administration"
+              parent="menu_owallet_root"
+              sequence="40"
+              groups="base.group_system"/>
+
+    <menuitem id="menu_admin_all_balances"
+              name="All Wallets"
+              parent="menu_owallet_admin"
+              action="action_owallet_balance"
+              sequence="10"
+              groups="base.group_system"/>
+
+    <menuitem id="menu_admin_all_transactions"
+              name="All Transactions"
+              parent="menu_owallet_admin"
+              action="action_owallet_transaction"
+              sequence="20"
+              groups="base.group_system"/>
+
+    <menuitem id="menu_admin_all_bonuses"
+              name="All Bonuses"
+              parent="menu_owallet_admin"
+              action="action_owallet_bonus"
+              sequence="30"
+              groups="base.group_system"/>
+
+</odoo>

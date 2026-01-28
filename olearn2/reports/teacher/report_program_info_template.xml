@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="report_program_info_template">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="0"/>
+                <style>
+                    html, body {
+                    margin-top: 2cm;
+                    padding: 0;
+                    }
+
+                    h1, h2, h3, p {
+                    margin-bottom: 0.5rem;
+                    }
+
+                    .page {
+                    page-break-after: always;
+                    padding: 0;
+                    size: A4;
+                    margin-top: 2cm;
+                    margin-bottom: 2cm;
+                    margin-left: 3cm;
+                    margin-right: 1.5cm;
+                    }
+
+                    .text-center {
+                    text-align: center;
+                    }
+
+                    .text-italic {
+                    font-style: italic;
+                    }
+
+                    h1 {
+                    color: purple;
+                    margin-bottom: 0.3rem;
+                    }
+
+                    h2 {
+                    color: purple;
+                    border-bottom: 2px solid purple;
+                    padding-bottom: 5px;
+                    margin-top: 25px;
+                    }
+
+                    h3 {
+                    color: #666;
+                    margin-top: 20px;
+                    }
+
+                    .program-info {
+                    margin: 20px 0;
+                    padding: 15px;
+                    border: 2px solid purple;
+                    background-color: #f9f9f9;
+                    }
+
+                    .program-info p {
+                    margin: 5px 0;
+                    }
+
+                    .info-grid {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+                    }
+
+                    .info-column {
+                    flex: 1;
+                    }
+
+                    .info-label {
+                    font-weight: bold;
+                    color: purple;
+                    }
+
+                    .summary-section {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background-color: #f5f5f5;
+                    border-left: 4px solid purple;
+                    }
+
+                    .summary-section h3 {
+                    color: purple;
+                    margin-bottom: 10px;
+                    margin-top: 0;
+                    }
+
+                    .summary-item {
+                    margin: 8px 0;
+                    padding: 5px;
+                    background-color: white;
+                    border-left: 2px solid plum;
+                    padding-left: 10px;
+                    }
+
+                    table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                    border: grey solid 1px;
+                    table-layout: auto;
+                    }
+
+                    thead {
+                    background-color: purple;
+                    color: #eeeeee;
+                    }
+
+                    th {
+                    padding: 10px;
+                    text-align: left;
+                    font-weight: bold;
+                    }
+
+                    th.text-center {
+                    text-align: center;
+                    }
+
+                    td {
+                    padding: 8px;
+                    border-bottom: 1px solid #ddd;
+                    }
+
+                    tbody tr:nth-child(odd) {
+                    background-color: plum;
+                    }
+
+                    tbody tr:nth-child(even) {
+                    background-color: white;
+                    }
+
+                    .stat-excellent {
+                    color: green;
+                    font-weight: bold;
+                    }
+
+                    .stat-good {
+                    color: #6c9c2e;
+                    font-weight: bold;
+                    }
+
+                    .stat-medium {
+                    color: orange;
+                    font-weight: bold;
+                    }
+
+                    .stat-low {
+                    color: red;
+                    font-weight: bold;
+                    }
+
+                    .section-divider {
+                    margin: 30px 0;
+                    page-break-inside: avoid;
+                    }
+                </style>
+
+                <t t-foreach="program_data" t-as="prog_data">
+                    <div class="page">
+                        <h1 class="text-center">oLearn Online Learning Module - Program Information Report</h1>
+                        <p class="text-center text-italic">
+                            Report Created On:
+                            <t t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+                        </p>
+
+                        <!-- PROGRAM INFORMATION -->
+                        <div class="program-info">
+                            <h2 style="margin-top: 0; border: none;">
+                                <t t-esc="prog_data['program'].name"/>
+                            </h2>
+
+                            <div class="info-grid">
+                                <div class="info-column">
+                                    <p>
+                                        <span class="info-label">Description:</span>
+                                        <br/>
+                                        <t t-esc="prog_data['program'].description or 'No description provided'"/>
+                                    </p>
+                                    <p>
+                                        <span class="info-label">Teacher(s):</span>
+                                        <t t-esc="', '.join(teacher.name for teacher in prog_data['program'].teacher_id)"/>
+                                    </p>
+                                </div>
+                                <div class="info-column">
+                                    <p>
+                                        <span class="info-label">Total Lessons:</span>
+                                        <t t-esc="prog_data['program'].lesson_count"/>
+                                    </p>
+                                    <p>
+                                        <span class="info-label">Total Tasks:</span>
+                                        <t t-esc="len(prog_data['task_stats'])"/>
+                                    </p>
+                                    <p>
+                                        <span class="info-label">Enrolled Students:</span>
+                                        <t t-esc="prog_data['program'].student_count"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LESSON LIST -->
+                        <div class="section-divider">
+                            <h2>Lesson List</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Lesson Name</th>
+                                        <th class="text-center">Type</th>
+                                        <th class="text-center">Tasks</th>
+                                        <th class="text-center">Students Viewed</th>
+                                        <th class="text-center">View Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="prog_data['lesson_stats']" t-as="lesson_stat">
+                                        <tr>
+                                            <td class="text-center">
+                                                <t t-esc="lesson_stat_index + 1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="lesson_stat['template'].name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="lesson_stat['template'].type"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="lesson_stat['template'].task_template_count"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="lesson_stat['viewed_count']"/>
+                                                /
+                                                <t t-esc="lesson_stat['total_students']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="view_pct" t-value="lesson_stat['view_percentage']"/>
+                                                <span t-attf-class="#{('stat-excellent' if view_pct >= 90 else 'stat-good' if view_pct >= 70 else 'stat-medium' if view_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % view_pct"/>%
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- TASK LIST -->
+                        <div class="section-divider">
+                            <h2>Task List</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Task Name</th>
+                                        <th>Lesson</th>
+                                        <th class="text-center">Max Score</th>
+                                        <th class="text-center">Avg Score</th>
+                                        <th class="text-center">Completed</th>
+                                        <th class="text-center">Completion Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="prog_data['task_stats']" t-as="task_stat">
+                                        <tr>
+                                            <td class="text-center">
+                                                <t t-esc="task_stat_index + 1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="task_stat['template'].name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="task_stat['template'].lesson_template_id.name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="task_stat['max_score']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="avg_pct"
+                                                   t-value="(task_stat['average_score'] / task_stat['max_score'] * 100) if task_stat['max_score'] > 0 else 0"/>
+                                                <span t-attf-class="#{('stat-excellent' if avg_pct >= 90 else 'stat-good' if avg_pct >= 70 else 'stat-medium' if avg_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % task_stat['average_score']"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="task_stat['completed_count']"/>
+                                                /
+                                                <t t-esc="task_stat['total_students']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="comp_pct" t-value="task_stat['completion_percentage']"/>
+                                                <span t-attf-class="#{('stat-excellent' if comp_pct >= 90 else 'stat-good' if comp_pct >= 70 else 'stat-medium' if comp_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % comp_pct"/>%
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- STUDENT LIST -->
+                        <div class="section-divider">
+                            <h2>Student Performance</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Student Name</th>
+                                        <th class="text-center">Lessons Viewed</th>
+                                        <th class="text-center">View Rate</th>
+                                        <th class="text-center">Tasks Completed</th>
+                                        <th class="text-center">Completion Rate</th>
+                                        <th class="text-center">Total Score</th>
+                                        <th class="text-center">Score %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="prog_data['student_stats']" t-as="student_stat">
+                                        <tr>
+                                            <td class="text-center">
+                                                <t t-esc="student_stat_index + 1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="student_stat['student'].name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="student_stat['lessons_viewed']"/>
+                                                /
+                                                <t t-esc="student_stat['total_lessons']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="lesson_pct" t-value="student_stat['lessons_percentage']"/>
+                                                <span t-attf-class="#{('stat-excellent' if lesson_pct >= 90 else 'stat-good' if lesson_pct >= 70 else 'stat-medium' if lesson_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % lesson_pct"/>%
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="student_stat['tasks_completed']"/>
+                                                /
+                                                <t t-esc="student_stat['total_tasks']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="task_pct" t-value="student_stat['tasks_percentage']"/>
+                                                <span t-attf-class="#{('stat-excellent' if task_pct >= 90 else 'stat-good' if task_pct >= 70 else 'stat-medium' if task_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % task_pct"/>%
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="student_stat['total_score']"/>
+                                                /
+                                                <t t-esc="student_stat['total_max_score']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="score_pct" t-value="student_stat['score_percentage']"/>
+                                                <span t-attf-class="#{('stat-excellent' if score_pct >= 90 else 'stat-good' if score_pct >= 70 else 'stat-medium' if score_pct >= 50 else 'stat-low')}">
+                                                    <t t-esc="'%.1f' % score_pct"/>%
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

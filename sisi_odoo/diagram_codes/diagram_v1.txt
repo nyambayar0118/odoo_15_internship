@@ -1,0 +1,277 @@
+---
+config:
+  theme: neo-dark
+  look: neo
+---
+classDiagram
+    class User {
+        <<Abstract>>
+        #String first_name
+        #String last_name
+        #String registry_no
+        #String mail
+        #String phone_no
+        #String sisi_mail
+        #Date dob
+        #bool is_active
+        #String status
+    }
+
+    class Employee {
+        -Date joined_date
+        -Education education
+
+    }
+
+    class Student {
+        -int id
+        -String sisi_id
+        -int enrollment_year
+    }
+
+    class Role {
+        -String name
+        -String description
+    }
+
+    class Teacher {
+        -int id
+        -String specialty
+    }
+
+    class Program {
+        -int id
+        -String name
+        -int created_year
+        -ProgramType type
+        -int duration_years
+        -int description
+    }
+
+    class Course {
+        -int id
+        -String index
+        -String name
+        -int credit_amount
+        -String description
+        -int created_year
+        -CourseType type
+        -LessonType form
+        -int lecture_session
+        -int lecture_count
+        -Duration lecture_duration
+    }
+
+    class School {
+        -int id
+        -String name
+        -String address
+        -Date established_date
+    }
+
+    class Room {
+        -int id
+        -String room_no
+        -RoomType type
+        -int max_capacity
+    }
+
+    class Department {
+        -int id
+        -String name
+    }
+
+    class ActiveCourse {
+        -int id
+        -int year
+        -Season season
+        -int session
+        -int count
+        -Duration duration
+        -int max_students
+        -int students_per_session
+        -bool is_active
+    }
+
+    class CourseSelection {
+        -int id
+    }
+
+    class StudentPlanItem {
+        -int id
+        -int year
+        -Season season
+        -StudentPlanItemStatus status
+    }
+
+    class Grade {
+        -int id
+        -int o1
+        -int o2
+        -LetterGrade letter_grade
+    }
+
+    class Journal {
+        -int id
+    }
+
+    class Assignment {
+        -int id
+        -String name
+        -String description
+        -Date due_date
+        -int max_score
+        -File attachments
+        -bool is_submitable
+    }
+
+    class AssignmentItem {
+        -int id
+        -int score
+        -File attachment
+    }
+
+    class Attendance {
+        -int id
+        -Date attendance_date
+        -AttendanceType attendance_type
+    }
+
+    class AttendanceItem {
+        -int id
+        -int attendance_status
+    }
+
+    class AttendanceType {
+        <<enumeration>>
+        Lecture
+        Seminar
+        Laboratory
+    }
+
+    class Education {
+        <<enumeration>>
+        None
+        Basic
+        Bachelor
+        Master
+        Doctor
+    }
+
+    class RoomType {
+        <<enumeration>>
+        Classroom
+        Office
+        Laboratory
+        Hall
+        Library
+        NA
+    }
+
+    class StudentPlanItemStatus {
+        <<enumeration>>
+        Planned
+        Selected
+        Graded
+    }
+
+    class Season {
+        <<enumeration>>
+        Fall
+        Winter
+        Spring
+        Summer
+    }
+
+    class LessonType {
+        <<enumeration>>
+        LectureOnly
+        LectureSeminar
+        LectureLaboratory
+        Internship
+        Diploma
+    }
+
+    class CourseType {
+        <<enumeration>>
+        GeneralBasic
+        ProfessionalBasic
+        Professional
+        Other
+    }
+
+    class ProgramType {
+        <<enumeration>>
+        Bachelor
+        Master
+        Doctor
+    }
+
+    class Duration {
+        <<enumeration>>
+        90 minutes
+        135 minutes
+        180 minutes
+    }
+
+    class LetterGrade{
+        <<enumeration>>
+        NA
+        A+
+        A
+        B+
+        B
+        B-
+        C+
+        C
+        C-
+        D
+        D-
+        F
+        S
+        U
+        G
+        W
+        WF
+        NR
+        R
+        I
+        E
+        CA
+        CR
+        RC
+    }
+
+    User <|-- Student
+    User <|-- Employee
+    Employee <|-- Teacher
+    Employee "0..*" --> "1..*" Role
+    Student "0..*" --> "0..2" Program
+    Program "1" --> "0..*" Course
+    Teacher "0..*" --> "1" Department: belong to
+    Teacher "1" --> "1" Department: manages
+    Department "1" --> "1" Room: is located at
+    School "1" --> "0..*" Room
+    Teacher "0..*" --> "0..1" Room
+    Course "1" <-- "0..*" ActiveCourse
+    ActiveCourse "1" --> "1..*" Teacher
+    ActiveCourse "1" --> "1" Room
+    CourseSelection "0..*" --> "1" ActiveCourse
+    CourseSelection "0..*" --> "1" Student
+
+    Program --> School
+    Program --> Department
+
+    Student "1" --> "0..*" StudentPlanItem
+    StudentPlanItem "1" --> "1" Course
+    StudentPlanItem "0..1" --> "1" Grade
+    ActiveCourse "1" <-- "1" Journal
+    Journal "1" *-- "0..*" Assignment
+    Journal "1" *-- "0..*" Attendance
+    Journal "1" *-- "0..*" Grade
+
+    Assignment "1" --> "0..*" AssignmentItem
+    AssignmentItem "1" --> "1" Student
+
+    Attendance "1" --> "0..*" AttendanceItem
+    AttendanceItem "1" --> "1" Student

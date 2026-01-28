@@ -1,0 +1,121 @@
+id,index,name,credit_amount,description,created_year,type,form,lecture_session,lecture_count,lecture_duration
+course_1,FNDP100,"Гамшгаас хамгаалах менежментийн үндэс",1,,2010,"general basic","lecture only",1,8,90
+course_2,PHYS100,"Юмс үзэгдлийн физик үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_3,PHYS102,"Физикийн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_4,GEOG100,"Нийгмийн газарзүй ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_5,GEOG101,"Дэлхий cудлалын үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_6,BIOL100,"Молекул ба эсийн биологи ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_7,BIOL101,"Организм ба эволюцийн биологи ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_8,BIOL102,"Экологи ба тогтвортой байдал ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_9,CHEM100,"Хими ба амьдрал ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_10,CHEM101,"Байгалийг танин мэдэх химийн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_11,PHYS101,"Физик ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_12,GEOP102,"Астрономийн үндэс ",3,,2017,"general basic","lecture and seminar",1,16,90
+course_13,CLIM100,"Уур амьсгалын өөрчлөлт, түүнд дасан зохицохуй ",3,,2021,"general basic","lecture and seminar",1,16,90
+course_14,MATH100,"Шугаман алгебр 1 ",3,,2023,"general basic","lecture and seminar",1,16,90
+course_15,MATH102,"Нэг хувьсагчийн функцийн онол 1в ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_16,MATH101,"Нэг хувьсагчийн функцийн онол 1б ",3,,2023,"general basic","lecture and seminar",1,16,90
+course_17,CULT100,"Соёл судлал ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_18,CULT101,"Урлагийн боловсрол ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_19,LITE100,"Уран зохиолын боловсрол ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_20,LITE101,"Монгол соёл иргэншил судлал ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_21,PUBL100,"Эрх зүйн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_22,PUBL101,"Хүний эрх ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_23,RELI100,"Шашин судлалын үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_24,PHIL100,"Философийн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_25,INRE100,"Олон улсын харилцааны үндэс ба даяаршил ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_26,HIST100,"Дэлхийн соёл иргэншил ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_27,LANG103,"Хэл ба танихуй ",3,,2017,"general basic","lecture and seminar",1,16,90
+course_28,LING101,"Монгол бичиг ",3,,2025,"general basic","lecture and seminar",1,16,90
+course_29,LING100,"Хэл шинжлэлийн үндэс ",3,,2025,"general basic","lecture and seminar",1,16,90
+course_30,MNGT101,"Бизнес ба нийгэм ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_31,ANTH100,"Антропологийн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_32,SOCI100,"Социологи ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_33,SOCI100,"Социологийн удиртгал ",3,,2025,"general basic","lecture and seminar",1,16,90
+course_34,POLI101,"Ардчиллын боловсрол ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_35,POLI100,"Улс төр судлалын үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_36,PSYC100,"Сэтгэл судлалын үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_37,SOWO100,"Нийгмийн ажил ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_38,ANTH102,"Жендэр судлал ",3,,2017,"general basic","lecture and seminar",1,16,90
+course_39,MNGT100,"Хувийн менежмент ба манлайлал ",3,,2018,"general basic","lecture and seminar",1,16,90
+course_40,ARCH101,"Археологийн үндэс ",3,,2025,"general basic","lecture and seminar",1,16,90
+course_41,HIST102,"Монголчууд дэлхийн түүхэнд ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_42,HIST103,"Монголын түүх: Нүүдэллэхүй ёсон ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_43,HIST106,"Монголын түүх: Хоёр хувьсгалын хоорондох Монгол (1921-1990) ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_44,HIST101,"Монголын түүх ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_45,COMP100,"Компьютер тооцооллын үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_46,FINN110,"Хувь хүний санхүү ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_47,MATH103,"Элементар логик ба математик хандлага ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_48,STAT101,"Статистикийн үндэс ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_49,SOWO101,"Нийгмийн судалгааны аргууд ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_50,STAT100,"Магадлал, статистикийн удиртгал ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_51,PHIL101,"Логикийн удиртгал ",3,,2023,"general basic","lecture and seminar",1,16,90
+course_52,CULT102,"Хэл, ярианы соёл ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_53,CULT103,"Илтгэх урлаг ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_54,CULT104,"Академик бичих ур чадвар ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_55,LING102,"Монгол хэл бичиг, найруулга зүй ",3,,2025,"general basic","lecture and seminar",1,16,90
+course_56,KORE100,"Солонгос хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_57,KORE101,"Солонгос хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_58,JAPN100,"Япон хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_59,JAPN101,"Япон хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_60,CHIN100,"Хятад хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_61,CHIN101,"Хятад хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_62,FREN100,"Франц хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_63,FREN101,"Франц хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_64,RUSS100,"Орос хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_65,RUSS101,"Орос хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_66,GERM100,"Герман хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_67,GERM101,"Герман хэл 2 ",3,,2014,"general basic","seminar only",0,0,0
+course_68,SANS100,"Санскрит хэлний үндэс",3,,2014,"general basic","seminar only",0,0,0
+course_69,ARAB100,"Араб хэл ",3,,2014,"general basic","seminar only",0,0,0
+course_70,TURK100,"Турк хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_71,ITAL100,"Итали хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_72,SPAN100,"Испани хэл 1 ",3,,2014,"general basic","seminar only",0,0,0
+course_73,PSYS100,"Төвд хэл ",3,,2014,"general basic","seminar only",0,0,0
+course_74,SLAV100,"Чех хэл ",3,,2014,"general basic","seminar only",0,0,0
+course_75,CZEC100,"Чех хэл 1 ",3,,2025,"general basic","seminar only",0,0,0
+course_76,AENG121,"Академик англи хэл 1 (Анхан дунд) ",3,,2015,"general basic","seminar only",0,0,0
+course_77,AENG122,"Академик англи хэл 2 (Дунд) ",3,,2015,"general basic","seminar only",0,0,0
+course_78,AENG123,"Академик англи хэл 3 (Ахисан дунд) ",3,,2015,"general basic","seminar only",0,0,0
+course_79,POLS100,"Польш хэл 1 ",3,,2017,"general basic","seminar only",0,0,0
+course_80,POLS101,"Польш хэл 2 ",3,,2017,"general basic","seminar only",0,0,0
+course_81,TURK252,"Турк хэл 2",3,,2018,"general basic","seminar only",0,0,0
+course_82,AENG124,"Академик англи хэл 4 (Ахисан) ",3,,2019,"general basic","seminar only",0,0,0
+course_83,ITAL101,"Итали хэл 2 ",3,,2019,"general basic","seminar only",0,0,0
+course_84,SPAN101,"Испани хэл 2 ",3,,2019,"general basic","seminar only",0,0,0
+course_85,AENG125,"Академик англи хэл 5 (IELTS) ",3,,2021,"general basic","seminar only",0,0,0
+course_86,CZEC101,"Чех хэл 2 ",3,,2025,"general basic","seminar only",0,0,0
+course_87,BIOL103,"Хүнс ба эрүүл хооллолт ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_88,SPRT100,"Биеийн тамир ",3,,2014,"general basic","lecture and seminar",1,16,90
+course_89,PSYS102,"Эрүүл мэндийн сэтгэл судлал ",3,,2023,"general basic","lecture and seminar",1,16,90
+course_90,SPRT101,"Эмчилгээний биеийн тамир ",3,,2024,"general basic","lecture and seminar",1,16,90
+course_91,CSII200,"Алгоритмын үндэс",3,,2015,"general basic","lecture and laboratory",1,16,90
+course_92,CSII202,"Өгөгдлийн сангийн үндэс",3,,2015,"professional basic","lecture and laboratory",1,16,90
+course_93,ECEN213,"Компьютерын сүлжээ",3,,2021,"professional basic","lecture and laboratory",1,16,90
+course_94,CSII201,"Программчлалын хэл",3,,2023,"professional basic","lecture and laboratory",1,16,90
+course_95,ICSI214,"Программ хангамжийн инженерчлэлийн үндэс",3,,2023,"professional basic","lecture and laboratory",1,16,90
+course_96,MATH282,"Математик логик ба дискрет математик",3,,2023,"professional basic","lecture and seminar",1,16,90
+course_97,CSI201,"Объект хандлагат программчлал",3,,2015,"professional","lecture and laboratory",1,16,90
+course_98,ICSI202,"Өгөгдлийн бүтэц",3,,2015,"professional","lecture and laboratory",1,16,90
+course_99,ICSI311,"Өгөгдлийн сангийн систем",3,,2015,"professional","lecture and laboratory",1,16,90
+course_100,ICSI486,"Программ хангамжийн бүтээлт",3,,2015,"professional","lecture and laboratory",1,16,90
+course_101,ICSI401,"Мобайл төхөөрөмжийн программ хөгжүүлэлт",3,,2015,"professional","lecture and laboratory",1,16,90
+course_102,ICSI304,"Программ хангамжийн зохиомж ба архитектур",3,,2015,"professional","lecture and laboratory",1,16,90
+course_103,ICSI251,"Компьютерын системийн зарчим 1",3,,2023,"professional","lecture and laboratory",1,16,90
+course_104,ICSI301,"Веб аппликейшн",3,,2023,"professional","lecture and laboratory",1,16,90
+course_105,ICSI334,"Компьютерын зохион байгуулалт, архитектур",3,,2023,"professional","lecture and laboratory",1,16,90
+course_106,ICSI303,"Программ хангамжийн шаардлагын шинжилгээ",3,,2023,"professional","lecture and seminar",1,16,90
+course_107,ICSI403,"Программ хангамжийн чанар ба тестлэл",3,,2023,"professional","lecture and seminar",1,16,90
+course_108,ICSI405,"Программ хангамжийн төслийн менежмент",3,,2023,"professional","lecture and laboratory",1,16,90
+course_109,ICSI207,"Үйлдлийн системийн онол",3,,2015,"professional","lecture and seminar",1,16,90
+course_110,ICSI203,"Магадлал статистик",3,,2015,"professional","lecture and seminar",1,16,90
+course_111,ICSI430,"Хиймэл оюун ухаан",3,,2015,"professional","lecture and laboratory",1,16,90
+course_112,ICSI315,"Виндоус программчлал",3,,2015,"professional","lecture and laboratory",1,16,90
+course_113,ICSI464,"Зэрэгцээ тооцоолол",3,,2015,"professional","lecture and laboratory",1,16,90
+course_114,ICSI495,"Тоглоомын программчлал",3,,2015,"professional","lecture and laboratory",1,16,90
+course_115,ICSI437,"Үйлчилгээнд суурилсан архитектур",3,,2015,"professional","lecture and laboratory",1,16,90
+course_116,ICSI501,"Зүйлсийн интернет",3,,2023,"professional","lecture and laboratory",1,16,90
+course_117,ICSI496,"Веб аппликейшн (ахисан)",3,,2023,"professional","lecture and laboratory",1,16,90
+course_118,ICSI438,"Программ хангамжийн төслийн баримт бичиг",3,,2023,"professional","lecture and laboratory",1,16,90
+course_119,INTE301,"Үйлдвэрлэлийн дадлага",3,,2023,"professional","internship",1,16,90
+course_120,THES401,"Бакалаврын судалгааны ажил",6,,2023,"professional","diploma work",1,16,90

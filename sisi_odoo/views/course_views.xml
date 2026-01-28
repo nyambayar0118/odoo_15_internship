@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_course_tree" model="ir.ui.view">
+        <field name="name">sisi.course.tree</field>
+        <field name="model">sisi.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="index"/>
+                <field name="name"/>
+                <field name="credit_amount"/>
+                <field name="description"/>
+                <field name="created_year"/>
+                <field name="type"/>
+                <field name="form"/>
+                <field name="lecture_session"/>
+                <field name="lecture_count"/>
+                <field name="lecture_duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_course_form" model="ir.ui.view">
+        <field name="name">sisi.course.form</field>
+        <field name="model">sisi.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="index"/>
+                        <field name="name"/>
+                        <field name="credit_amount"/>
+                        <field name="description"/>
+                        <field name="created_year"/>
+                        <field name="type"/>
+                        <field name="form"/>
+                        <field name="lecture_session"/>
+                        <field name="lecture_count"/>
+                        <field name="lecture_duration"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_course" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">sisi.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a course record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

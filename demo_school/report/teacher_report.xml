@@ -1,0 +1,87 @@
+<odoo>
+    <record id="teacher_report" model="ir.actions.report">
+        <field name="name">Teacher Report</field>
+        <field name="model">demo_school.teacher</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">demo_school.report_teacher</field>
+        <field name="report_file">demo_school.report_teacher</field>
+        <field name="binding_model_id" ref="model_demo_school_teacher"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_teacher">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <center>
+                    <h1>
+                        Teacher Report
+                    </h1>
+                </center>
+                <div>
+                    <ul style="align-items: flex-start; list-style-type: none; padding: 0; line-height: 1.8;">
+                        <li>
+                            <strong>Name:</strong>
+                            <t t-esc="o.name"/>
+                        </li>
+                        <li>
+                            <strong>Registry:</strong>
+                            <t t-esc="o.registration"/>
+                        </li>
+                        <li>
+                            <strong>Email:</strong>
+                            <t t-esc="o.email"/>
+                        </li>
+                        <li>
+                            <strong>Phone:</strong>
+                            <t t-esc="o.phone"/>
+                        </li>
+                        <li>
+                            <strong>Degree:</strong>
+                            <t t-esc="o.degree"/>
+                        </li>
+                        <li>
+                            <strong>Specialization:</strong>
+                            <t t-esc="o.specialization"/>
+                        </li>
+                    </ul>
+                </div>
+                <div t-if="o.student_ids" style="color: grey;">
+                    <h2>
+                        Assigned Students
+                    </h2>
+                    <table style="width: 100%; border-collapse: collapse; width=100%; align-content: center" border="1">
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                            </tr>
+                            <t t-foreach="o.student_ids" t-as="student">
+                                <tr>
+                                    <td>
+                                        <t t-esc="student.id"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="student.name"/>
+                                    </td>
+                                    <td>
+                                        <img t-att-src="'data:image/png;base64,%s' % student.image.decode('utf-8') if student.image else ''"
+                                             alt="Student Image" width="60" height="60"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="student.age"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="student.gender"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </thead>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

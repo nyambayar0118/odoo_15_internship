@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_active_course_tree" model="ir.ui.view">
+        <field name="name">sisi.active.course.tree</field>
+        <field name="model">sisi.active.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="year"/>
+                <field name="season"/>
+                <field name="session"/>
+                <field name="count"/>
+                <field name="duration"/>
+                <field name="max_students"/>
+                <field name="students_per_session"/>
+                <field name="is_active"/>
+                <field name="course_id"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_active_course_form" model="ir.ui.view">
+        <field name="name">sisi.active.course.form</field>
+        <field name="model">sisi.active.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="year"/>
+                        <field name="season"/>
+                        <field name="session"/>
+                        <field name="count"/>
+                        <field name="duration"/>
+                        <field name="max_students"/>
+                        <field name="students_per_session"/>
+                        <field name="is_active"/>
+                        <field name="course_id"/>
+                        <field name="teacher_id" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_active_course" model="ir.actions.act_window">
+        <field name="name">Active Course</field>
+        <field name="res_model">sisi.active.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a active course record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ROOT MENU -->
+
+    <menuitem id="menu_olearn_root"
+              name="oLearn - Old"
+              web_icon="olearn,static/description/icon.png"
+              sequence="5"/>
+
+    <!-- MANAGER MENUS -->
+
+    <menuitem id="menu_manager_section"
+              name="Management"
+              parent="menu_olearn_root"
+              sequence="5"
+              groups="olearn.group_manager"/>
+
+    <menuitem id="menu_program_manager"
+              name="All Programs"
+              parent="menu_manager_section"
+              action="olearn.action_program_manager"
+              sequence="10"
+              groups="olearn.group_manager"/>
+
+    <menuitem id="menu_lesson_template_manager"
+              name="All Lesson Templates"
+              parent="menu_manager_section"
+              action="olearn.action_lesson_template_manager"
+              sequence="20"
+              groups="olearn.group_manager"/>
+
+    <menuitem id="menu_task_template_manager"
+              name="All Task Templates"
+              parent="menu_manager_section"
+              action="olearn.action_task_template_manager"
+              sequence="30"
+              groups="olearn.group_manager"/>
+
+    <!-- TEACHER MENUS -->
+
+    <menuitem id="menu_teacher_section"
+              name="Teaching"
+              parent="menu_olearn_root"
+              sequence="10"
+              groups="olearn.group_teacher"/>
+
+    <menuitem id="menu_program_teacher"
+              name="My Programs"
+              parent="menu_teacher_section"
+              action="olearn.action_program_teacher"
+              sequence="10"
+              groups="olearn.group_teacher"/>
+
+    <menuitem id="menu_lesson_template_teacher"
+              name="My Lesson Templates"
+              parent="menu_teacher_section"
+              action="olearn.action_lesson_template_teacher"
+              sequence="20"
+              groups="olearn.group_teacher"/>
+
+    <menuitem id="menu_task_template_teacher"
+              name="My Task Templates"
+              parent="menu_teacher_section"
+              action="olearn.action_task_template_teacher"
+              sequence="30"
+              groups="olearn.group_teacher"/>
+
+    <menuitem id="menu_lesson_teacher"
+              name="Student Lessons (Monitor)"
+              parent="menu_teacher_section"
+              action="olearn.action_lesson_teacher"
+              sequence="40"
+              groups="olearn.group_teacher"/>
+
+    <menuitem id="menu_task_teacher"
+              name="Student Tasks (Grade)"
+              parent="menu_teacher_section"
+              action="olearn.action_task_teacher"
+              sequence="50"
+              groups="olearn.group_teacher"/>
+
+    <!-- STUDENT MENUS -->
+
+    <menuitem id="menu_student_section"
+              name="My Learning"
+              parent="menu_olearn_root"
+              sequence="15"
+              groups="olearn.group_student"/>
+
+    <menuitem id="menu_program_student"
+              name="Browse Programs"
+              parent="menu_student_section"
+              action="olearn.action_program_student"
+              sequence="10"
+              groups="olearn.group_student"/>
+
+    <menuitem id="menu_lesson_student"
+              name="My Lessons"
+              parent="menu_student_section"
+              action="olearn.action_lesson_student"
+              sequence="20"
+              groups="olearn.group_student"/>
+
+    <menuitem id="menu_task_student"
+              name="My Tasks"
+              parent="menu_student_section"
+              action="olearn.action_task_student"
+              sequence="30"
+              groups="olearn.group_student"/>
+
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- PROGRAM RECORD RULES -->
+
+    <!-- Students see all programs (to browse and join) -->
+    <record id="course_student_rule" model="ir.rule">
+        <field name="name">Student: See all courses</field>
+        <field name="model_id" ref="model_olearn2_course"/>
+        <field name="groups" eval="[(4, ref('group_student'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Teachers see only their programs -->
+    <record id="course_teacher_rule" model="ir.rule">
+        <field name="name">Teacher: See own courses</field>
+        <field name="model_id" ref="model_olearn2_course"/>
+        <field name="groups" eval="[(4, ref('group_teacher'))]"/>
+        <field name="domain_force">[('teacher_id', '=', user.id)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Managers see all programs -->
+    <record id="course_manager_rule" model="ir.rule">
+        <field name="name">Manager: See all course</field>
+        <field name="model_id" ref="model_olearn2_course"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <!-- LESSON TEMPLATE RECORD RULES -->
+
+    <!-- Teachers see only their lesson templates -->
+    <record id="lesson_teacher_rule" model="ir.rule">
+        <field name="name">Teacher: See own lessons</field>
+        <field name="model_id" ref="model_olearn2_lesson"/>
+        <field name="groups" eval="[(4, ref('group_teacher'))]"/>
+        <field name="domain_force">[('course_id.teacher_id', '=', user.id)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Managers see all lesson templates -->
+    <record id="lesson_manager_rule" model="ir.rule">
+        <field name="name">Manager: See all lesson</field>
+        <field name="model_id" ref="model_olearn2_lesson"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <!-- LESSON RECORD RULES -->
+
+    <!-- Students see only their own lessons (non-hidden templates) -->
+    <record id="lesson_record_student_rule" model="ir.rule">
+        <field name="name">Student: See own lessons</field>
+        <field name="model_id" ref="model_olearn2_lesson_record"/>
+        <field name="groups" eval="[(4, ref('group_student'))]"/>
+        <field name="domain_force">[
+            ('student_id', '=', user.id),
+            ('lesson_id.hidden', '=', False)
+            ]
+        </field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Teachers see lessons of their students in their programs -->
+    <record id="lesson_record_teacher_rule" model="ir.rule">
+        <field name="name">Teacher: See students' lesson records in own courses</field>
+        <field name="model_id" ref="model_olearn2_lesson_record"/>
+        <field name="groups" eval="[(4, ref('group_teacher'))]"/>
+        <field name="domain_force">[
+            ('lesson_id.course_id.teacher_id', '=', user.id)
+            ]
+        </field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Managers see all lessons -->
+    <record id="lesson_record_manager_rule" model="ir.rule">
+        <field name="name">Manager: See all lessons</field>
+        <field name="model_id" ref="model_olearn2_lesson_record"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <!-- TASK TEMPLATE RECORD RULES -->
+
+    <!-- Teachers see only their task templates -->
+    <record id="task_teacher_rule" model="ir.rule">
+        <field name="name">Teacher: See own tasks</field>
+        <field name="model_id" ref="model_olearn2_task"/>
+        <field name="groups" eval="[(4, ref('group_teacher'))]"/>
+        <field name="domain_force">[('lesson_id.course_id.teacher_id', '=', user.id)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Managers see all task templates -->
+    <record id="task_manager_rule" model="ir.rule">
+        <field name="name">Manager: See all tasks</field>
+        <field name="model_id" ref="model_olearn2_task"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <!-- TASK RECORD RULES -->
+
+    <!-- Students see only their own tasks (non-hidden templates) -->
+    <record id="task_record_student_rule" model="ir.rule">
+        <field name="name">Student: See own tasks</field>
+        <field name="model_id" ref="model_olearn2_task_record"/>
+        <field name="groups" eval="[(4, ref('group_student'))]"/>
+        <field name="domain_force">[
+            ('student_id', '=', user.id),
+            ('task_id.hidden', '=', False)
+            ]
+        </field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Teachers see tasks of their students in their programs -->
+    <record id="task_record_teacher_rule" model="ir.rule">
+        <field name="name">Teacher: See students' task records in own course</field>
+        <field name="model_id" ref="model_olearn2_task_record"/>
+        <field name="groups" eval="[(4, ref('group_teacher'))]"/>
+        <field name="domain_force">[
+            ('task_id.course_id.teacher_id', '=', user.id)
+            ]
+        </field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Managers see all tasks -->
+    <record id="task_record_manager_rule" model="ir.rule">
+        <field name="name">Manager: See all task record</field>
+        <field name="model_id" ref="model_olearn2_task_record"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+</odoo>

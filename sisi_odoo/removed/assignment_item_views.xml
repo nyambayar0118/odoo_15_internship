@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_assignment_item_tree" model="ir.ui.view">
+        <field name="name">sisi.assignment.item.tree</field>
+        <field name="model">sisi.assignment.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="score"/>
+                <field name="attachment"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_assignment_item_form" model="ir.ui.view">
+        <field name="name">sisi.assignment.item.form</field>
+        <field name="model">sisi.assignment.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="score" required="True"/>
+                        <field name="attachment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_assignment_item" model="ir.actions.act_window">
+        <field name="name">Assignment Item</field>
+        <field name="res_model">sisi.assignment.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create an assignment item record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

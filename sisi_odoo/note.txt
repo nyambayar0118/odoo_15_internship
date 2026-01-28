@@ -1,0 +1,332 @@
+school_id/id,department_id/id,index,name,created_year,type,duration_years
+building_4,,"D041301","Бизнесийн удирдлага",2022,bachelor,4
+building_4,,"D041301","Бизнесийн удирдлага",2021,bachelor,4
+building_4,,"D041301","Бизнесийн удирдлага",2020,bachelor,4
+building_4,department_3,"D041401","Маркетинг",2014,bachelor,4
+building_4,department_3,"D041601","Худалдаа",2014,bachelor,4
+building_4,department_3,"D041401","Маркетинг",2022,bachelor,4
+building_4,department_3,"D041601","Худалдаа",2022,bachelor,4
+building_4,department_3,"D041401","Маркетинг",2023,bachelor,4
+building_4,department_3,"D041601","Худалдаа",2023,bachelor,4
+building_4,department_3,"D041401","Маркетинг",2025,bachelor,4
+building_4,department_3,"D041601","Худалдаа",2025,bachelor,4
+building_4,department_4,"D041302","Менежмент",2014,bachelor,4
+building_4,department_4,"D041304","Аялал жуулчлалын менежмент",2014,bachelor,4
+building_4,department_4,"D101301","Зочлох үйлчилгээ",2014,bachelor,4
+building_4,department_4,"D101301","Зочлох үйлчилгээ",2023,bachelor,4
+building_4,department_4,"D041303","Менежмент",2023,bachelor,4
+building_4,department_4,"D101301","Зочлох үйлчилгээ",2025,bachelor,4
+building_4,department_4,"D041303","Менежмент",2025,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2014,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2022,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2022,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2021,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2020,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2023,bachelor,4
+building_4,department_1,"D041101","Нягтлан бодох бүртгэл",2025,bachelor,4
+building_4,department_2,"D041203","Банк",2017,bachelor,4
+building_4,department_2,"D041201","Санхүү",2017,bachelor,4
+building_4,department_2,"D041203","Банк",2018,bachelor,4
+building_4,department_2,"D041202","Даатгал",2018,bachelor,4
+building_4,department_2,"D041201","Санхүү",2018,bachelor,4
+building_4,department_2,"D041201","Санхүү",2022,bachelor,4
+building_4,department_2,"D041202","Даатгал",2023,bachelor,4
+building_4,department_2,"D041201","Санхүү",2023,bachelor,4
+building_4,department_2,"D041203","Банк",2023,bachelor,4
+building_4,department_2,"D041201","Санхүү, банк",2024,bachelor,4
+building_4,department_2,"D041202","Даатгал",2025,bachelor,4
+building_4,department_2,"D041201","Санхүү, банк",2025,bachelor,4
+building_7,department_33,"D071301","Сэргээгдэх эрчим хүч",2014,bachelor,4
+building_7,department_33,"D071306","Цөмийн инженерчлэл",2014,bachelor,4
+building_7,department_33,"D071306","Цөмийн инженерчлэл",2020,bachelor,4
+building_7,department_33,"D071301","Сэргээгдэх эрчим хүч",2021,bachelor,4
+building_7,department_33,"D071312","Цөмийн инженерчлэл",2023,bachelor,4
+building_7,department_33,"D071301","Сэргээгдэх эрчим хүч",2023,bachelor,4
+building_7,department_33,"D071301","Сэргээгдэх эрчим хүч",2025,bachelor,4
+building_7,department_33,"D071312","Цөмийн инженерчлэл",2025,bachelor,4
+building_7,department_31,"D078804","Био-инженерчлэл",2014,bachelor,4
+building_7,department_31,"D072201","Материал судлал",2014,bachelor,4
+building_7,department_31,"D078801","Нано шинжлэх ухаан, инженерчлэл",2014,bachelor,4
+building_7,department_31,"D071101","Химийн инженерчлэл",2014,bachelor,4
+building_7,department_31,"D078801","Нано шинжлэх ухаан, инженерчлэл",2020,bachelor,4
+building_7,department_31,"D078804","Био-инженерчлэл",2020,bachelor,4
+building_7,department_31,"D071103","Химийн боловсруулалтын технологи",2022,bachelor,4
+building_7,department_31,"D072201","Материал судлал, инженерчлэл",2023,bachelor,4
+building_7,department_31,"D078804","Био-инженерчлэл",2023,bachelor,4
+building_7,department_31,"D071101","Химийн инженерчлэл",2023,bachelor,4
+building_7,department_31,"D078801","Нано шинжлэх ухаан, инженерчлэл",2023,bachelor,4
+building_7,department_31,"D071103","Химийн боловсруулалтын технологи",2023,bachelor,4
+building_7,department_31,"D072404","Ашигт малтмалын баяжуулалтын технологи",2025,bachelor,4
+building_7,department_31,"D078804","Био-инженерчлэл",2025,bachelor,4
+building_7,department_31,"D072201","Материал судлал, инженерчлэл",2025,bachelor,4
+building_7,department_31,"D078801","Нано шинжлэх ухаан, инженерчлэл",2025,bachelor,4
+building_7,department_31,"D071103","Химийн боловсруулалтын технологи",2025,bachelor,4
+building_7,department_31,"D071101","Химийн инженерчлэл",2025,bachelor,4
+building_7,department_32,"D071201","Байгаль орчныг хамгаалах технологи",2014,bachelor,4
+building_7,department_32,"D052102","Хүрээлэн буй орчин судлал",2014,bachelor,4
+building_7,department_32,"D082101","Ойн аж ахуй",2014,bachelor,4
+building_7,department_32,"D071204","Хүрээлэн буй орчны инженер",2018,bachelor,4
+building_7,department_32,"D052102","Хүрээлэн буй орчин судлал",2023,bachelor,4
+building_7,department_32,"D082101","Ойн аж ахуй",2023,bachelor,4
+building_7,department_32,"D082101","Ойн аж ахуй",2025,bachelor,4
+building_7,department_32,"D052102","Хүрээлэн буй орчин судлал",2025,bachelor,4
+building_7,department_32,"D071201","Хүрээлэн буй орчны инженерчлэл",2025,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2014,bachelor,4
+building_8,department_28,"D061303","Мэдээллийн систем",2014,bachelor,4
+building_8,department_28,"D061304","Мэдээллийн технологи",2014,bachelor,4
+building_8,department_28,"D061302","Программ хангамж",2014,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2020,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2022,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2021,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2023,bachelor,4
+building_8,department_28,"D061302","Программ хангамж",2023,bachelor,4
+building_8,department_28,"D061303","Мэдээллийн систем",2023,bachelor,4
+building_8,department_28,"D061304","Мэдээллийн технологи",2023,bachelor,4
+building_8,department_28,"D061203","Мультимедиа технологи",2023,bachelor,4
+building_8,department_28,"D061303","Мэдээллийн систем",2025,bachelor,4
+building_8,department_28,"D061304","Мэдээллийн технологи",2025,bachelor,4
+building_8,department_28,"D061203","Мультимедиа технологи",2025,bachelor,4
+building_8,department_28,"D061301","Компьютерын ухаан",2025,bachelor,4
+building_8,department_28,"D061302","Программ хангамж",2025,bachelor,4
+building_8,department_28,"D061902","Хиймэл оюун",2025,bachelor,4
+building_8,department_29,"D054201","Статистик",2014,bachelor,4
+building_8,department_29,"D054102","Хэрэглээний математик",2014,bachelor,4
+building_8,department_29,"D054102","Хэрэглээний математик",2023,bachelor,4
+building_8,department_29,"D054201","Статистик",2023,bachelor,4
+building_8,department_29,"D054102","Хэрэглээний математик",2025,bachelor,4
+building_8,department_29,"D054201","Статистик",2025,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2014,bachelor,4
+building_8,department_30,"D071401","Электроник",2014,bachelor,4
+building_8,department_30,"D061903","Сүлжээний технологи",2014,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2021,bachelor,4
+building_8,department_30,"D071401","Электроник",2021,bachelor,4
+building_8,department_30,"D061903","Сүлжээний технологи",2021,bachelor,4
+building_8,department_30,"D071401","Электроник",2022,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2022,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2021,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2020,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2019,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2023,bachelor,4
+building_8,department_30,"D071401","Электроникийн инженерчлэл",2023,bachelor,4
+building_8,department_30,"D071404","Компьютерын инженерчлэл",2025,bachelor,4
+building_8,department_30,"D061201","Компьютерын сүлжээ",2025,bachelor,4
+building_8,department_30,"D071401","Электроникийн инженерчлэл",2025,bachelor,4
+building_8,department_30,"D071406","Холбооны технологи",2025,bachelor,4
+building_5,department_35,"D041303","Төрийн удирдлага",2017,bachelor,4
+building_5,department_35,"D041305","Нийтийн удирдлага",2023,bachelor,4
+building_5,department_35,"D041303","Төрийн удирдлага",2021,bachelor,4
+building_5,department_35,"D041305","Нийтийн удирдлага",2017,bachelor,4
+building_5,department_35,"D041305","Нийтийн удирдлага",2025,bachelor,4
+building_5,department_34,"D031202","Олон улсын харилцаа",2015,bachelor,4
+building_5,department_34,"D031202","Олон улсын харилцаа",2018,bachelor,4
+building_5,department_34,"D031202","Олон улсын харилцаа",2023,bachelor,4
+building_5,department_34,"D031202","Олон улсын харилцаа",2025,bachelor,4
+building_5,department_36,"D031201","Улс төр судлал",2014,bachelor,4
+building_5,department_36,"D031201","Улс төр судлал",2023,bachelor,4
+building_5,department_36,"D031201","Улс төр судлал",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Хятад)",2014,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Япон)",2014,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Солонгос)",2014,bachelor,4
+building_2,department_21,"D023201","Хэл, уран зохиол (Хятад хэл)",2014,bachelor,4
+building_2,department_21,"D023202","Хэл шинжлэл (Хятад)",2014,bachelor,4
+building_2,department_21,"D023102","Гадаад хэл, орон судлал (Хятад)",2017,bachelor,4
+building_2,department_21,"D023102","Гадаад хэл, орон судлал (Япон)",2017,bachelor,4
+building_2,department_21,"D023102","Гадаад хэл, орон судлал (Солонгос)",2017,bachelor,4
+building_2,department_21,"D023102","Гадаад хэл, орон судлал (Турк)",2017,bachelor,4
+building_2,department_21,"D023202","Хэл шинжлэл (Хятад)",2023,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Солонгос)",2023,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Хятад)",2023,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Япон)",2023,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Турк)",2023,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Хятад)",2023,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Солонгос)",2023,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Япон)",2023,bachelor,4
+building_2,department_21,"D011435","Багш, гадаад хэлний боловсрол (Солонгос)",2022,bachelor,4
+building_2,department_21,"D023202","Хэл шинжлэл (Хятад)",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Солонгос)",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Хятад)",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Япон)",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Араб)",2025,bachelor,4
+building_2,department_21,"D023101","Гадаад хэлний орчуулга (Турк)",2025,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Солонгос)",2025,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Хятад)",2025,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Турк)",2025,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Араб)",2025,bachelor,4
+building_2,department_21,"D022203","Олон улс, орон судлал (Япон)",2025,bachelor,4
+building_2,department_15,"D022202","Археологи",2014,bachelor,4
+building_2,department_15,"D031404","Антропологи",2014,bachelor,4
+building_2,department_15,"D022202","Археологи",2022,bachelor,4
+building_2,department_15,"D021304","Түүх соёлын дурсгалт зүйлийн сэргээн засварлалт",2021,bachelor,4
+building_2,department_15,"D031404","Антропологи",2023,bachelor,4
+building_2,department_15,"D031406","Хүн ам зүй",2023,bachelor,4
+building_2,department_15,"D022202","Археологи",2023,bachelor,4
+building_2,department_15,"D022202","Археологи",2025,bachelor,4
+building_2,department_15,"D031406","Хүн ам зүй",2025,bachelor,4
+building_2,department_15,"D031404","Антропологи",2025,bachelor,4
+building_2,department_8,"D051101","Биологи",2014,bachelor,4
+building_2,department_8,"D052101","Экологи",2014,bachelor,4
+building_2,department_8,"D011402","Багш, байгалийн ухааны боловсрол (Биологи)",2014,bachelor,4
+building_2,department_8,"D052201","Биологийн нөөц судлал",2014,bachelor,4
+building_2,department_8,"D051202","Биотехнологи",2014,bachelor,4
+building_2,department_8,"D051201","Биохими",2014,bachelor,4
+building_2,department_8,"D052201","Биологийн нөөцийн менежмент",2014,bachelor,4
+building_2,department_8,"D051201","Биохими",2023,bachelor,4
+building_2,department_8,"D051202","Биотехнологи",2023,bachelor,4
+building_2,department_8,"D051101","Биологи",2023,bachelor,4
+building_2,department_8,"D052101","Экологи",2023,bachelor,4
+building_2,department_8,"D011407","Багш, биологийн боловсрол",2023,bachelor,4
+building_2,department_8,"D052201","Биологийн нөөц судлал",2023,bachelor,4
+building_2,department_8,"D051102","Микробиологи",2025,bachelor,4
+building_2,department_8,"D051101","Биологи",2025,bachelor,4
+building_2,department_8,"D052101","Экологи",2025,bachelor,4
+building_2,department_8,"D051201","Биохими",2025,bachelor,4
+building_2,department_8,"D051202","Биотехнологи",2025,bachelor,4
+building_2,department_8,"D011407","Багш, биологийн боловсрол",2025,bachelor,4
+building_2,department_8,"D052201","Биологийн нөөц судлал",2025,bachelor,4
+building_2,department_38,"D023101","Гадаад хэлний орчуулга (Гадаадын бэлтгэл)",2021,bachelor,4
+building_2,department_9,"D011402","Багш, байгалийн ухааны боловсрол (Газарзүй)",2014,bachelor,4
+building_2,department_9,"D053203","Газарзүй",2014,bachelor,4
+building_2,department_9,"D053206","Байгаль орчныг зайнаас тандан судлал",2014,bachelor,4
+building_2,department_9,"D053210","Хот ба бүс нутгийн төлөвлөлт",2014,bachelor,4
+building_2,department_9,"D053211","Газар зохион байгуулалт (төлөвлөлт, кадастр)",2014,bachelor,4
+building_2,department_9,"D101501","Аялал жуулчлал",2019,bachelor,4
+building_2,department_9,"D053203","Газарзүй",2020,bachelor,4
+building_2,department_9,"D053206","Байгаль орчныг зайнаас тандан судлал",2020,bachelor,4
+building_2,department_9,"D011402","Багш, байгалийн ухааны боловсрол (Газарзүй)",2020,bachelor,4
+building_2,department_9,"D053210","Хот ба бүс нутгийн төлөвлөлт",2020,bachelor,4
+building_2,department_9,"D053211","Газар зохион байгуулалт (төлөвлөлт, кадастр)",2020,bachelor,4
+building_2,department_9,"D053208","Байгаль орчны зайнаас тандан судлал",2023,bachelor,4
+building_2,department_9,"D101501","Аялал жуулчлал",2023,bachelor,4
+building_2,department_9,"D053203","Газарзүй",2023,bachelor,4
+building_2,department_9,"D073107","Хот ба бүс нутгийн төлөвлөлт",2023,bachelor,4
+building_2,department_9,"D011411","Багш, газарзүйн боловсрол",2023,bachelor,4
+building_2,department_9,"D073101","Газар зохион байгуулалт",2023,bachelor,4
+building_2,department_9,"D101501","Аялал жуулчлал",2025,bachelor,4
+building_2,department_9,"D011411","Багш, газарзүйн боловсрол",2025,bachelor,4
+building_2,department_9,"D053203","Газарзүй",2025,bachelor,4
+building_2,department_9,"D053208","Байгаль орчны зайнаас тандан судлал",2025,bachelor,4
+building_2,department_9,"D073107","Хот ба бүс нутгийн төлөвлөлт",2025,bachelor,4
+building_2,department_9,"D073101","Газар зохион байгуулалт",2025,bachelor,4
+building_2,department_10,"D053203","Геологи",2014,bachelor,4
+building_2,department_10,"D053205","Геофизик",2014,bachelor,4
+building_2,department_10,"D053207","Геофизик",2023,bachelor,4
+building_2,department_10,"D053204","Геологи",2023,bachelor,4
+building_2,department_10,"D053207","Геофизик",2025,bachelor,4
+building_2,department_10,"D053204","Геологи",2025,bachelor,4
+building_2,department_22,"D023202","Хэл шинжлэл (Орос)",2014,bachelor,4
+building_2,department_22,"D011409","Багш, гадаад хэлний боловсрол (Орос)",2014,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Орос)",2014,bachelor,4
+building_2,department_22,"D023102","Гадаад хэл, орон судлал (Итали)",2017,bachelor,4
+building_2,department_22,"D023102","Гадаад хэл, орон судлал (Испани)",2017,bachelor,4
+building_2,department_22,"D023102","Гадаад хэл, орон судлал (Франц)",2017,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Франц)",2019,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Герман)",2019,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Орос)",2023,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Франц)",2023,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Герман)",2023,bachelor,4
+building_2,department_22,"D011435","Багш, гадаад хэлний боловсрол (Орос)",2023,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Испани)",2023,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Итали)",2023,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Польш)",2023,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Франц)",2023,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Чех)",2023,bachelor,4
+building_2,department_22,"D023202","Хэл шинжлэл (Орос)",2025,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Орос)",2025,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Франц)",2025,bachelor,4
+building_2,department_22,"D023101","Гадаад хэлний орчуулга (Герман)",2025,bachelor,4
+building_2,department_22,"D011435","Багш, гадаад хэлний боловсрол (Орос)",2025,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Испани)",2025,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Итали)",2025,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Польш)",2025,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Франц)",2025,bachelor,4
+building_2,department_22,"D022203","Олон улс, орон судлал (Чех)",2025,bachelor,4
+building_2,department_23,"D011409","Багш, гадаад хэлний боловсрол (Англи)",2014,bachelor,4
+building_2,department_23,"D023101","Гадаад хэлний орчуулга (Англи)",2014,bachelor,4
+building_2,department_23,"D023102","Гадаад хэл, орон судлал (Америк)",2017,bachelor,4
+building_2,department_23,"D023102","Гадаад хэл, орон судлал (Их Британи)",2017,bachelor,4
+building_2,department_23,"D011435","Багш, гадаад хэлний боловсрол (Англи)",2022,bachelor,4
+building_2,department_23,"D023101","Гадаад хэлний орчуулга (Англи)",2023,bachelor,4
+building_2,department_23,"D011435","Багш, гадаад хэлний боловсрол (Англи)",2023,bachelor,4
+building_2,department_23,"D022203","Олон улс, орон судлал (Америк)",2023,bachelor,4
+building_2,department_23,"D022203","Олон улс, орон судлал (Их Британи)",2023,bachelor,4
+building_2,department_23,"D023101","Гадаад хэлний орчуулга (Англи)",2025,bachelor,4
+building_2,department_23,"D011435","Багш, гадаад хэлний боловсрол (Англи)",2025,bachelor,4
+building_2,department_23,"D022203","Олон улс, орон судлал (Америк)",2025,bachelor,4
+building_2,department_23,"D022203","Олон улс, орон судлал (Их Британи)",2025,bachelor,4
+building_2,department_11,"D054101","Математик",2014,bachelor,4
+building_2,department_11,"D011401","Багш, математикийн боловсрол",2014,bachelor,4
+building_2,department_11,"D054101","Математик",2023,bachelor,4
+building_2,department_11,"D011401","Багш, математикийн боловсрол",2023,bachelor,4
+building_2,department_11,"D054101","Математик",2025,bachelor,4
+building_2,department_11,"D011401","Багш, математикийн боловсрол",2025,bachelor,4
+building_2,department_24,"D011407","Багш, монгол хэл уран зохиолын боловсрол",2014,bachelor,4
+building_2,department_24,"D023201","Хэл, уран зохиол (Монгол хэл)",2014,bachelor,4
+building_2,department_24,"D023202","Хэл шинжлэл (Монгол хэл)",2014,bachelor,4
+building_2,department_24,"D023201","Хэл, уран зохиол (Монгол хэл)",2023,bachelor,4
+building_2,department_24,"D023202","Хэл шинжлэл (Монгол хэл)",2023,bachelor,4
+building_2,department_24,"D011430","Багш, монгол хэл, уран зохиолын боловсрол",2023,bachelor,4
+building_2,department_24,"D023201","Хэл, уран зохиол (Монгол хэл)",2025,bachelor,4
+building_2,department_24,"D023202","Хэл шинжлэл (Монгол хэл)",2025,bachelor,4
+building_2,department_24,"D011430","Багш, монгол хэл, уран зохиолын боловсрол",2025,bachelor,4
+building_2,department_17,"D092301","Нийгмийн ажил",2014,bachelor,4
+building_2,department_17,"D031402","Социологи",2014,bachelor,4
+building_2,department_17,"D031402","Социологи",2023,bachelor,4
+building_2,department_17,"D092301","Нийгмийн ажил",2023,bachelor,4
+building_2,department_17,"D092301","Нийгмийн ажил",2025,bachelor,4
+building_2,department_17,"D031402","Социологи",2025,bachelor,4
+building_2,department_18,"D032101","Сэтгүүл зүй",2014,bachelor,4
+building_2,department_18,"D032101","Сэтгүүл зүй",2023,bachelor,4
+building_2,department_18,"D032101","Сэтгүүл зүй",2025,bachelor,4
+building_2,department_18,"D032102","Олон нийтийн харилцаа, мэдээлэл",2025,bachelor,4
+building_2,department_16,"D031301","Сэтгэл судлал",2014,bachelor,4
+building_2,department_16,"D031301","Сэтгэл судлал",2023,bachelor,4
+building_2,department_16,"D031301","Сэтгэл судлал",2025,bachelor,4
+building_2,department_25,"D011403","Багш, нийгмийн ухааны боловсрол (Түүх)",2014,bachelor,4
+building_2,department_25,"D022201","Түүх",2014,bachelor,4
+building_2,department_25,"D011413","Багш, нийгмийн ухааны боловсрол (Түүх)",2022,bachelor,4
+building_2,department_25,"D022201","Түүх",2023,bachelor,4
+building_2,department_25,"D011413","Багш, нийгмийн ухааны боловсрол (Түүх)",2023,bachelor,4
+building_2,department_25,"D022201","Түүх",2025,bachelor,4
+building_2,department_25,"D011413","Багш, нийгмийн ухааны боловсрол (Түүх)",2025,bachelor,4
+building_2,department_26,"D023204","Утга зохиол судлал",2014,bachelor,4
+building_2,department_26,"D021801","Урлаг судлал",2014,bachelor,4
+building_2,department_26,"D023204","Утга зохиол судлал",2023,bachelor,4
+building_2,department_26,"D028801","Урлаг судлал",2023,bachelor,4
+building_2,department_26,"D023204","Утга зохиол судлал",2025,bachelor,4
+building_2,department_26,"D028801","Урлаг судлал",2025,bachelor,4
+building_2,department_12,"D053301","Физик",2014,bachelor,4
+building_2,department_12,"D011402","Багш, байгалийн ухааны боловсрол (Физик)",2014,bachelor,4
+building_2,department_12,"D053301","Физик",2020,bachelor,4
+building_2,department_12,"D011409","Багш, физикийн боловсрол",2022,bachelor,4
+building_2,department_12,"D053301","Физик",2023,bachelor,4
+building_2,department_12,"D011409","Багш, физикийн боловсрол",2023,bachelor,4
+building_2,department_12,"D053306","Физик электроник",2023,bachelor,4
+building_2,department_12,"D058804","Физик электроник",2023,bachelor,4
+building_2,department_12,"D053301","Физик",2025,bachelor,4
+building_2,department_12,"D011409","Багш, физикийн боловсрол",2025,bachelor,4
+building_2,department_12,"D058804","Физик электроник",2025,bachelor,4
+building_2,department_27,"D022301","Философи",2014,bachelor,4
+building_2,department_27,"D022101","Шашин судлал",2014,bachelor,4
+building_2,department_27,"D022301","Философи",2023,bachelor,4
+building_2,department_27,"D022101","Шашин судлал",2023,bachelor,4
+building_2,department_27,"D022301","Философи",2025,bachelor,4
+building_2,department_27,"D022101","Шашин судлал",2025,bachelor,4
+building_2,department_13,"D053102","Хэрэглээний хими",2014,bachelor,4
+building_2,department_13,"D053101","Хими",2014,bachelor,4
+building_2,department_13,"D011402","Багш, байгалийн ухааны боловсрол (Хими)",2014,bachelor,4
+building_2,department_13,"D053101","Хими",2020,bachelor,4
+building_2,department_13,"D053101","Хими",2023,bachelor,4
+building_2,department_13,"D011405","Багш, химийн боловсрол",2023,bachelor,4
+building_2,department_13,"D053101","Хими",2025,bachelor,4
+building_2,department_13,"D011405","Багш, химийн боловсрол",2025,bachelor,4
+building_2,department_13,"D053102","Хэрэглээний хими",2025,bachelor,4
+building_2,department_14,"D053208","Ус судлал",2014,bachelor,4
+building_2,department_14,"D053207","Цаг уур",2014,bachelor,4
+building_2,department_14,"D053210","Цаг уур судлал",2023,bachelor,4
+building_2,department_14,"D053211","Ус судлал",2023,bachelor,4
+building_2,department_14,"D053210","Цаг уур судлал",2025,bachelor,4
+building_2,department_14,"D053211","Ус судлал",2025,bachelor,4
+building_2,department_19,"D031101","Эдийн засаг",2014,bachelor,4
+building_2,department_19,"D031101","Эдийн засаг",2021,bachelor,4
+building_2,department_19,"D031101","Эдийн засаг",2023,bachelor,4
+building_2,department_19,"D031101","Эдийн засаг",2025,bachelor,4

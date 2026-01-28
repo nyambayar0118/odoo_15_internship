@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="report_student_performance_template">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="0"/>
+                <style>
+                    html, body {
+                    margin-top: 2cm;
+                    padding: 0;
+                    }
+
+                    h1 {
+                    margin-top: -4rem;
+                    }
+
+                    h1, h2, h3, p {
+                    margin-bottom: 0.5rem;
+                    }
+
+                    .page {
+                    page-break-after: always;
+                    padding: 0;
+                    size: A4;
+                    margin-top: 2cm;
+                    margin-bottom: 2cm;
+                    margin-left: 1.5cm;
+                    margin-right: 1.5cm;
+                    }
+
+                    .text-center {
+                    text-align: center;
+                    }
+
+                    .text-italic {
+                    font-style: italic;
+                    }
+
+                    h1 {
+                    color: purple;
+                    margin-bottom: 0.3rem;
+                    }
+
+                    .student-info {
+                    margin: 20px 0;
+                    padding: 15px;
+                    border: 2px solid purple;
+                    background-color: #f9f9f9;
+                    }
+
+                    .student-info p {
+                    margin: 5px 0;
+                    font-weight: bold;
+                    }
+
+                    .summary-section {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background-color: #f5f5f5;
+                    border-left: 4px solid purple;
+                    }
+
+                    .summary-section h3 {
+                    color: purple;
+                    margin-bottom: 10px;
+                    }
+
+                    .summary-item {
+                    margin: 8px 0;
+                    padding: 5px;
+                    background-color: white;
+                    border-left: 2px solid plum;
+                    padding-left: 10px;
+                    }
+
+                    .program-section {
+                    margin-top: 30px;
+                    page-break-inside: avoid;
+                    }
+
+                    h2 {
+                    color: purple;
+                    border-bottom: 2px solid purple;
+                    padding-bottom: 5px;
+                    }
+
+                    h3 {
+                    color: #666;
+                    margin-top: 20px;
+                    }
+
+                    table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                    border: grey solid 1px;
+                    table-layout: auto;
+                    }
+
+                    thead {
+                    background-color: purple;
+                    color: #eeeeee;
+                    }
+
+                    th {
+                    padding: 10px;
+                    text-align: left;
+                    font-weight: bold;
+                    }
+
+                    th.text-center {
+                    text-align: center;
+                    }
+
+                    td {
+                    padding: 8px;
+                    border-bottom: 1px solid #ddd;
+                    }
+
+                    tbody tr:nth-child(odd) {
+                    background-color: plum;
+                    }
+
+                    tbody tr:nth-child(even) {
+                    background-color: white;
+                    }
+
+                    .status-viewed {
+                    color: green;
+                    font-weight: bold;
+                    }
+
+                    .status-not-viewed {
+                    color: #999;
+                    }
+
+                    .status-graded {
+                    color: green;
+                    font-weight: bold;
+                    }
+
+                    .status-in-progress {
+                    color: orange;
+                    font-weight: bold;
+                    }
+
+                    .status-assigned {
+                    color: #999;
+                    }
+
+                    .score-good {
+                    color: green;
+                    font-weight: bold;
+                    }
+
+                    .score-medium {
+                    color: orange;
+                    font-weight: bold;
+                    }
+
+                    .score-low {
+                    color: red;
+                    font-weight: bold;
+                    }
+                </style>
+
+                <div class="page">
+                    <h1 class="text-center">oLearn Online Learning Module - Student Performance Report</h1>
+                    <p class="text-center text-italic">
+                        Report Created On:
+                        <t t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+                    </p>
+
+                    <!-- STUDENT INFO -->
+
+                    <div class="student-info">
+                        <p>Student Name:
+                            <t t-esc="student.name"/>
+                        </p>
+                        <p>Total Programs Enrolled:
+                            <t t-esc="program_count"/>
+                        </p>
+                    </div>
+
+                    <!-- PROGRAM DETAIL -->
+                    <t t-foreach="program_data" t-as="prog_data">
+                        <div class="program-section">
+                            <h2>
+                                <t t-esc="prog_data_index + 1"/>.
+                                <t t-esc="prog_data['program'].name"/>
+                            </h2>
+
+                            <p>
+                                <strong>Program Summary:</strong>
+                                Lessons:<t t-esc="prog_data['lessons_viewed']"/>/
+                                <t t-esc="prog_data['lesson_count']"/>
+                                |
+                                Tasks:<t t-esc="prog_data['tasks_completed']"/>/
+                                <t t-esc="prog_data['task_count']"/>
+                                |
+                                Score:<t t-esc="prog_data['total_score']"/>/
+                                <t t-esc="prog_data['total_max_score']"/>
+                                points
+                            </p>
+
+                            <!-- LESSON LIST -->
+
+                            <h3>Lesson List</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Lesson Name</th>
+                                        <th class="text-center">Lesson Type</th>
+                                        <th class="text-center">Task Count</th>
+                                        <th class="text-center">View Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="prog_data['lesson_data']" t-as="lesson">
+                                        <tr>
+                                            <td class="text-center">
+                                                <t t-esc="lesson_index + 1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="lesson['template'].name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="lesson['template'].type"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="lesson['template'].task_template_count"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-if="lesson['is_viewed']">
+                                                    <span class="status-viewed">Viewed</span>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="status-not-viewed">Not Viewed</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <!-- TASK LIST -->
+
+                            <h3>Task List</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Task Name</th>
+                                        <th>Lesson Name</th>
+                                        <th class="text-center">Score</th>
+                                        <th class="text-center">Max Score</th>
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="prog_data['task_data']" t-as="task">
+                                        <tr>
+                                            <td class="text-center">
+                                                <t t-esc="task_index + 1"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="task['template'].name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="task['template'].lesson_template_id.name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-set="score_percentage"
+                                                   t-value="(task['score'] / task['max_score'] * 100) if task['max_score'] > 0 else 0"/>
+                                                <span t-attf-class="#{('score-good' if score_percentage >= 70 else 'score-medium' if score_percentage >= 50 else 'score-low')}">
+                                                    <t t-esc="task['score']"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-esc="task['max_score']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-if="task['status'] == 'graded'">
+                                                    <span class="status-graded">Graded</span>
+                                                </t>
+                                                <t t-elif="task['status'] == 'returned'">
+                                                    <span class="status-in-progress">Returned</span>
+                                                </t>
+                                                <t t-elif="task['status'] == 'submitted'">
+                                                    <span class="status-in-progress">Submitted</span>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="status-assigned">Assigned</span>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

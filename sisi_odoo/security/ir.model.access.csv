@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sisi_school_all,access_sisi_school_admin,model_sisi_school,base.group_system,1,1,1,1
+access_sisi_room_all,access_sisi_room_admin,model_sisi_room,base.group_system,1,1,1,1
+access_sisi_department_all,access_sisi_department_admin,model_sisi_department,base.group_system,1,1,1,1
+access_sisi_role_all,access_sisi_role_admin,model_sisi_role,base.group_system,1,1,1,1
+access_sisi_user_all,access_sisi_user_admin,model_sisi_user,base.group_system,1,1,1,1
+access_sisi_employee_all,access_sisi_employee_admin,model_sisi_employee,base.group_system,1,1,1,1
+access_sisi_teacher_all,access_sisi_teacher_admin,model_sisi_teacher,base.group_system,1,1,1,1
+access_sisi_student_all,access_sisi_student_admin,model_sisi_student,base.group_system,1,1,1,1
+access_sisi_program_all,access_sisi_program_admin,model_sisi_program,base.group_system,1,1,1,1
+access_sisi_course_all,access_sisi_course_admin,model_sisi_course,base.group_system,1,1,1,1
+access_sisi_course_selection_all,access_sisi_course_selection_admin,model_sisi_course_selection,base.group_system,1,1,1,1
+access_sisi_student_plan_item_all,access_sisi_student_plan_item_admin,model_sisi_student_plan_item,base.group_system,1,1,1,1
+access_sisi_grade_all,access_sisi_grade_admin,model_sisi_grade,base.group_system,1,1,1,1
+access_sisi_active_course_all,access_sisi_active_course_admin,model_sisi_active_course,base.group_system,1,1,1,1

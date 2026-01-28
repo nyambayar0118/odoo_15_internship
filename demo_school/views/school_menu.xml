@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ========================================
+         ROOT MENU
+    ========================================= -->
+    <menuitem id="menu_school_root"
+              name="School"
+              web_icon="demo_school,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- ========================================
+         MAIN OPERATIONS MENUS
+    ========================================= -->
+
+    <menuitem id="menu_school_teachers"
+              name="Teachers"
+              parent="menu_school_root"
+              action="action_teacher"
+              sequence="10"/>
+
+    <menuitem id="menu_school_students"
+              name="Students"
+              parent="menu_school_root"
+              action="action_student"
+              sequence="20"/>
+
+    <menuitem id="menu_school_courses"
+              name="Courses"
+              parent="menu_school_root"
+              action="action_course"
+              sequence="30"/>
+
+    <menuitem id="menu_reports"
+              name="Reports"
+              parent="menu_school_root"
+              sequence="40"/>
+
+    <!-- ========================================
+         REPORTS MENU (Optional)
+    ========================================= -->
+    <menuitem id="menu_student_course_report"
+              name="Student - Course Report"
+              parent="menu_reports"
+              action="action_student_course_report"
+              sequence="50"/>
+
+
+    <!-- ========================================
+         CONFIGURATION MENU
+    ========================================= -->
+    <menuitem id="menu_school_configuration"
+              name="Configuration"
+              parent="menu_school_root"
+              sequence="100"/>
+
+    <menuitem id="menu_school_settings"
+              name="Settings"
+              parent="menu_school_configuration"
+              sequence="10"/>
+
+</odoo>

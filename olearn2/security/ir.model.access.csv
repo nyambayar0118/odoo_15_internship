@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_course_student,access.course.student,model_olearn2_course,group_student,1,0,0,0
+access_course_teacher,access.course.teacher,model_olearn2_course,group_teacher,1,1,1,0
+access_course_manager,access.course.manager,model_olearn2_course,group_manager,1,1,1,1
+access_lesson_student,access.lesson.student,model_olearn2_lesson,group_student,1,0,0,0
+access_lesson_teacher,access.lesson.teacher,model_olearn2_lesson,group_teacher,1,1,1,1
+access_lesson_manager,access.lesson.manager,model_olearn2_lesson,group_manager,1,1,1,1
+access_lesson_record_student,access.lesson.record.student,model_olearn2_lesson_record,group_student,1,1,0,0
+access_lesson_record_teacher,access.lesson.record.teacher,model_olearn2_lesson_record,group_teacher,1,1,1,1
+access_lesson_record_manager,access.lesson.record.manager,model_olearn2_lesson_record,group_manager,1,1,1,1
+access_task_student,access.task.student,model_olearn2_task,group_student,1,0,0,0
+access_task_teacher,access.task.teacher,model_olearn2_task,group_teacher,1,1,1,1
+access_task_manager,access.task.manager,model_olearn2_task,group_manager,1,1,1,1
+access_task_record_student,access.task.record.student,model_olearn2_task_record,group_student,1,1,0,0
+access_task_record_teacher,access.task.record.teacher,model_olearn2_task_record,group_teacher,1,1,1,1
+access_task_record_manager,access.task.record.manager,model_olearn2_task_record,group_manager,1,1,1,1

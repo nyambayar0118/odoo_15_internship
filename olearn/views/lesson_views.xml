@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree view -->
+    <record id="view_lesson_tree" model="ir.ui.view">
+        <field name="name">olearn.lesson.tree</field>
+        <field name="model">olearn.lesson</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="is_viewed==False"
+                  decoration-success="is_viewed==True"
+                  decoration-muted="is_viewed==True">
+                <field name="lesson_template_id" string="Lesson"/>
+                <field name="template_type" string="Type"/>
+                <field name="student_id" groups="olearn.group_teacher"/>
+                <field name="is_viewed" widget="boolean_toggle"/>
+                <field name="viewed_date" groups="olearn.group_teacher"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for Students -->
+    <record id="view_lesson_form_student" model="ir.ui.view">
+        <field name="name">olearn.lesson.form.student</field>
+        <field name="model">olearn.lesson</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form string="Lesson" groups="olearn.group_student">
+                <header>
+                    <button string="Mark as Viewed"
+                            name="action_mark_viewed"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('is_viewed', '=', True)]}"/>
+                    <field name="is_viewed" widget="statusbar" statusbar_visible="false,true"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="lesson_template_id"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="template_type"/>
+                        </group>
+                        <group>
+                            <field name="is_viewed" widget="boolean"/>
+                            <field name="viewed_date" attrs="{'invisible': [('is_viewed', '=', False)]}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Content" name="content">
+                            <group>
+                                <field name="template_content" widget="html" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Resources" name="resources">
+                            <group>
+                                <field name="template_link" widget="url"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Form view for Teachers -->
+    <record id="view_lesson_form_teacher" model="ir.ui.view">
+        <field name="name">olearn.lesson.form.teacher</field>
+        <field name="model">olearn.lesson</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <form string="Student Lesson" groups="olearn.group_teacher">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="lesson_template_id" readonly="1"/>
+                            <field name="student_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="is_viewed" widget="boolean"/>
+                            <field name="viewed_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_lesson_kanban" model="ir.ui.view">
+        <field name="name">olearn.lesson.kanban</field>
+        <field name="model">olearn.lesson</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" groups="olearn.group_student">
+                <field name="lesson_template_id"/>
+                <field name="template_type"/>
+                <field name="is_viewed"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="lesson_template_id"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <span class="badge badge-info">
+                                            <field name="template_type"/>
+                                        </span>
+                                        <span t-if="record.is_viewed.raw_value" class="badge badge-success ml-1">
+                                            <i class="fa fa-check"/>
+                                            Viewed
+                                        </span>
+                                        <span t-else="" class="badge badge-warning ml-1">
+                                            <i class="fa fa-eye-slash"/>
+                                            Not Viewed
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_body">
+                                <field name="template_content" widget="html"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_lesson_search" model="ir.ui.view">
+        <field name="name">olearn.lesson.search</field>
+        <field name="model">olearn.lesson</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="lesson_template_id"/>
+                <field name="student_id" groups="olearn.group_teacher"/>
+
+                <filter string="Not Viewed" name="not_viewed" domain="[('is_viewed', '=', False)]"/>
+                <filter string="Viewed" name="viewed" domain="[('is_viewed', '=', True)]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Student" name="group_student" context="{'group_by': 'student_id'}"
+                            groups="olearn.group_teacher"/>
+                    <filter string="Lesson" name="group_lesson" context="{'group_by': 'lesson_template_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_lesson_teacher" model="ir.actions.act_window">
+        <field name="name">Student Lessons</field>
+        <field name="res_model">olearn.lesson</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_lesson_search"/>
+        <field name="context">{'search_default_group_student': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No student lessons found.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_lesson_student" model="ir.actions.act_window">
+        <field name="name">My Lessons</field>
+        <field name="res_model">olearn.lesson</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_lesson_search"/>
+        <field name="domain">[('student_id','=',uid),('lesson_template_id.is_hidden','=',False)]</field>
+        <field name="context">{'search_default_not_viewed': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You don't have any lessons yet.
+            </p>
+            <p>
+                Join a program to get started!
+            </p>
+        </field>
+    </record>
+
+</odoo>

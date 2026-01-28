@@ -1,0 +1,26 @@
+<odoo>
+
+    <!-- Tree view -->
+    <record id="view_student_course_report_tree" model="ir.ui.view">
+        <field name="name">demo_school.student.course.report.tree</field>
+        <field name="model">demo_school.student_course_report</field>
+        <field name="arch" type="xml">
+            <tree string="Student - Course Report" create="false" edit="false" delete="false">
+                <field name="student_name"/>
+                <field name="course_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_student_course_report" model="ir.actions.act_window">
+        <field name="name">Student - Course Report</field>
+        <field name="res_model">demo_school.student_course_report</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p>Read-only report of students and their courses.</p>
+        </field>
+    </record>
+
+
+</odoo>

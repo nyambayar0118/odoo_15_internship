@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_teacher_wizard_form">
+        <field name="name">Add student</field>
+        <field name="model">teacher.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Students to Teacher">
+                <sheet>
+                    <group>
+                        <field name="teacher_id" readonly="1"/>
+                        <field name="student_ids" domain="[
+                        '|',
+                        ('teacher_id', '=', False),
+                        ('teacher_id', '!=', teacher_id)
+                        ]" widget="many2many_checkboxes" options="{'no_create': True}"/>
+                        <field name="student_count"
+                               readonly="1"
+                               widget="percentpie"
+                               options="{'max_field': 'total_student_count'}"
+                        />
+                        <field name="total_student_count" readonly="1"/>
+                        <!--                               widget="gauge"-->
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Add Students" type="object" name="action_add_students" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

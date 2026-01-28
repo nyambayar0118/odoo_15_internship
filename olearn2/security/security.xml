@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="module_category_olearn2" model="ir.module.category">
+        <field name="name">oLearn2</field>
+        <field name="description">Online Learning Management System</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <!-- Student Group -->
+    <record id="group_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="module_category_olearn2"/>
+        <field name="comment">Students can view and complete their assigned lessons and tasks</field>
+    </record>
+
+    <!-- Teacher Group -->
+    <record id="group_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="module_category_olearn2"/>
+        <field name="comment">Teachers can create and manage lessons, tasks, programs, and view student progress</field>
+    </record>
+
+    <!-- Manager Group -->
+    <record id="group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_olearn2"/>
+        <field name="implied_ids" eval="[(4, ref('group_teacher'))]"/>
+        <field name="comment">Managers have full access to all programs, lessons, tasks, and can manage all users
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_program_tree" model="ir.ui.view">
+        <field name="name">olearn.program.tree</field>
+        <field name="model">olearn.program</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="teacher_id" widget="many2many_tags"/>
+                <field name="student_ids" widget="many2many_tags" groups="olearn.group_manager"/>
+                <field name="lesson_count"/>
+                <field name="student_count" string="Enrolled Students"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_program_form" model="ir.ui.view">
+        <field name="name">olearn.program.form</field>
+        <field name="model">olearn.program</field>
+        <field name="arch" type="xml">
+            <form string="Program">
+                <header>
+                    <button name="%(action_report_program_info)d"
+                            string="Print Program Report"
+                            type="action"
+                            class="oe_highlight"
+                            groups="olearn.group_manager,olearn.group_teacher"/>
+                </header>
+
+                <header>
+                    <button name="%(action_report_student_performance)d"
+                            string="Print Student Performance"
+                            type="action"
+                            class="oe_highlight"
+                            groups="olearn.group_student"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_view_lessons"
+                                icon="fa-book">
+                            <field string="Lessons" name="lesson_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_view_students"
+                                icon="fa-users"
+                                groups="olearn.group_teacher">
+                            <field string="Students" name="student_count" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Program Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="description" placeholder="Program description..."/>
+                            <field name="active" groups="olearn.group_manager"/>
+                        </group>
+                        <group>
+                            <field name="teacher_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="student_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"
+                                   groups="olearn.group_manager"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Lesson Templates" name="lessons">
+                            <field name="lesson_template_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="is_hidden"/>
+                                    <field name="student_count" string="Assigned To"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Task Templates" name="tasks">
+                            <field name="task_template_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="due_date"/>
+                                    <field name="max_score"/>
+                                    <field name="is_hidden"/>
+                                    <field name="student_count" string="Assigned To"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_program_kanban" model="ir.ui.view">
+        <field name="name">olearn.program.kanban</field>
+        <field name="model">olearn.program</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="lesson_count"/>
+                <field name="student_count"/>
+                <field name="status"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_content">
+                                <div class="o_kanban_card_body">
+                                    <field name="description"/>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_footer">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-book"/>
+                                            <field name="lesson_count"/>
+                                            Lessons
+                                        </span>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="badge badge-pill badge-secondary">
+                                            <i class="fa fa-users"/>
+                                            <field name="student_count"/>
+                                            Students
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2" groups="!olearn.group_teacher,!olearn.group_manager">
+                                    <button t-if="!record.status.raw_value"
+                                            name="join_program"
+                                            type="object"
+                                            class="btn btn-primary btn-block">
+                                        <i class="fa fa-sign-in"/>
+                                        Join Program
+                                    </button>
+                                    <div t-else="" class="alert alert-success text-center mb-0">
+                                        <i class="fa fa-check-circle"/>
+                                        Enrolled
+                                    </div>
+                                </div>
+
+                                <div class="mt-2" groups="olearn.group_teacher,olearn.group_manager">
+                                    <div class="alert alert-info text-center mb-0">
+                                        <i class="fa fa-graduation-cap"/>
+                                        Teaching This Program
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search view with filters -->
+    <record id="view_program_search" model="ir.ui.view">
+        <field name="name">olearn.program.search</field>
+        <field name="model">olearn.program</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('description', 'ilike', self)]"/>
+                <field name="teacher_id"/>
+
+                <filter string="My Programs" name="my_programs"
+                        domain="[('teacher_id', 'in', [uid])]"
+                        groups="olearn.group_teacher"/>
+                <filter string="Enrolled Programs" name="enrolled_programs"
+                        domain="[('student_ids', 'in', [uid])]"
+                        groups="olearn.group_student"/>
+                <filter string="Available to Join" name="available_programs"
+                        domain="[('student_ids', 'not in', [uid])]"
+                        groups="olearn.group_student"/>
+
+                <separator/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+
+                <separator/>
+                <filter string="With Lessons" name="with_lessons" domain="[('lesson_count', '>', 0)]"/>
+                <filter string="Without Lessons" name="without_lessons" domain="[('lesson_count', '=', 0)]"/>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_program_manager" model="ir.actions.act_window">
+        <field name="name">Manage Programs</field>
+        <field name="res_model">olearn.program</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_program_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No active programs available right now.
+            </p>
+            <p>
+                Click <b>Create</b> to add a new program.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_program_teacher" model="ir.actions.act_window">
+        <field name="name">My Programs</field>
+        <field name="res_model">olearn.program</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_program_search"/>
+        <field name="domain">[('teacher_id', 'in', [uid])]</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You have no active programs yet.
+            </p>
+            <p>
+                Contact your administrator to be assigned to programs.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_program_student" model="ir.actions.act_window">
+        <field name="name">Browse Programs</field>
+        <field name="res_model">olearn.program</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="search_view_id" ref="view_program_search"/>
+        <field name="context">{'search_default_active': 1, 'search_default_available_programs': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No programs available right now.
+            </p>
+            <p>
+                Check back later for new programs to join!
+            </p>
+        </field>
+    </record>
+
+</odoo>

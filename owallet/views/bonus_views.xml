@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- BONUS TREE VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_tree" model="ir.ui.view">
+        <field name="name">owallet.bonus.tree</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <tree string="Teacher Bonuses"
+                  decoration-muted="sent == True"
+                  decoration-info="state == 'calculated'"
+                  decoration-success="state == 'sent'">
+                <field name="teacher_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="amount" widget="monetary" sum="Total Bonuses"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="bonus_percentage" string="Bonus %"/>
+                <field name="state" decoration-info="state == 'calculated'"
+                       decoration-success="state == 'sent'"/>
+                <field name="sent" invisible="1"/>
+                <field name="transaction_id" optional="hide"/>
+                <button name="action_calculate_bonus"
+                        string="Calculate"
+                        type="object"
+                        icon="fa-calculator"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"
+                        groups="owallet.group_accountant"/>
+                <button name="action_send_bonus"
+                        string="Send Bonus"
+                        type="object"
+                        icon="fa-paper-plane"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('state', '!=', 'calculated'), ('sent', '=', True)]}"
+                        groups="owallet.group_accountant"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS FORM VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_form" model="ir.ui.view">
+        <field name="name">owallet.bonus.form</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <form string="Teacher Bonus">
+                <header>
+                    <button name="action_calculate_bonus"
+                            string="Calculate Bonus"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"
+                            groups="owallet.group_accountant"/>
+                    <button name="action_send_bonus"
+                            string="Send Bonus"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', ('state', '!=', 'calculated'), ('sent', '=', True)]}"
+                            confirm="Are you sure you want to send this bonus? This action cannot be undone."
+                            groups="owallet.group_accountant"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,calculated,sent"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Bonus Sent"
+                            bg_color="bg-success"
+                            attrs="{'invisible': [('sent', '=', False)]}"/>
+
+                    <div class="oe_title">
+                        <label for="teacher_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="teacher_id"
+                                   domain="[('groups_id', 'in', [%(olearn2.group_teacher)d])]"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Period">
+                            <label for="month" string="Period"/>
+                            <div class="o_row">
+                                <field name="month"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <span class="mx-2">/</span>
+                                <field name="year"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </div>
+                            <field name="bonus_percentage"
+                                   string="Bonus Rate (%)"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group string="Bonus Details">
+                            <field name="amount" widget="monetary"
+                                   class="oe_read_only"
+                                   style="font-size: 24px; font-weight: bold;"/>
+                            <field name="currency_id"/>
+                            <field name="sent" readonly="1"/>
+                            <field name="transaction_id" readonly="1"
+                                   attrs="{'invisible': [('transaction_id', '=', False)]}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Calculation Details" name="calculation">
+                            <group>
+                                <group string="Teacher Information">
+                                    <field name="teacher_id" readonly="1" string="Teacher"/>
+                                </group>
+                                <group string="Formula">
+                                    <span>Bonus Amount = Total Course Payments × Bonus Percentage</span>
+                                </group>
+                            </group>
+
+                            <group string="Course Payments This Period">
+                                <field name="teacher_id" invisible="1"/>
+                                <field name="year" invisible="1"/>
+                                <field name="month" invisible="1"/>
+                            </group>
+
+                            <!-- Show related transactions dynamically -->
+                            <field name="transaction_id" invisible="1"/>
+                        </page>
+
+                        <page string="Transaction History" name="transaction"
+                              attrs="{'invisible': [('transaction_id', '=', False)]}">
+                            <group>
+                                <field name="transaction_id" readonly="1">
+                                    <form string="Transaction">
+                                        <group>
+                                            <field name="date"/>
+                                            <field name="amount" widget="monetary"/>
+                                            <field name="description"/>
+                                            <field name="type"/>
+                                            <field name="source"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS KANBAN VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_kanban" model="ir.ui.view">
+        <field name="name">owallet.bonus.kanban</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="state">
+                <field name="teacher_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="state"/>
+                <field name="sent"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="teacher_id"/>
+                                    </strong>
+                                    <div class="o_kanban_record_subtitle">
+                                        <field name="month"/>/
+                                        <field name="year"/>
+                                    </div>
+                                </div>
+                                <span t-attf-class="badge badge-pill badge-#{record.state.raw_value == 'sent' ? 'success' : record.state.raw_value == 'calculated' ? 'info' : 'secondary'}">
+                                    <field name="state"/>
+                                </span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <strong>
+                                        <field name="amount" widget="monetary"/>
+                                    </strong>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <button name="action_send_bonus"
+                                            type="object"
+                                            class="btn btn-sm btn-primary"
+                                            t-if="!record.sent.raw_value and record.state.raw_value == 'calculated'"
+                                            groups="owallet.group_accountant">
+                                        Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS PIVOT VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_pivot" model="ir.ui.view">
+        <field name="name">owallet.bonus.pivot</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <pivot string="Bonus Analysis">
+                <field name="teacher_id" type="row"/>
+                <field name="year" type="col"/>
+                <field name="month" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS GRAPH VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_graph" model="ir.ui.view">
+        <field name="name">owallet.bonus.graph</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <graph string="Bonus Trends" type="bar">
+                <field name="teacher_id"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS CALENDAR VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_calendar" model="ir.ui.view">
+        <field name="name">owallet.bonus.calendar</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <calendar string="Bonus Calendar"
+                      date_start="year"
+                      color="teacher_id"
+                      mode="month">
+                <field name="teacher_id"/>
+                <field name="amount" widget="monetary"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BONUS SEARCH VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_bonus_search" model="ir.ui.view">
+        <field name="name">owallet.bonus.search</field>
+        <field name="model">owallet.bonus</field>
+        <field name="arch" type="xml">
+            <search string="Search Bonuses">
+                <field name="teacher_id"/>
+                <field name="year"/>
+                <field name="month"/>
+                <separator/>
+                <filter string="Draft" name="draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Calculated" name="calculated"
+                        domain="[('state', '=', 'calculated')]"/>
+                <filter string="Sent" name="sent"
+                        domain="[('state', '=', 'sent')]"/>
+                <separator/>
+                <filter string="Not Sent" name="not_sent"
+                        domain="[('sent', '=', False)]"/>
+                <filter string="Pending Payment" name="pending_payment"
+                        domain="[('state', '=', 'calculated'), ('sent', '=', False)]"/>
+                <separator/>
+                <filter string="This Month" name="this_month"
+                        domain="[('year', '=', time.strftime('%Y')), ('month', '=', time.strftime('%m'))]"/>
+                <filter string="Last Month" name="last_month"
+                        domain="[('year', '=', (context_today() - relativedelta(months=1)).strftime('%Y')),
+                                ('month', '=', (context_today() - relativedelta(months=1)).strftime('%m'))]"/>
+                <filter string="This Year" name="this_year"
+                        domain="[('year', '=', time.strftime('%Y'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Teacher" name="group_teacher"
+                            context="{'group_by': 'teacher_id'}"/>
+                    <filter string="Year" name="group_year"
+                            context="{'group_by': 'year'}"/>
+                    <filter string="Month" name="group_month"
+                            context="{'group_by': 'month'}"/>
+                    <filter string="Status" name="group_state"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- ACTIONS -->
+    <!-- ============================================ -->
+
+    <!-- All Bonuses Action -->
+    <record id="action_owallet_bonus" model="ir.actions.act_window">
+        <field name="name">Teacher Bonuses</field>
+        <field name="res_model">owallet.bonus</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
+        <field name="context">{'search_default_this_year': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bonuses found
+            </p>
+            <p>
+                Create bonus records for teachers to track their monthly earnings.
+                Use "Calculate All Bonuses" to automatically create records for all teachers.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pending Bonuses Action -->
+    <record id="action_pending_bonuses" model="ir.actions.act_window">
+        <field name="name">Pending Bonuses</field>
+        <field name="res_model">owallet.bonus</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('state', '=', 'calculated'), ('sent', '=', False)]</field>
+        <field name="context">{'search_default_pending_payment': 1}</field>
+    </record>
+
+    <!-- My Bonuses Action (Teacher) -->
+    <record id="action_my_bonuses" model="ir.actions.act_window">
+        <field name="name">My Bonuses</field>
+        <field name="res_model">owallet.bonus</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="domain">[('teacher_id', '=', uid)]</field>
+        <field name="context">{'create': False, 'delete': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bonuses yet
+            </p>
+            <p>
+                Your bonus history will appear here once calculated by the accountant.
+            </p>
+        </field>
+    </record>
+
+    <!-- Server Action: Calculate All Bonuses -->
+    <record id="action_server_calculate_all_bonuses" model="ir.actions.server">
+        <field name="name">Calculate All Teacher Bonuses</field>
+        <field name="model_id" ref="model_owallet_bonus"/>
+        <field name="binding_model_id" ref="model_owallet_bonus"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_calculate_all_bonuses()
+        </field>
+    </record>
+
+    <!-- Action for Calculate All Bonuses Button -->
+    <record id="action_calculate_all_bonuses_wizard" model="ir.actions.act_window">
+        <field name="name">Calculate All Bonuses</field>
+        <field name="res_model">owallet.bonus</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'calculate_all': True}</field>
+    </record>
+
+</odoo>

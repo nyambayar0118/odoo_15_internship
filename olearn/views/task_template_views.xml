@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree view -->
+    <record id="view_task_template_tree" model="ir.ui.view">
+        <field name="name">olearn.task.template.tree</field>
+        <field name="model">olearn.task.template</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="is_hidden==True">
+                <field name="program_id"/>
+                <field name="lesson_template_id"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="due_date"/>
+                <field name="max_score"/>
+                <field name="is_hidden" widget="boolean_toggle"/>
+                <field name="student_count" string="Assigned To"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_task_template_kanban" model="ir.ui.view">
+        <field name="name">olearn.task.template.kanban</field>
+        <field name="model">olearn.task.template</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="program_id" group_create="false">
+                <field name="name"/>
+                <field name="program_id"/>
+                <field name="type"/>
+                <field name="due_date"/>
+                <field name="max_score"/>
+                <field name="is_hidden"/>
+                <field name="student_count"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <span class="badge badge-primary">
+                                            <field name="type"/>
+                                        </span>
+                                        <span t-if="record.is_hidden.raw_value" class="badge badge-warning ml-1">
+                                            <i class="fa fa-eye-slash"/>
+                                            Hidden
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_body">
+                                <div>
+                                    <i class="fa fa-book"/>
+                                    Program:
+                                    <field name="program_id"/>
+                                </div>
+                                <div class="mt-1">
+                                    <i class="fa fa-calendar"/>
+                                    Due:
+                                    <field name="due_date"/>
+                                </div>
+                                <div class="mt-1">
+                                    <i class="fa fa-trophy"/>
+                                    Max Score:
+                                    <field name="max_score"/>
+                                </div>
+                                <div class="mt-1">
+                                    <i class="fa fa-users"/>
+                                    Assigned to
+                                    <field name="student_count"/>
+                                    students
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_task_template_form" model="ir.ui.view">
+        <field name="name">olearn.task.template.form</field>
+        <field name="model">olearn.task.template</field>
+        <field name="arch" type="xml">
+            <form string="Task Template">
+                <header>
+                    <button string="Publish to Students"
+                            name="action_publish_to_students"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('is_hidden', '=', False)]}"/>
+                    <button string="Hide from Students"
+                            name="action_hide_from_students"
+                            type="object"
+                            attrs="{'invisible': [('is_hidden', '=', True)]}"/>
+                    <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                </header>
+
+                <sheet>
+                    
+                    <widget name="web_ribbon" title="Hidden" bg_color="bg-warning"
+                            attrs="{'invisible': [('is_hidden', '=', False)]}"/>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., Python Exercise 1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="program_id" options="{'no_create': True}"/>
+                            <field name="lesson_template_id" domain="[('program_id', '=', program_id)]"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="due_date"/>
+                            <field name="max_score"/>
+                            <field name="is_hidden" widget="boolean_toggle"/>
+                            <field name="teacher_id" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Instructions" name="content">
+                            <field name="content" widget="html" placeholder="Task instructions and requirements..."/>
+                        </page>
+                        <page string="Student Tasks" name="student_tasks">
+                            <field name="task_ids">
+                                <tree decoration-danger="status=='assigned' and is_overdue==True"
+                                      decoration-success="status=='graded'">
+                                    <field name="student_id"/>
+                                    <field name="status"/>
+                                    <field name="score"/>
+                                    <field name="submission_date"/>
+                                    <field name="is_overdue" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_task_template_search" model="ir.ui.view">
+        <field name="name">olearn.task.template.search</field>
+        <field name="model">olearn.task.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="program_id"/>
+
+                <filter string="Visible to Students" name="visible" domain="[('is_hidden', '=', False)]"/>
+                <filter string="Hidden from Students" name="hidden" domain="[('is_hidden', '=', True)]"/>
+
+                <separator/>
+                <filter string="Problems" name="problems" domain="[('type', '=', 'problem')]"/>
+                <filter string="Writing" name="writing" domain="[('type', '=', 'writing')]"/>
+                <filter string="Quizzes" name="quizzes" domain="[('type', '=', 'quiz')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Program" name="group_program" context="{'group_by': 'program_id'}"/>
+                    <filter string="Type" name="group_type" context="{'group_by': 'type'}"/>
+                    <filter string="Due Date" name="group_due_date" context="{'group_by': 'due_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_task_template_manager" model="ir.actions.act_window">
+        <field name="name">All Task Templates</field>
+        <field name="res_model">olearn.task.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_task_template_search"/>
+        <field name="context">{'search_default_group_program': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No task templates found.
+            </p>
+            <p>
+                Click <b>Create</b> to add your first task template.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_task_template_teacher" model="ir.actions.act_window">
+        <field name="name">My Task Templates</field>
+        <field name="res_model">olearn.task.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_task_template_search"/>
+        <field name="domain">[('teacher_id', 'in', [uid])]</field>
+        <field name="context">{'search_default_group_program': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You haven't created any task templates yet.
+            </p>
+            <p>
+                Create tasks from your programs to get started!
+            </p>
+        </field>
+    </record>
+
+</odoo>

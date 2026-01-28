@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_teacher_tree" model="ir.ui.view">
+        <field name="name">demo_school.teacher.tree</field>
+        <field name="model">demo_school.teacher</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="registration"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="degree"/>
+                <field name="specialization"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_teacher_form" model="ir.ui.view">
+        <field name="name">demo_school.teacher.form</field>
+        <field name="model">demo_school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Teacher">
+                <!--                <header>-->
+                <!--                    <button type="object" string="Export to PDF" class="oe_highlight"/>-->
+                <!--                </header>-->
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <!-- Button for adding students -->
+                        <button class="oe_stat_button" type="object" name="action_add_students" icon="fa-user-plus">
+                            <span>Add Students</span>
+                        </button>
+                        <!-- Smart button to show student count -->
+                        <button class="oe_stat_button" type="object" name="action_view_students" icon="fa-users">
+                            <field string="Students" name="student_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="registration"/>
+                            <field name="gender"/>
+                            <field name="age"/>
+                            <field name="degree"/>
+                            <field name="specialization"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                    </group>
+
+                    <!-- Notebook with Students tab -->
+                    <notebook>
+                        <page string="Students">
+                            <field name="student_ids" mode="kanban">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="image"/>
+                                    <field name="name"/>
+                                    <field name="age"/>
+                                    <field name="gender"/>
+                                    <field name="email"/>
+                                    <field name="phone"/>
+                                    <field name="is_adult"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click">
+                                                <div class="o_kanban_image"
+                                                     style="height: 100%; align-content: center;margin-right:1rem; margin-left:1rem;">
+                                                    <img t-att-src="kanban_image('demo_school.student', 'image', record.id.value)"
+                                                         alt="Student Image"
+                                                         class="o_kanban_avatar"/>
+                                                </div>
+                                                <div class="o_kanban_record_top">
+                                                    <div class="o_kanban_record_headings">
+                                                        <strong class="o_kanban_record_title">
+                                                            <field name="name"/>
+                                                        </strong>
+                                                    </div>
+                                                    <div class="o_kanban_record_badge">
+                                                        <span t-if="record.is_adult.raw_value"
+                                                              class="badge badge-success">Adult
+                                                        </span>
+                                                        <span t-else="" class="badge badge-info">Minor</span>
+                                                    </div>
+                                                </div>
+                                                <div class="o_kanban_record_body">
+                                                    <div t-if="record.age.raw_value">
+                                                        <i class="fa fa-birthday-cake"/>
+                                                        Age:
+                                                        <field name="age"/>
+                                                    </div>
+                                                    <div t-if="record.gender.raw_value">
+                                                        <i class="fa fa-user"/>
+                                                        <field name="gender"/>
+                                                    </div>
+                                                    <div t-if="record.email.raw_value">
+                                                        <i class="fa fa-envelope"/>
+                                                        <field name="email"/>
+                                                    </div>
+                                                    <div t-if="record.phone.raw_value">
+                                                        <i class="fa fa-phone"/>
+                                                        <field name="phone"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action (window action to open list/form) -->
+    <record id="action_teacher" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="res_model">demo_school.teacher</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your a teacher record.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

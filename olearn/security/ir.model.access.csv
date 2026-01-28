@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_program_student,access.program.student,model_olearn_program,group_student,1,0,0,0
+access_program_teacher,access.program.teacher,model_olearn_program,group_teacher,1,1,1,0
+access_program_manager,access.program.manager,model_olearn_program,group_manager,1,1,1,1
+access_lesson_template_student,access.lesson.template.student,model_olearn_lesson_template,group_student,1,0,0,0
+access_lesson_template_teacher,access.lesson.template.teacher,model_olearn_lesson_template,group_teacher,1,1,1,1
+access_lesson_template_manager,access.lesson.template.manager,model_olearn_lesson_template,group_manager,1,1,1,1
+access_lesson_student,access.lesson.student,model_olearn_lesson,group_student,1,1,0,0
+access_lesson_teacher,access.lesson.teacher,model_olearn_lesson,group_teacher,1,1,1,1
+access_lesson_manager,access.lesson.manager,model_olearn_lesson,group_manager,1,1,1,1
+access_task_template_student,access.task.template.student,model_olearn_task_template,group_student,1,0,0,0
+access_task_template_teacher,access.task.template.teacher,model_olearn_task_template,group_teacher,1,1,1,1
+access_task_template_manager,access.task.template.manager,model_olearn_task_template,group_manager,1,1,1,1
+access_task_student,access.task.student,model_olearn_task,group_student,1,1,0,0
+access_task_teacher,access.task.teacher,model_olearn_task,group_teacher,1,1,1,1
+access_task_manager,access.task.manager,model_olearn_task,group_manager,1,1,1,1

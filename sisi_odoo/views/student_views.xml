@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">sisi.student.tree</field>
+        <field name="model">sisi.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="registry_no"/>
+                <field name="email"/>
+                <field name="phone_no"/>
+                <field name="sisi_email"/>
+                <field name="dob"/>
+                <field name="is_active"/>
+                <field name="status"/>
+                <field name="enrollment_year"/>
+                <field name="sisi_id"/>
+                <field name="major_program_id"/>
+                <field name="minor_program_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">sisi.student.form</field>
+        <field name="model">sisi.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="User Info">
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                        <field name="registry_no"/>
+                        <field name="email"/>
+                        <field name="phone_no"/>
+                        <field name="sisi_email"/>
+                        <field name="dob"/>
+                        <field name="is_active"/>
+                        <field name="status"/>
+                    </group>
+                    <group string="Student Info">
+                        <field name="enrollment_year"/>
+                        <field name="sisi_id"/>
+                        <field name="major_program_id"/>
+                        <field name="minor_program_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_student" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">sisi.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a student record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

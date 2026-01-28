@@ -1,0 +1,14 @@
+<odoo>
+    <!-- Module category for oWallet -->
+    <record id="module_category_owallet" model="ir.module.category">
+        <field name="name">oWallet</field>
+        <field name="description">Wallet and Accounting Management</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Security group -->
+    <record id="group_accountant" model="res.groups">
+        <field name="name">Accountant</field>
+        <field name="category_id" ref="module_category_owallet"/>
+    </record>
+</odoo>

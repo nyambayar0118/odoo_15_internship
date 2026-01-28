@@ -1,0 +1,19 @@
+
+.text-center {
+    text-align: center;
+}
+
+.table-border {
+    border: grey solid 1px;
+    table-layout: auto;
+}
+
+.background-purple {
+    background-color: purple;
+    color: #eeeeee;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: plum;
+}
+

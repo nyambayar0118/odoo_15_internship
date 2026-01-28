@@ -1,0 +1,19 @@
+<odoo>
+    <!-- Teacher User -->
+    <record id="teacher_test" model="res.users">
+        <field name="name">Test Teacher</field>
+        <field name="login">test@teach.com</field>
+        <field name="groups_id" eval="[(4, ref('olearn.group_teacher'))]"/>
+        <field name="notification_type">inbox</field>
+
+    </record>
+
+    <!-- Student User -->
+    <record id="student_test" model="res.users">
+        <field name="name">Test Student</field>
+        <field name="login">test@stud.com</field>
+        <field name="groups_id" eval="[(4, ref('olearn.group_student'))]"/>
+        <field name="notification_type">inbox</field>
+
+    </record>
+</odoo>

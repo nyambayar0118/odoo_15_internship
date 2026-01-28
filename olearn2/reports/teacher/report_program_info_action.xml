@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="paperformat_a4_default" model="report.paperformat">
+        <field name="name">A4 Default</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="action_report_program_info" model="ir.actions.report">
+        <field name="name">Program_Info_Report</field>
+        <field name="model">olearn.program</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">olearn.report_program_info_template</field>
+        <field name="print_report_name">"Program Info"</field>
+        <field name="paperformat_id" ref="paperformat_a4_default"/>
+    </record>
+</odoo>

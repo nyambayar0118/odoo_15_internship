@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- TRANSACTION TREE VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_transaction_tree" model="ir.ui.view">
+        <field name="name">owallet.transaction.tree</field>
+        <field name="model">owallet.transaction</field>
+        <field name="arch" type="xml">
+            <tree string="Transactions"
+                  create="false"
+                  delete="false"
+                  decoration-success="type in ['deposit', 'bonus']"
+                  decoration-danger="type in ['expenditure', 'withdraw']">
+                <field name="date"/>
+                <field name="owner_id"/>
+                <field name="type"/>
+                <field name="amount" widget="monetary" sum="Total"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="description"/>
+                <field name="course_id" optional="show"/>
+                <field name="source"/>
+                <field name="bonus_id" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- TRANSACTION FORM VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_transaction_form" model="ir.ui.view">
+        <field name="name">owallet.transaction.form</field>
+        <field name="model">owallet.transaction</field>
+        <field name="arch" type="xml">
+            <form string="Transaction" create="false" delete="false">
+                <header>
+                    <field name="type" widget="badge"
+                           decoration-success="type in ['deposit', 'bonus']"
+                           decoration-danger="type in ['expenditure', 'withdraw']"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="description" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Transaction Details">
+                            <field name="date" readonly="1"/>
+                            <field name="balance_id" readonly="1"/>
+                            <field name="owner_id" readonly="1"/>
+                            <field name="amount" widget="monetary" readonly="1"/>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                        <group string="Additional Information">
+                            <field name="source" readonly="1"/>
+                            <field name="course_id" readonly="1"
+                                   attrs="{'invisible': [('course_id', '=', False)]}"/>
+                            <field name="bonus_id" readonly="1"
+                                   attrs="{'invisible': [('bonus_id', '=', False)]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- TRANSACTION PIVOT VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_transaction_pivot" model="ir.ui.view">
+        <field name="name">owallet.transaction.pivot</field>
+        <field name="model">owallet.transaction</field>
+        <field name="arch" type="xml">
+            <pivot string="Transaction Analysis">
+                <field name="type" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- TRANSACTION GRAPH VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_transaction_graph" model="ir.ui.view">
+        <field name="name">owallet.transaction.graph</field>
+        <field name="model">owallet.transaction</field>
+        <field name="arch" type="xml">
+            <graph string="Transaction Statistics" type="line">
+                <field name="date" interval="day"/>
+                <field name="amount" type="measure"/>
+                <field name="type"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- TRANSACTION SEARCH VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_transaction_search" model="ir.ui.view">
+        <field name="name">owallet.transaction.search</field>
+        <field name="model">owallet.transaction</field>
+        <field name="arch" type="xml">
+            <search string="Search Transactions">
+                <field name="owner_id"/>
+                <field name="description"/>
+                <field name="course_id"/>
+                <field name="type"/>
+                <separator/>
+                <filter string="My Transactions" name="my_transactions"
+                        domain="[('owner_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Deposits" name="deposits"
+                        domain="[('type', '=', 'deposit')]"/>
+                <filter string="Expenditures" name="expenditures"
+                        domain="[('type', '=', 'expenditure')]"/>
+                <filter string="Withdrawals" name="withdrawals"
+                        domain="[('type', '=', 'withdraw')]"/>
+                <filter string="Bonuses" name="bonuses"
+                        domain="[('type', '=', 'bonus')]"/>
+                <separator/>
+                <filter string="Automatic" name="automatic"
+                        domain="[('source', '=', 'automatic')]"/>
+                <filter string="By Accountant" name="by_accountant"
+                        domain="[('source', '=', 'accountant')]"/>
+                <separator/>
+                <filter string="This Month" name="this_month"
+                        domain="[('date', '&gt;=', (context_today() - relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                ('date', '&lt;', (context_today() + relativedelta(months=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last Month" name="last_month"
+                        domain="[('date', '&gt;=', (context_today() - relativedelta(months=1, day=1)).strftime('%Y-%m-%d')),
+                                ('date', '&lt;', (context_today() - relativedelta(day=1) + relativedelta(months=1, day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year"
+                        domain="[('date', '&gt;=', time.strftime('%Y-01-01')),
+                                ('date', '&lt;=', time.strftime('%Y-12-31'))]"/>
+                <separator/>
+                <filter string="Date" name="filter_date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Owner" name="group_owner"
+                            context="{'group_by': 'owner_id'}"/>
+                    <filter string="Type" name="group_type"
+                            context="{'group_by': 'type'}"/>
+                    <filter string="Source" name="group_source"
+                            context="{'group_by': 'source'}"/>
+                    <filter string="Date" name="group_date"
+                            context="{'group_by': 'date:month'}"/>
+                    <filter string="Course" name="group_course"
+                            context="{'group_by': 'course_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- ACTIONS -->
+    <!-- ============================================ -->
+
+    <!-- All Transactions Action -->
+    <record id="action_owallet_transaction" model="ir.actions.act_window">
+        <field name="name">All Transactions</field>
+        <field name="res_model">owallet.transaction</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No transactions found
+            </p>
+            <p>
+                Transactions are created automatically when students join courses,
+                or manually by accountants for deposits and bonuses.
+            </p>
+        </field>
+    </record>
+
+    <!-- My Transactions Action (Student) -->
+    <record id="action_my_transactions" model="ir.actions.act_window">
+        <field name="name">My Transactions</field>
+        <field name="res_model">owallet.transaction</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('owner_id', '=', uid)]</field>
+        <field name="context">{'search_default_my_transactions': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No transactions yet
+            </p>
+            <p>
+                Your transaction history will appear here once you make deposits or join courses.
+            </p>
+        </field>
+    </record>
+
+    <!-- Course Payments Report Action -->
+    <record id="action_course_payments_report" model="ir.actions.act_window">
+        <field name="name">Course Payments Report</field>
+        <field name="res_model">owallet.transaction</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="domain">[('type', '=', 'expenditure'), ('course_id', '!=', False)]</field>
+        <field name="context">{'search_default_group_course': 1, 'search_default_this_year': 1}</field>
+    </record>
+
+    <!-- Teacher Bonus Payments Report -->
+    <record id="action_bonus_payments_report" model="ir.actions.act_window">
+        <field name="name">Bonus Payments Report</field>
+        <field name="res_model">owallet.transaction</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="domain">[('type', '=', 'bonus')]</field>
+        <field name="context">{'search_default_group_owner': 1, 'search_default_this_year': 1}</field>
+    </record>
+
+</odoo>

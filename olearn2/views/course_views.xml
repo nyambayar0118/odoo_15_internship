@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_course_tree" model="ir.ui.view">
+        <field name="name">olearn2.course.tree</field>
+        <field name="model">olearn2.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="teacher_id" widget="many2many_tags"/>
+                <field name="student_ids" widget="many2many_tags" groups="olearn2.group_manager"/>
+                <field name="lesson_count"/>
+                <field name="student_count" string="Enrolled Students"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_course_form" model="ir.ui.view">
+        <field name="name">olearn2.course.form</field>
+        <field name="model">olearn2.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_view_lessons"
+                                icon="fa-book">
+                            <field string="Lessons" name="lesson_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_view_students"
+                                icon="fa-users"
+                                groups="olearn2.group_teacher">
+                            <field string="Students" name="student_count" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Course Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="description" placeholder="Course description..."/>
+                            <field name="cost" placeholder="Cost for this course"/>
+                            <field name="active" groups="olearn2.group_manager"/>
+                        </group>
+                        <group>
+                            <field name="teacher_id" options="{'color_field': 'color'}"/>
+                            <field name="student_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"
+                                   groups="olearn2.group_manager"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Lessons" name="lessons">
+                            <field name="lesson_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="hidden"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tasks" name="tasks">
+                            <field name="task_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="due_date"/>
+                                    <field name="max_score"/>
+                                    <field name="hidden"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_course_kanban" model="ir.ui.view">
+        <field name="name">olearn2.course.kanban</field>
+        <field name="model">olearn2.course</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="lesson_count"/>
+                <field name="student_count"/>
+                <field name="joined"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_content">
+                                <div class="o_kanban_card_body">
+                                    <field name="description"/>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_footer">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span class="badge badge-pill badge-info">
+                                            <i class="fa fa-book"/>
+                                            <field name="lesson_count"/>
+                                            Lessons
+                                        </span>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="badge badge-pill badge-secondary">
+                                            <i class="fa fa-users"/>
+                                            <field name="student_count"/>
+                                            Students
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2" groups="!olearn2.group_teacher,!olearn2.group_manager">
+                                    <button t-if="!record.joined.raw_value"
+                                            name="join_course"
+                                            type="object"
+                                            class="btn btn-primary btn-block">
+                                        <i class="fa fa-sign-in"/>
+                                        Join Course
+                                    </button>
+                                    <div t-else="" class="alert alert-success text-center mb-0">
+                                        <i class="fa fa-check-circle"/>
+                                        Joined
+                                    </div>
+                                </div>
+
+                                <div class="mt-2" groups="olearn2.group_teacher,olearn2.group_manager">
+                                    <div class="alert alert-info text-center mb-0">
+                                        <i class="fa fa-graduation-cap"/>
+                                        Teaching This Program
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search view with filters -->
+    <record id="view_course_search" model="ir.ui.view">
+        <field name="name">olearn2.course.search</field>
+        <field name="model">olearn2.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('description', 'ilike', self)]"/>
+                <field name="teacher_id"/>
+
+                <filter string="My Courses" name="my_courses"
+                        domain="[('teacher_id', '=', uid)]"
+                        groups="olearn2.group_teacher"/>
+                <filter string="Joined Courses" name="joined_courses"
+                        domain="[('student_ids', 'in', [uid])]"
+                        groups="olearn2.group_student"/>
+                <filter string="Available to Join" name="available_courses"
+                        domain="[('student_ids', 'not in', [uid])]"
+                        groups="olearn2.group_student"/>
+
+                <separator/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+
+                <separator/>
+                <filter string="With Lessons" name="with_lessons" domain="[('lesson_count', '>', 0)]"/>
+                <filter string="Without Lessons" name="without_lessons" domain="[('lesson_count', '=', 0)]"/>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_course_manager" model="ir.actions.act_window">
+        <field name="name">Manage Courses</field>
+        <field name="res_model">olearn2.course</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_course_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No active courses available right now.
+            </p>
+            <p>
+                Click <b>Create</b> to add a new course.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_course_teacher" model="ir.actions.act_window">
+        <field name="name">My Courses</field>
+        <field name="res_model">olearn2.course</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_course_search"/>
+        <field name="domain">[('teacher_id', '=', uid)]</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You have no active courses yet.
+            </p>
+            <p>
+                Contact your administrator to be assigned to a course.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_course_student" model="ir.actions.act_window">
+        <field name="name">Browse Courses</field>
+        <field name="res_model">olearn2.course</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="search_view_id" ref="view_course_search"/>
+        <field name="context">{'search_default_active': 1, 'search_default_available_courses': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No courses available right now.
+            </p>
+            <p>
+                Check back later for new courses to join!
+            </p>
+        </field>
+    </record>
+
+</odoo>

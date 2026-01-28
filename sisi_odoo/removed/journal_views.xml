@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree (list) view -->
+    <record id="view_journal_tree" model="ir.ui.view">
+        <field name="name">sisi.journal.tree</field>
+        <field name="model">sisi.journal</field>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_journal_form" model="ir.ui.view">
+        <field name="name">sisi.journal.form</field>
+        <field name="model">sisi.journal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_journal" model="ir.actions.act_window">
+        <field name="name">Journal</field>
+        <field name="res_model">sisi.journal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a journal record.
+            </p>
+        </field>
+    </record>
+
+</odoo>

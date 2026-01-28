@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree view -->
+    <record id="view_lesson_template_tree" model="ir.ui.view">
+        <field name="name">olearn.lesson.template.tree</field>
+        <field name="model">olearn.lesson.template</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="is_hidden==True">
+                <field name="sequence" widget="handle"/>
+                <field name="program_id"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="is_hidden" widget="boolean_toggle"/>
+                <field name="student_count" string="Assigned To"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_lesson_template_kanban" model="ir.ui.view">
+        <field name="name">olearn.lesson.template.kanban</field>
+        <field name="model">olearn.lesson.template</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="program_id" group_create="false" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="program_id"/>
+                <field name="type"/>
+                <field name="is_hidden"/>
+                <field name="student_count"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click"
+                             t-attf-class="#{record.is_hidden.raw_value ? 'o_kanban_card_fancy' : ''}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <span class="badge"
+                                              t-att-class="record.type.raw_value == 'video' ? 'badge-primary' : record.type.raw_value == 'material' ? 'badge-info' : 'badge-secondary'">
+                                            <field name="type"/>
+                                        </span>
+                                        <span t-if="record.is_hidden.raw_value" class="badge badge-warning ml-1">
+                                            <i class="fa fa-eye-slash"/>
+                                            Hidden
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_card_body">
+                                <div>
+                                    <i class="fa fa-book"/>
+                                    Program:
+                                    <field name="program_id"/>
+                                </div>
+                                <div class="mt-1">
+                                    <i class="fa fa-users"/>
+                                    Assigned to
+                                    <field name="student_count"/>
+                                    students
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_lesson_template_form" model="ir.ui.view">
+        <field name="name">olearn.lesson.template.form</field>
+        <field name="model">olearn.lesson.template</field>
+        <field name="arch" type="xml">
+            <form string="Lesson Template">
+                <header>
+                    <button string="Publish to Students"
+                            name="action_publish_to_students"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('is_hidden', '=', False)]}"/>
+                    <button string="Hide from Students"
+                            name="action_hide_from_students"
+                            type="object"
+                            attrs="{'invisible': [('is_hidden', '=', True)]}"/>
+                    <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                </header>
+
+                <sheet>
+                
+                    <widget name="web_ribbon" title="Hidden" bg_color="bg-warning"
+                            attrs="{'invisible': [('is_hidden', '=', False)]}"/>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., Introduction to Python"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="program_id" options="{'no_create': True}"/>
+                            <field name="type"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="is_hidden" widget="boolean_toggle"/>
+                            <field name="teacher_id" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Content" name="content">
+                            <group>
+                                <field name="content" widget="html"
+                                       placeholder="Lesson description and instructions..."/>
+                                <field name="link" placeholder="https://... or file path"/>
+                            </group>
+                        </page>
+                        <page string="Student Lessons" name="student_lessons">
+                            <field name="lesson_ids">
+                                <tree>
+                                    <field name="student_id"/>
+                                    <field name="is_viewed" widget="boolean_toggle"/>
+                                    <field name="viewed_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_lesson_template_search" model="ir.ui.view">
+        <field name="name">olearn.lesson.template.search</field>
+        <field name="model">olearn.lesson.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="program_id"/>
+
+                <filter string="Visible to Students" name="visible" domain="[('is_hidden', '=', False)]"/>
+                <filter string="Hidden from Students" name="hidden" domain="[('is_hidden', '=', True)]"/>
+
+                <separator/>
+                <filter string="Videos" name="videos" domain="[('type', '=', 'video')]"/>
+                <filter string="Materials" name="materials" domain="[('type', '=', 'material')]"/>
+                <filter string="Examples" name="examples" domain="[('type', '=', 'example')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Program" name="group_program" context="{'group_by': 'program_id'}"/>
+                    <filter string="Type" name="group_type" context="{'group_by': 'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_lesson_template_manager" model="ir.actions.act_window">
+        <field name="name">All Lesson Templates</field>
+        <field name="res_model">olearn.lesson.template</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="view_lesson_template_search"/>
+        <field name="context">{'search_default_group_program': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No lesson templates found.
+            </p>
+            <p>
+                Click <b>Create</b> to add your first lesson template.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_lesson_template_teacher" model="ir.actions.act_window">
+        <field name="name">My Lesson Templates</field>
+        <field name="res_model">olearn.lesson.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="view_lesson_template_search"/>
+        <field name="domain">[('teacher_id', 'in', [uid])]</field>
+        <field name="context">{'search_default_group_program': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You haven't created any lesson templates yet.
+            </p>
+            <p>
+                Create lessons from your programs to get started!
+            </p>
+        </field>
+    </record>
+
+</odoo>

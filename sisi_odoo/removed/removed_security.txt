@@ -1,0 +1,5 @@
+access_sisi_journal_all,access_sisi_journal_admin,model_sisi_journal,base.group_system,1,1,1,1
+access_sisi_assignment_all,access_sisi_assignment_admin,model_sisi_assignment,base.group_system,1,1,1,1
+access_sisi_assignment_item_all,access_sisi_assignment_item_admin,model_sisi_assignment_item,base.group_system,1,1,1,1
+access_sisi_attendance_all,access_sisi_attendance_admin,model_sisi_attendance,base.group_system,1,1,1,1
+access_sisi_attendance_item_all,access_sisi_attendance_item_admin,model_sisi_attendance_item,base.group_system,1,1,1,1

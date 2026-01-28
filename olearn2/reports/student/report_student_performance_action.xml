@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="action_report_student_performance" model="ir.actions.report">
+        <field name="name">Student Performance Report</field>
+        <field name="model">olearn_v2.course</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">olearn.report_student_performance_template</field>
+        <field name="print_report_name">"Student Performance"</field>
+    </record>
+</odoo>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================ -->
+    <!-- WIZARD: CREATE DEPOSIT (Define FIRST) -->
+    <!-- ============================================ -->
+    <record id="view_create_deposit_wizard" model="ir.ui.view">
+        <field name="name">create.deposit.wizard</field>
+        <field name="model">owallet.create.deposit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Deposit">
+                <sheet>
+                    <group>
+                        <field name="user_id"
+                               domain="[('id', '!=', 1)]"
+                               options="{'no_create': True}"/>
+                        <field name="amount"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="description" placeholder="e.g., Bank transfer from account #12345"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Create Deposit"
+                            name="action_create_deposit"
+                            type="object"
+                            class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Deposit Wizard -->
+    <record id="action_owallet_create_deposit" model="ir.actions.act_window">
+        <field name="name">Create Deposit</field>
+        <field name="res_model">owallet.create.deposit.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_owallet_balance"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BALANCE TREE VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_balance_tree" model="ir.ui.view">
+        <field name="name">owallet.balance.tree</field>
+        <field name="model">owallet.balance</field>
+        <field name="arch" type="xml">
+            <tree string="Wallet Balances" create="false" delete="false">
+                <field name="owner_id"/>
+                <field name="amount" widget="monetary"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="is_master" invisible="1"/>
+                <field name="owner_id"
+                       decoration-info="is_master == True"
+                       decoration-success="amount > 1000"
+                       decoration-warning="amount > 0 and amount &lt;= 1000"
+                       decoration-danger="amount == 0"
+                       groups="owallet.group_accountant"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BALANCE FORM VIEW (Accountant/Admin View) -->
+    <!-- ============================================ -->
+    <record id="view_owallet_balance_form" model="ir.ui.view">
+        <field name="name">owallet.balance.form</field>
+        <field name="model">owallet.balance</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Wallet Balance" create="false" delete="false">
+                <header>
+                    <button name="%(action_owallet_create_deposit)d"
+                            string="Add Deposit"
+                            type="action"
+                            class="oe_highlight"
+                            groups="owallet.group_accountant"/>
+                    <field name="is_master" widget="badge"
+                           decoration-info="is_master == True"/>
+                </header>
+                <sheet>
+
+                    <widget name="web_ribbon" title="Master Balance"
+                            bg_color="bg-info"
+                            attrs="{'invisible': [('is_master', '=', False)]}"/>
+
+                    <div class="oe_title">
+                        <label for="owner_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="owner_id" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="amount" widget="monetary"
+                                   readonly="1"
+                                   class="oe_read_only"/>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="is_master" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Recent Transactions" name="transactions">
+                            <field name="transaction_ids" readonly="1">
+                                <tree string="Transactions" create="false" delete="false">
+                                    <field name="date"/>
+                                    <field name="type" decoration-success="type in ['deposit', 'bonus']"
+                                           decoration-danger="type in ['expenditure', 'withdraw']"/>
+                                    <field name="amount" widget="monetary"/>
+                                    <field name="description"/>
+                                    <field name="source"/>
+                                    <field name="course_id"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BALANCE KANBAN VIEW (For Dashboard) -->
+    <!-- ============================================ -->
+    <record id="view_owallet_balance_kanban" model="ir.ui.view">
+        <field name="name">owallet.balance.kanban</field>
+        <field name="model">owallet.balance</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" create="false" delete="false">
+                <field name="owner_id"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="is_master"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="owner_id"/>
+                                    </strong>
+                                </div>
+                                <span t-if="record.is_master.raw_value"
+                                      class="badge badge-pill badge-info">Master
+                                </span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <strong>
+                                        <field name="amount" widget="monetary"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- BALANCE SEARCH VIEW -->
+    <!-- ============================================ -->
+    <record id="view_owallet_balance_search" model="ir.ui.view">
+        <field name="name">owallet.balance.search</field>
+        <field name="model">owallet.balance</field>
+        <field name="arch" type="xml">
+            <search string="Search Balances">
+                <field name="owner_id"/>
+                <separator/>
+                <filter string="Master Balance" name="master"
+                        domain="[('is_master', '=', True)]"/>
+                <filter string="Has Balance" name="has_balance"
+                        domain="[('amount', '>', 0)]"/>
+                <filter string="Empty Balance" name="empty_balance"
+                        domain="[('amount', '=', 0)]"/>
+                <separator/>
+                <!-- Remove these if olearn2 groups don't exist -->
+                <!--
+                <filter string="Students" name="students"
+                        domain="[('owner_id.groups_id', 'in', [ref('olearn2.group_student')])]"/>
+                <filter string="Teachers" name="teachers"
+                        domain="[('owner_id.groups_id', 'in', [ref('olearn2.group_teacher')])]"/>
+                -->
+                <group expand="0" string="Group By">
+                    <filter string="Owner" name="group_owner"
+                            context="{'group_by': 'owner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- MY WALLET VIEW (Student View) -->
+    <!-- ============================================ -->
+    <record id="view_my_wallet_form" model="ir.ui.view">
+        <field name="name">my.wallet.form</field>
+        <field name="model">owallet.balance</field>
+        <field name="priority">100</field>  <!-- Higher priority = not default -->
+        <field name="arch" type="xml">
+            <form string="My Wallet" create="false" delete="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <span>My Balance</span>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <label for="amount" class="oe_inline"
+                                   style="font-size: 16px; font-weight: bold;"/>
+                            <div>
+                                <field name="amount"
+                                       widget="monetary"
+                                       class="oe_inline"
+                                       style="font-size: 32px; font-weight: bold; color: #00A09D;"/>
+                                <field name="currency_id"
+                                       class="oe_inline"
+                                       style="font-size: 24px; margin-left: 10px;"
+                                       groups="owallet.group_accountant"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Transaction History" name="transactions">
+                            <field name="transaction_ids" readonly="1">
+                                <tree string="My Transactions" create="false" delete="false">
+                                    <field name="date"/>
+                                    <field name="type"
+                                           decoration-success="type in ['deposit', 'bonus']"
+                                           decoration-danger="type in ['expenditure', 'withdraw']"/>
+                                    <field name="amount" widget="monetary"
+                                           decoration-success="type in ['deposit', 'bonus']"
+                                           decoration-danger="type in ['expenditure', 'withdraw']"/>
+                                    <field name="description"/>
+                                    <field name="course_id"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================ -->
+    <!-- ACTIONS -->
+    <!-- ============================================ -->
+
+    <!-- All Balances Action (Accountant) - Explicitly use accountant form view -->
+    <record id="action_owallet_balance" model="ir.actions.act_window">
+        <field name="name">All Wallets</field>
+        <field name="res_model">owallet.balance</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="view_owallet_balance_form"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No wallet balances found
+            </p>
+            <p>
+                Wallet balances are automatically created when users are added to the system.
+            </p>
+        </field>
+    </record>
+
+    <!-- Explicitly define view for tree in the action -->
+    <record id="action_owallet_balance_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_owallet_balance_tree"/>
+        <field name="act_window_id" ref="action_owallet_balance"/>
+    </record>
+
+    <!-- Explicitly define view for form in the action -->
+    <record id="action_owallet_balance_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_owallet_balance_form"/>
+        <field name="act_window_id" ref="action_owallet_balance"/>
+    </record>
+
+    <!-- My Wallet Action (Student) - Opens user's wallet directly -->
+    <record id="action_my_wallet" model="ir.actions.act_window">
+        <field name="name">My Balance</field>
+        <field name="res_model">owallet.balance</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_owallet_balance_form"/>
+        <field name="domain">[('owner_id', '=', uid)]</field>
+        <field name="context">{'create': False, 'delete': False}</field>
+    </record>
+
+
+    <!-- Master Balance Action (Admin) -->
+    <record id="action_master_balance" model="ir.actions.act_window">
+        <field name="name">Master Balance</field>
+        <field name="res_model">owallet.balance</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="view_owallet_balance_form"/>
+        <field name="domain">[('is_master', '=', True)]</field>
+        <field name="context">{'create': False, 'delete': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Master balance not found
+            </p>
+            <p>
+                The master balance will be automatically created.
+            </p>
+        </field>
+    </record>
+
+</odoo>
