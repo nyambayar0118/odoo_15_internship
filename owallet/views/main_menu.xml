@@ -6,7 +6,7 @@
     <menuitem id="menu_owallet_root"
               name="oWallet"
               sequence="20"
-              web_icon="owallet,static/src/icon.png"/>
+              web_icon="owallet,static/description/icon.png"/>
 
     <!-- ============================================ -->
     <!-- STUDENT MENUS -->
@@ -20,7 +20,7 @@
     <menuitem id="menu_my_wallet"
               name="My Balance"
               parent="menu_owallet_student"
-              action="owallet.action_my_wallet"
+              action="owallet.action_my_wallet_server"
               sequence="10"
               groups="olearn2.group_student"/>
 
@@ -51,7 +51,7 @@
     <menuitem id="menu_teacher_wallet"
               name="My Balance"
               parent="menu_owallet_teacher"
-              action="action_my_wallet"
+              action="owallet.action_my_wallet_server"
               sequence="20"
               groups="olearn2.group_teacher"/>
 
@@ -81,7 +81,7 @@
     <menuitem id="menu_master_balance"
               name="Master Balance"
               parent="menu_owallet_wallets"
-              action="action_master_balance"
+              action="action_master_balance_server"
               sequence="20"
               groups="owallet.group_accountant"/>
 
@@ -183,6 +183,12 @@
               parent="menu_owallet_admin"
               action="action_owallet_bonus"
               sequence="30"
+              groups="base.group_system"/>
+    <menuitem id="menu_admin_master_balance"
+              name="Master Balance"
+              parent="menu_owallet_admin"
+              action="action_master_balance_server"
+              sequence="40"
               groups="base.group_system"/>
 
 </odoo>

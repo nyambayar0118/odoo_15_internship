@@ -187,6 +187,10 @@ class Course(models.Model):
                     'message': f'You have joined {course.name}. {len(lesson_record_vals)} lessons and {len(task_record_vals)} tasks assigned.',
                     'type': 'success',
                     'sticky': False,
+                    'next': {
+                        'type': 'ir.actions.client',
+                        'tag': 'reload',
+                    },
                 }
             }
 

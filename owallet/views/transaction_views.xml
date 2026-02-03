@@ -15,7 +15,7 @@
                 <field name="date"/>
                 <field name="owner_id"/>
                 <field name="type"/>
-                <field name="amount" widget="monetary" sum="Total"/>
+                <field name="amount" widget="monetary"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="description"/>
                 <field name="course_id" optional="show"/>

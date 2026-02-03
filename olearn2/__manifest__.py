@@ -6,13 +6,19 @@
     'description': """
 An online learning web made using Odoo framework.
 """,
-    'depends': ['base'],
+    'depends': ['base', 'website'],
     'data': [
+        'views/main_page.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
 
         'security/security.xml',
         'security/record_rules.xml',
+
+        'reports/student/report_student_performance_action.xml',
+        'reports/student/report_student_performance_template.xml',
+        'reports/teacher/report_course_info_action.xml',
+        'reports/teacher/report_course_info_template.xml',
 
         'views/course_views.xml',
         'views/lesson_views.xml',

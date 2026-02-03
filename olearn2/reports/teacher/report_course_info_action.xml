@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <odoo>
     <record id="paperformat_a4_default" model="report.paperformat">
         <field name="name">A4 Default</field>
@@ -15,12 +14,12 @@
         <field name="dpi">96</field>
     </record>
 
-    <record id="action_report_program_info" model="ir.actions.report">
-        <field name="name">Program_Info_Report</field>
-        <field name="model">olearn.program</field>
+    <record id="action_report_course_info" model="ir.actions.report">
+        <field name="name">Course Info Report</field>
+        <field name="model">olearn2.course</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">olearn.report_program_info_template</field>
-        <field name="print_report_name">"Program Info"</field>
+        <field name="report_name">olearn2.report_course_info_template</field>
+        <field name="print_report_name">"Course Info"</field>
         <field name="paperformat_id" ref="paperformat_a4_default"/>
     </record>
 </odoo>

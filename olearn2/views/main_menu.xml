@@ -109,4 +109,12 @@
               sequence="30"
               groups="olearn2.group_student"/>
 
+    <!-- Student menu for printing their report -->
+    <menuitem id="menu_print_my_performance"
+              name="Print My Performance"
+              parent="menu_student_section"
+              action="action_report_student_performance"
+              sequence="50"
+              groups="olearn2.group_student"/>
+
 </odoo>

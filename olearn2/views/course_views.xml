@@ -23,6 +23,14 @@
         <field name="model">olearn2.course</field>
         <field name="arch" type="xml">
             <form string="Course">
+                <header>
+                    <!-- Add Print Report button for teachers/managers -->
+                    <button name="%(olearn2.action_report_course_info)d"
+                            string="Print Course Report"
+                            type="action"
+                            class="oe_highlight"
+                            groups="olearn2.group_teacher,olearn2.group_manager"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button"
@@ -116,7 +124,12 @@
 
                             <div class="o_kanban_card_content">
                                 <div class="o_kanban_card_body">
-                                    <field name="description"/>
+                                    <div>
+                                        <field name="description"/>
+                                    </div>
+                                    <span t-attf-style="color: green;">
+                                        <field name="cost"/>₮
+                                    </span>
                                 </div>
                             </div>
 
@@ -152,10 +165,17 @@
                                     </div>
                                 </div>
 
-                                <div class="mt-2" groups="olearn2.group_teacher,olearn2.group_manager">
+                                <div class="mt-2" groups="olearn2.group_teacher,!olearn2.group_manager">
                                     <div class="alert alert-info text-center mb-0">
                                         <i class="fa fa-graduation-cap"/>
-                                        Teaching This Program
+                                        Teaching This Course
+                                    </div>
+                                </div>
+
+                                <div class="mt-2" groups="olearn2.group_manager">
+                                    <div class="alert alert-info text-center mb-0">
+                                        <i class="fa fa-graduation-cap"/>
+                                        Active Course
                                     </div>
                                 </div>
                             </div>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <odoo>
     <data>
-        <template id="report_program_info_template">
+        <template id="report_course_info_template">
             <t t-call="web.html_container">
                 <t t-set="data_report_margin_top" t-value="0"/>
                 <style>
@@ -34,13 +33,13 @@
                     }
 
                     h1 {
-                    color: purple;
+                    color: #1E90FF;
                     margin-bottom: 0.3rem;
                     }
 
                     h2 {
-                    color: purple;
-                    border-bottom: 2px solid purple;
+                    color: #1E90FF;
+                    border-bottom: 2px solid #1E90FF;
                     padding-bottom: 5px;
                     margin-top: 25px;
                     }
@@ -50,41 +49,31 @@
                     margin-top: 20px;
                     }
 
-                    .program-info {
+                    .course-info {
                     margin: 20px 0;
                     padding: 15px;
-                    border: 2px solid purple;
+                    border: 2px solid #1E90FF;
                     background-color: #f9f9f9;
                     }
 
-                    .program-info p {
+                    .course-info p {
                     margin: 5px 0;
-                    }
-
-                    .info-grid {
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 20px;
-                    }
-
-                    .info-column {
-                    flex: 1;
                     }
 
                     .info-label {
                     font-weight: bold;
-                    color: purple;
+                    color: #1E90FF;
                     }
 
                     .summary-section {
                     margin: 20px 0;
                     padding: 15px;
                     background-color: #f5f5f5;
-                    border-left: 4px solid purple;
+                    border-left: 4px solid #1E90FF;
                     }
 
                     .summary-section h3 {
-                    color: purple;
+                    color: #1E90FF;
                     margin-bottom: 10px;
                     margin-top: 0;
                     }
@@ -93,7 +82,7 @@
                     margin: 8px 0;
                     padding: 5px;
                     background-color: white;
-                    border-left: 2px solid plum;
+                    border-left: 2px solid #87CEFA;
                     padding-left: 10px;
                     }
 
@@ -106,7 +95,7 @@
                     }
 
                     thead {
-                    background-color: purple;
+                    background-color: #1E90FF;
                     color: #eeeeee;
                     }
 
@@ -126,7 +115,7 @@
                     }
 
                     tbody tr:nth-child(odd) {
-                    background-color: plum;
+                    background-color: #E6F3FF;
                     }
 
                     tbody tr:nth-child(even) {
@@ -159,46 +148,58 @@
                     }
                 </style>
 
-                <t t-foreach="program_data" t-as="prog_data">
+                <t t-foreach="course_data" t-as="c_data">
                     <div class="page">
-                        <h1 class="text-center">oLearn Online Learning Module - Program Information Report</h1>
+                        <h1 class="text-center">oLearn - Course Information Report</h1>
                         <p class="text-center text-italic">
                             Report Created On:
                             <t t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"/>
                         </p>
 
-                        <!-- PROGRAM INFORMATION -->
-                        <div class="program-info">
-                            <h2 style="margin-top: 0; border: none;">
-                                <t t-esc="prog_data['program'].name"/>
-                            </h2>
+                        <!-- COURSE INFO -->
+                        <div class="course-info">
+                            <p>
+                                <span class="info-label">Course Name:</span>
+                                <t t-esc="c_data['course'].name"/>
+                            </p>
+                            <p>
+                                <span class="info-label">Description:</span>
+                                <t t-esc="c_data['course'].description or 'N/A'"/>
+                            </p>
+                            <p>
+                                <span class="info-label">Teacher:</span>
+                                <t t-esc="', '.join(c_data['course'].teacher_id.mapped('name')) or 'N/A'"/>
+                            </p>
+                            <p>
+                                <span class="info-label">Total Students:</span>
+                                <t t-esc="len(c_data['course'].student_ids)"/>
+                            </p>
+                            <p>
+                                <span class="info-label">Total Lessons:</span>
+                                <t t-esc="len(c_data['lesson_stats'])"/>
+                            </p>
+                            <p>
+                                <span class="info-label">Total Tasks:</span>
+                                <t t-esc="len(c_data['task_stats'])"/>
+                            </p>
+                        </div>
 
-                            <div class="info-grid">
-                                <div class="info-column">
-                                    <p>
-                                        <span class="info-label">Description:</span>
-                                        <br/>
-                                        <t t-esc="prog_data['program'].description or 'No description provided'"/>
-                                    </p>
-                                    <p>
-                                        <span class="info-label">Teacher(s):</span>
-                                        <t t-esc="', '.join(teacher.name for teacher in prog_data['program'].teacher_id)"/>
-                                    </p>
-                                </div>
-                                <div class="info-column">
-                                    <p>
-                                        <span class="info-label">Total Lessons:</span>
-                                        <t t-esc="prog_data['program'].lesson_count"/>
-                                    </p>
-                                    <p>
-                                        <span class="info-label">Total Tasks:</span>
-                                        <t t-esc="len(prog_data['task_stats'])"/>
-                                    </p>
-                                    <p>
-                                        <span class="info-label">Enrolled Students:</span>
-                                        <t t-esc="prog_data['program'].student_count"/>
-                                    </p>
-                                </div>
+                        <!-- SUMMARY -->
+                        <div class="summary-section">
+                            <h3>Overall Statistics</h3>
+                            <div class="summary-item">
+                                <strong>Lesson View Rate:</strong>
+                                <t t-set="view_pct" t-value="c_data['overall_view_percentage']"/>
+                                <span t-attf-class="#{('stat-excellent' if view_pct >= 90 else 'stat-good' if view_pct >= 70 else 'stat-medium' if view_pct >= 50 else 'stat-low')}">
+                                    <t t-esc="'%.1f' % view_pct"/>%
+                                </span>
+                            </div>
+                            <div class="summary-item">
+                                <strong>Task Completion Rate:</strong>
+                                <t t-set="comp_pct" t-value="c_data['overall_completion_percentage']"/>
+                                <span t-attf-class="#{('stat-excellent' if comp_pct >= 90 else 'stat-good' if comp_pct >= 70 else 'stat-medium' if comp_pct >= 50 else 'stat-low')}">
+                                    <t t-esc="'%.1f' % comp_pct"/>%
+                                </span>
                             </div>
                         </div>
 
@@ -211,25 +212,21 @@
                                         <th>No.</th>
                                         <th>Lesson Name</th>
                                         <th class="text-center">Type</th>
-                                        <th class="text-center">Tasks</th>
                                         <th class="text-center">Students Viewed</th>
                                         <th class="text-center">View Rate</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <t t-foreach="prog_data['lesson_stats']" t-as="lesson_stat">
+                                    <t t-foreach="c_data['lesson_stats']" t-as="lesson_stat">
                                         <tr>
                                             <td class="text-center">
                                                 <t t-esc="lesson_stat_index + 1"/>
                                             </td>
                                             <td>
-                                                <t t-esc="lesson_stat['template'].name"/>
+                                                <t t-esc="lesson_stat['lesson'].name"/>
                                             </td>
                                             <td class="text-center">
-                                                <t t-esc="lesson_stat['template'].type"/>
-                                            </td>
-                                            <td class="text-center">
-                                                <t t-esc="lesson_stat['template'].task_template_count"/>
+                                                <t t-esc="lesson_stat['lesson'].type"/>
                                             </td>
                                             <td class="text-center">
                                                 <t t-esc="lesson_stat['viewed_count']"/>
@@ -256,7 +253,6 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Task Name</th>
-                                        <th>Lesson</th>
                                         <th class="text-center">Max Score</th>
                                         <th class="text-center">Avg Score</th>
                                         <th class="text-center">Completed</th>
@@ -264,16 +260,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <t t-foreach="prog_data['task_stats']" t-as="task_stat">
+                                    <t t-foreach="c_data['task_stats']" t-as="task_stat">
                                         <tr>
                                             <td class="text-center">
                                                 <t t-esc="task_stat_index + 1"/>
                                             </td>
                                             <td>
-                                                <t t-esc="task_stat['template'].name"/>
-                                            </td>
-                                            <td>
-                                                <t t-esc="task_stat['template'].lesson_template_id.name"/>
+                                                <t t-esc="task_stat['task'].name"/>
                                             </td>
                                             <td class="text-center">
                                                 <t t-esc="task_stat['max_score']"/>
@@ -319,7 +312,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <t t-foreach="prog_data['student_stats']" t-as="student_stat">
+                                    <t t-foreach="c_data['student_stats']" t-as="student_stat">
                                         <tr>
                                             <td class="text-center">
                                                 <t t-esc="student_stat_index + 1"/>

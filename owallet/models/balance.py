@@ -131,3 +131,19 @@ class Balance(models.Model):
             'target': 'current',
             'context': {'create': False, 'delete': False, 'edit': False},
         }
+
+    @api.model
+    def action_open_master_balance(self):
+        """Open the master balance"""
+        master_balance = self.get_master_balance()
+
+        return {
+            'name': 'Master Balance',
+            'type': 'ir.actions.act_window',
+            'res_model': 'owallet.balance',
+            'view_mode': 'form',
+            'res_id': master_balance.id,
+            'view_id': self.env.ref('owallet.view_owallet_balance_form').id,
+            'target': 'current',
+            'context': {'create': False, 'delete': False},
+        }

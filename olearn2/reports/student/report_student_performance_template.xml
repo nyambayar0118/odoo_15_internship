@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <odoo>
     <data>
         <template id="report_student_performance_template">
@@ -38,14 +37,14 @@
                     }
 
                     h1 {
-                    color: purple;
+                    color: #1E90FF;
                     margin-bottom: 0.3rem;
                     }
 
                     .student-info {
                     margin: 20px 0;
                     padding: 15px;
-                    border: 2px solid purple;
+                    border: 2px solid #1E90FF;
                     background-color: #f9f9f9;
                     }
 
@@ -58,30 +57,22 @@
                     margin: 20px 0;
                     padding: 15px;
                     background-color: #f5f5f5;
-                    border-left: 4px solid purple;
+                    border-left: 4px solid #1E90FF;
                     }
 
                     .summary-section h3 {
-                    color: purple;
+                    color: #1E90FF;
                     margin-bottom: 10px;
                     }
 
-                    .summary-item {
-                    margin: 8px 0;
-                    padding: 5px;
-                    background-color: white;
-                    border-left: 2px solid plum;
-                    padding-left: 10px;
-                    }
-
-                    .program-section {
+                    .course-section {
                     margin-top: 30px;
                     page-break-inside: avoid;
                     }
 
                     h2 {
-                    color: purple;
-                    border-bottom: 2px solid purple;
+                    color: #1E90FF;
+                    border-bottom: 2px solid #1E90FF;
                     padding-bottom: 5px;
                     }
 
@@ -99,7 +90,7 @@
                     }
 
                     thead {
-                    background-color: purple;
+                    background-color: #1E90FF;
                     color: #eeeeee;
                     }
 
@@ -119,7 +110,7 @@
                     }
 
                     tbody tr:nth-child(odd) {
-                    background-color: plum;
+                    background-color: #E6F3FF;
                     }
 
                     tbody tr:nth-child(even) {
@@ -166,46 +157,44 @@
                 </style>
 
                 <div class="page">
-                    <h1 class="text-center">oLearn Online Learning Module - Student Performance Report</h1>
+                    <h1 class="text-center">oLearn - Student Performance Report</h1>
                     <p class="text-center text-italic">
                         Report Created On:
                         <t t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"/>
                     </p>
 
                     <!-- STUDENT INFO -->
-
                     <div class="student-info">
                         <p>Student Name:
                             <t t-esc="student.name"/>
                         </p>
-                        <p>Total Programs Enrolled:
-                            <t t-esc="program_count"/>
+                        <p>Total Courses Enrolled:
+                            <t t-esc="course_count"/>
                         </p>
                     </div>
 
-                    <!-- PROGRAM DETAIL -->
-                    <t t-foreach="program_data" t-as="prog_data">
-                        <div class="program-section">
+                    <!-- COURSE DETAIL -->
+                    <t t-foreach="course_data" t-as="c_data" t-foreach-index="c_index">
+                        <div class="course-section">
                             <h2>
-                                <t t-esc="prog_data_index + 1"/>.
-                                <t t-esc="prog_data['program'].name"/>
+                                <t t-esc="c_index + 1"/>.
+                                <t t-esc="c_data['course'].name"/>
                             </h2>
 
                             <p>
-                                <strong>Program Summary:</strong>
-                                Lessons:<t t-esc="prog_data['lessons_viewed']"/>/
-                                <t t-esc="prog_data['lesson_count']"/>
+                                <strong>Course Summary:</strong>
+                                Lessons:<t t-esc="c_data['lessons_viewed']"/>/
+                                <t t-esc="c_data['lesson_count']"/>
                                 |
-                                Tasks:<t t-esc="prog_data['tasks_completed']"/>/
-                                <t t-esc="prog_data['task_count']"/>
+                                Tasks:<t t-esc="c_data['tasks_completed']"/>/
+                                <t t-esc="c_data['task_count']"/>
                                 |
-                                Score:<t t-esc="prog_data['total_score']"/>/
-                                <t t-esc="prog_data['total_max_score']"/>
+                                Score:<t t-esc="c_data['total_score']"/>/
+                                <t t-esc="c_data['total_max_score']"/>
                                 points
                             </p>
 
                             <!-- LESSON LIST -->
-
                             <h3>Lesson List</h3>
                             <table>
                                 <thead>
@@ -213,24 +202,20 @@
                                         <th>No.</th>
                                         <th>Lesson Name</th>
                                         <th class="text-center">Lesson Type</th>
-                                        <th class="text-center">Task Count</th>
                                         <th class="text-center">View Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <t t-foreach="prog_data['lesson_data']" t-as="lesson">
+                                    <t t-foreach="c_data['lesson_data']" t-as="lesson" t-foreach-index="lesson_index">
                                         <tr>
                                             <td class="text-center">
                                                 <t t-esc="lesson_index + 1"/>
                                             </td>
                                             <td>
-                                                <t t-esc="lesson['template'].name"/>
+                                                <t t-esc="lesson['lesson'].name"/>
                                             </td>
                                             <td class="text-center">
-                                                <t t-esc="lesson['template'].type"/>
-                                            </td>
-                                            <td class="text-center">
-                                                <t t-esc="lesson['template'].task_template_count"/>
+                                                <t t-esc="lesson['lesson'].type"/>
                                             </td>
                                             <td class="text-center">
                                                 <t t-if="lesson['is_viewed']">
@@ -246,30 +231,25 @@
                             </table>
 
                             <!-- TASK LIST -->
-
                             <h3>Task List</h3>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>No.</th>
                                         <th>Task Name</th>
-                                        <th>Lesson Name</th>
                                         <th class="text-center">Score</th>
                                         <th class="text-center">Max Score</th>
                                         <th class="text-center">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <t t-foreach="prog_data['task_data']" t-as="task">
+                                    <t t-foreach="c_data['task_data']" t-as="task" t-foreach-index="task_index">
                                         <tr>
                                             <td class="text-center">
                                                 <t t-esc="task_index + 1"/>
                                             </td>
                                             <td>
-                                                <t t-esc="task['template'].name"/>
-                                            </td>
-                                            <td>
-                                                <t t-esc="task['template'].lesson_template_id.name"/>
+                                                <t t-esc="task['task'].name"/>
                                             </td>
                                             <td class="text-center">
                                                 <t t-set="score_percentage"

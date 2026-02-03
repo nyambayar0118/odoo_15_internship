@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_course_student,access.course.student,model_olearn2_course,group_student,1,0,0,0
+access_course_student,access.course.student,model_olearn2_course,group_student,1,1,0,0
 access_course_teacher,access.course.teacher,model_olearn2_course,group_teacher,1,1,1,0
 access_course_manager,access.course.manager,model_olearn2_course,group_manager,1,1,1,1
 access_lesson_student,access.lesson.student,model_olearn2_lesson,group_student,1,0,0,0

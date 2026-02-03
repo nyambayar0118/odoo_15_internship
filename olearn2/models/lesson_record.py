@@ -68,6 +68,11 @@ class LessonRecord(models.Model):
             'viewed_date': fields.Datetime.now()
         })
 
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+        }
+
     # Prevent duplicate lessons for same student
     @api.model
     def create(self, vals):

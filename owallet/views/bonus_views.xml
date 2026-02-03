@@ -238,7 +238,7 @@
         <field name="model">owallet.bonus</field>
         <field name="arch" type="xml">
             <calendar string="Bonus Calendar"
-                      date_start="year"
+                      date_start="bonus_date"
                       color="teacher_id"
                       mode="month">
                 <field name="teacher_id"/>
@@ -301,7 +301,7 @@
     <record id="action_owallet_bonus" model="ir.actions.act_window">
         <field name="name">Teacher Bonuses</field>
         <field name="res_model">owallet.bonus</field>
-        <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
         <field name="context">{'search_default_this_year': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

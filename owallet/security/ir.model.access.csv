@@ -6,4 +6,6 @@ access_transaction_student,transaction.student,model_owallet_transaction,olearn2
 access_transaction_accountant,transaction.accountant,model_owallet_transaction,group_accountant,1,1,1,0
 access_transaction_teacher,transaction.teacher,model_owallet_transaction,olearn2.group_teacher,1,0,0,0
 access_bonus_accountant,bonus.accountant,model_owallet_bonus,group_accountant,1,1,1,1
+access_bonus_teacher,bonus.teacher,model_owallet_bonus,olearn2.group_teacher,1,0,0,0
 access_owallet_create_deposit_wizard,owallet.create.deposit.wizard.accountant,model_owallet_create_deposit_wizard,owallet.group_accountant,1,1,1,1
+access_owallet_deposit_wizard_guide,owallet.deposit.wizard.guide,model_owallet_deposit_wizard_guide,base.group_user,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="olearn_page_view" name="Courses Page">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h1>Courses</h1>
+                <p>View Available Courses</p>
+            </div>
+        </t>
+    </template>
+
+    <record id="courses_page" model="website.page">
+        <field name="name">Courses</field>
+        <field name="url">/courses</field>
+        <field name="view_id" ref="olearn_page_view"/>
+        <field name="is_published">True</field>
+    </record>
+</odoo>

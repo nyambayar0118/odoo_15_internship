@@ -1,1 +1,1 @@
-from . import report_program_info
+from . import report_course_info

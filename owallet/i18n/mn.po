@@ -1,0 +1,841 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* owallet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-03 14:38+0000\n"
+"PO-Revision-Date: 2026-02-03 14:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "<span class=\"mx-2\">/</span>"
+msgstr ""
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "<span>Bonus Amount = Total Course Payments × Bonus Percentage</span>"
+msgstr "<span>Урамшууллын дүн = Нийт сургалтын төлбөрийн дүн × Урамшууллын хувь</span>"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_my_wallet_form
+msgid "<span>My Balance</span>"
+msgstr "<span>Миний данс</span>"
+
+#. module: owallet
+#: model:ir.model.constraint,message:owallet.constraint_owallet_balance_unique_user_balance
+msgid "A user can only have one balance"
+msgstr "Хэрэглэгч зөвхөн нэг данстай байж ёстой"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__source__accountant
+#: model:res.groups,name:owallet.group_accountant
+msgid "Accountant"
+msgstr "Нягтлан бодогч"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_form
+msgid "Add Deposit"
+msgstr "Орлогын гүйлгээ нэмэх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_form
+msgid "Additional Information"
+msgstr "Нэмэлэлт мэдээлэл"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_admin
+msgid "Administration"
+msgstr "Админ"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_admin_all_bonuses
+#: model:ir.ui.menu,name:owallet.menu_all_bonuses
+msgid "All Bonuses"
+msgstr "Бүх урамшуулал"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_owallet_transaction
+#: model:ir.ui.menu,name:owallet.menu_admin_all_transactions
+#: model:ir.ui.menu,name:owallet.menu_all_transactions
+msgid "All Transactions"
+msgstr "Бүх гүйлгээнүүд"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_owallet_balance
+#: model:ir.ui.menu,name:owallet.menu_admin_all_balances
+#: model:ir.ui.menu,name:owallet.menu_all_balances
+msgid "All Wallets"
+msgstr "Бүх данснууд"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__amount
+msgid "Amount"
+msgstr "Хэмжээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid ""
+"Are you sure you want to send this bonus? This action cannot be undone."
+msgstr "Та энэ урамшууллыг илгээхдээ итгэлтэй байна уу? Энэ үйлдлийг буцаах боломжгүй."
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__source__automatic
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Automatic"
+msgstr "Автоматаар хийгдсэн"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__balance_id
+msgid "Balance"
+msgstr "Данс"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__amount
+msgid "Balance Amount"
+msgstr "Үлдэгдлийн хэмжээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_tree
+msgid "Bonus %"
+msgstr "Урамшууллын хувь %"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__amount
+msgid "Bonus Amount"
+msgstr "Урамшууллын хэмжээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_pivot
+msgid "Bonus Analysis"
+msgstr "Урамшууллын шинжилгээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_calendar
+msgid "Bonus Calendar"
+msgstr "Урамшууллын хуанли"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__bonus_date
+msgid "Bonus Date"
+msgstr "Урамшууллын огноо"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Bonus Details"
+msgstr "Урамшууллын дэлгэрэнгүй мэдээлэл"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_bonus_payments_report
+msgid "Bonus Payments"
+msgstr "Урамшууллын гүйлгээ"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_bonus_payments_report
+msgid "Bonus Payments Report"
+msgstr "Урамшууллын гүйлгээний тайлан"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__type__bonus
+msgid "Bonus Payout"
+msgstr "Урамшуулалт олголт"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__bonus_percentage
+msgid "Bonus Percentage"
+msgstr "Урамшууллын хувь"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Bonus Rate (%)"
+msgstr "Урамшууллын хувь (%)"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__sent
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Bonus Sent"
+msgstr "Урамшуулал илгээгдсэн"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__transaction_id
+msgid "Bonus Transaction"
+msgstr "Урамшууллын гүйлгээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_graph
+msgid "Bonus Trends"
+msgstr "Урамшууллын чиг хандлага"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Bonuses"
+msgstr "Урамшуулал"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "By Accountant"
+msgstr "Нягтлан бодогч хийсэн"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_tree
+msgid "Calculate"
+msgstr "Тооцоолох"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_calculate_all_bonuses_wizard
+#: model:ir.ui.menu,name:owallet.menu_calculate_bonuses
+msgid "Calculate All Bonuses"
+msgstr "Бүх урамшууллыг тооцоолох"
+
+#. module: owallet
+#: model:ir.actions.server,name:owallet.action_server_calculate_all_bonuses
+msgid "Calculate All Teacher Bonuses"
+msgstr "Бүх багшийн урамшууллыг тооцоолох"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Calculate Bonus"
+msgstr "Урамшуулал тооцоолох"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_bonus__state__calculated
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Calculated"
+msgstr "Тооцоолсон"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Calculation Details"
+msgstr "Тооцооллын дэлгэрэнгүй мэдээлэл"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_create_deposit_wizard
+msgid "Cancel"
+msgstr "Цуцлах"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_deposit_wizard_guide_form
+msgid "Close"
+msgstr "Хаах"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Course"
+msgstr "Сургалт"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_course_payments_report
+msgid "Course Payments"
+msgstr "Суралтын төлбөрүүд"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_course_payments_report
+msgid "Course Payments Report"
+msgstr "Суралтын төлбөрийн тайлан"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Course Payments This Period"
+msgstr "Энэ хугацаанд хийсэн сургалтын төлбөрүүд"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_olearn2_course
+msgid "Courses available on oLearn"
+msgstr "oLearn дээрх сургалтууд"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_owallet_create_deposit
+#: model:ir.ui.menu,name:owallet.menu_create_deposit
+#: model_terms:ir.ui.view,arch_db:owallet.view_create_deposit_wizard
+msgid "Create Deposit"
+msgstr "Орлогын гүйлгээ үүсгэх"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_owallet_create_deposit_wizard
+msgid "Create Deposit Wizard"
+msgstr "Орлогын гүйлгээ үүсгэх цонх"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_bonus
+msgid ""
+"Create bonus records for teachers to track their monthly earnings.\n"
+"                Use \"Calculate All Bonuses\" to automatically create records for all teachers."
+msgstr ""
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__create_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__create_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__create_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__create_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__create_uid
+msgid "Created by"
+msgstr "Үүсгэсэн хэрэглэгч"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__create_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__create_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__create_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__create_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__create_date
+msgid "Created on"
+msgstr "Үүсгэсэн огноо"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__currency_id
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__currency_id
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__currency_id
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__currency_id
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__currency_id
+msgid "Currency"
+msgstr "Мөнгөн тэмдэгт"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__user_balance
+msgid "Current Balance"
+msgstr "Одоогийн үлдэгдэл"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Date"
+msgstr "Огноо"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__type__deposit
+msgid "Deposit"
+msgstr "Орлого"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__amount
+msgid "Deposit Amount"
+msgstr "Орлогын хэмжээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_deposit_wizard_guide_form
+msgid "Deposit Guide"
+msgstr "Орлого хийх заавар"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_owallet_deposit_wizard_guide
+msgid "Deposit Instructions"
+msgstr "Орлого хийх заавар"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Deposits"
+msgstr "Орлогууд"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__description
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__description
+msgid "Description"
+msgstr "Дэлгэрэнгүй"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__display_name
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__display_name
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__display_name
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__display_name
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__display_name
+msgid "Display Name"
+msgstr "Харагдах нэр"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_bonus__state__draft
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Draft"
+msgstr "Загвар"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+msgid "Empty Balance"
+msgstr "Хоосон данс"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__type__expenditure
+msgid "Expenditure"
+msgstr "Зарлага"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Expenditures"
+msgstr "Зарлага"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_accountant
+msgid "Financial Management"
+msgstr "Санхүүгийн удирдлага"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Formula"
+msgstr "Томъёо"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Group By"
+msgstr "Бүлэглэх"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__guide
+msgid "Guide"
+msgstr "Заавар"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+msgid "Has Balance"
+msgstr "Үлдэгдэлтэй"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_deposit_wizard_guide_form
+msgid "How to Deposit"
+msgstr "Хэрхэн орлого хийх вэ"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__id
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__id
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__id
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__id
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__id
+msgid "ID"
+msgstr "Дугаар"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance____last_update
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus____last_update
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard____last_update
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide____last_update
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction____last_update
+msgid "Last Modified on"
+msgstr "Сүүлд өөрчлөгдсөн огноо"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Last Month"
+msgstr "Сүүлийн сар"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__write_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__write_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__write_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__write_uid
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__write_uid
+msgid "Last Updated by"
+msgstr "Сүүлд шинэчилсэн хэрэглэгч"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__write_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__write_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__write_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_deposit_wizard_guide__write_date
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__write_date
+msgid "Last Updated on"
+msgstr "Сүүлд шинэчлэгдсэн огноо"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_kanban
+msgid "Master"
+msgstr "Үндсэн"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_master_balance
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__is_master
+#: model:ir.ui.menu,name:owallet.menu_master_balance
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+msgid "Master Balance"
+msgstr "Үндсэн данс"
+
+#. module: owallet
+#: model:ir.model.fields,help:owallet.field_owallet_balance__is_master
+msgid "Master balance holds all system funds"
+msgstr "Үндсэн данс нь системийн бүх орлогыг агуулдаг"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_master_balance
+msgid "Master balance not found"
+msgstr "Үндсэн данс олдсонгүй"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__month
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Month"
+msgstr "Сар"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_my_wallet
+#: model:ir.ui.menu,name:owallet.menu_my_wallet
+#: model:ir.ui.menu,name:owallet.menu_teacher_wallet
+msgid "My Balance"
+msgstr "Миний данс"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_my_bonuses
+#: model:ir.ui.menu,name:owallet.menu_my_bonuses
+msgid "My Bonuses"
+msgstr "Миний урамшуулал"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_teacher
+msgid "My Earnings"
+msgstr "Миний орлого"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_my_transactions
+#: model:ir.ui.menu,name:owallet.menu_my_transactions
+#: model_terms:ir.ui.view,arch_db:owallet.view_my_wallet_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "My Transactions"
+msgstr "Миний гүйлгээнүүд"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_student
+#: model_terms:ir.ui.view,arch_db:owallet.view_my_wallet_form
+msgid "My Wallet"
+msgstr "Миний данс"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_bonus
+msgid "No bonuses found"
+msgstr "Урамшуулал олдсонгүй"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_my_bonuses
+msgid "No bonuses yet"
+msgstr "Урамшуулал олдсонгүй"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_transaction
+msgid "No transactions found"
+msgstr "Гүйлгээ олдсонгүй"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_my_transactions
+msgid "No transactions yet"
+msgstr "Гүйлгээ олдсонгүй"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_balance
+msgid "No wallet balances found"
+msgstr "Данс олдсонгүй"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Not Sent"
+msgstr "Илгээгээгүй"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_owallet_balance
+msgid "Owallet Balance"
+msgstr "oWallet Данс"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_owallet_bonus
+msgid "Owallet Bonus"
+msgstr "oWallet Урамшуулал"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_owallet_transaction
+msgid "Owallet Transaction"
+msgstr "oWallet Гүйлгээ"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__owner_id
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Owner"
+msgstr "Эзэмшигч"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_pending_bonuses
+msgid "Pending Bonuses"
+msgstr "Хүлээгдэж буй урамшуулал"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Pending Payment"
+msgstr "Хүлээгдэж буй гүйлгээ"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_pending_bonuses
+msgid "Pending Payments"
+msgstr "Хүлээгдэж буй гүйлгээнүүд"
+
+#. module: owallet
+#: model:ir.model.fields,help:owallet.field_owallet_bonus__bonus_percentage
+msgid "Percentage of course payments that goes to teacher bonus"
+msgstr "Багшийн урамшуулалд өгөх сургалтын төлбөрийн хувь"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Period"
+msgstr "Хугацаа"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_form
+msgid "Recent Transactions"
+msgstr "Сүүлд хийсэн гүйлгээнүүд"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__bonus_id
+msgid "Related Bonus"
+msgstr "Хамааралтай урамшуулал"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__course_id
+msgid "Related Course"
+msgstr "Хамааралтай сургалт"
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_reports
+msgid "Reports"
+msgstr "Тайлангууд"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_search
+msgid "Search Balances"
+msgstr "Данс хайх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Search Bonuses"
+msgstr "Урамшуулал хайх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Search Transactions"
+msgstr "Гүйлгээ хайх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_kanban
+msgid "Send"
+msgstr "Илгээх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_tree
+msgid "Send Bonus"
+msgstr "Урамшуулал илгээх"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_bonus__state__sent
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Sent"
+msgstr "Илгээсэн"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__source
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Source"
+msgstr "Гүйлгээний эх сурвалж"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__state
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Status"
+msgstr "Төлөв"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__teacher_id
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Teacher"
+msgstr "Багш"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Teacher Bonus"
+msgstr "Багшийн урамшуулал"
+
+#. module: owallet
+#: model:ir.actions.act_window,name:owallet.action_owallet_bonus
+#: model:ir.ui.menu,name:owallet.menu_owallet_bonuses
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_tree
+msgid "Teacher Bonuses"
+msgstr "Багшийн урамшуулал"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Teacher Information"
+msgstr "Багшийн мэдээлэл"
+
+#. module: owallet
+#: model:ir.model.constraint,message:owallet.constraint_owallet_bonus_unique_bonus_per_month
+msgid "Teacher can only have one bonus record per month"
+msgstr "Багш сар бүр зөвхөн ганц удаа урамшуулал авах боломжтой"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_master_balance
+msgid "The master balance will be automatically created."
+msgstr "Үндсэн данс автоматаар үүснэ."
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "This Month"
+msgstr "Энэ сар"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "This Year"
+msgstr "Энэ жил"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_tree
+msgid "Total Bonuses"
+msgstr "Нийт урамшуулал"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_form
+msgid "Transaction"
+msgstr "Гүйлгээ"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_pivot
+msgid "Transaction Analysis"
+msgstr "Гүйлгээний шинжилгээ"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__date
+msgid "Transaction Date"
+msgstr "Гүйлгээний огноо"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_form
+msgid "Transaction Details"
+msgstr "Гүйлгээний дэлгэрэнгүй мэдээлэл"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_my_wallet_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_form
+msgid "Transaction History"
+msgstr "Гүйлгээний түүх"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_graph
+msgid "Transaction Statistics"
+msgstr "Гүйлгээний статистик"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_transaction__type
+msgid "Transaction Type"
+msgstr "Гүйлгээний төрөл"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__transaction_ids
+#: model:ir.ui.menu,name:owallet.menu_owallet_transactions
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_form
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_tree
+msgid "Transactions"
+msgstr "Гүйлгээнүүд"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_transaction
+msgid ""
+"Transactions are created automatically when students join courses,\n"
+"                or manually by accountants for deposits and bonuses."
+msgstr "Суралцагч сургалтад хамрагдах үед эсвэл нягтлан бодогч орлого болон урамшууллын гүйлгээ хийх үед гүйлгээ автоматаар үүснэ."
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Type"
+msgstr "Төрөл"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_create_deposit_wizard__user_id
+msgid "User"
+msgstr "Хэрэглэгч"
+
+#. module: owallet
+#: model:ir.model,name:owallet.model_res_users
+msgid "Users"
+msgstr "Хэрэглэгчид"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_res_users__balance_id
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_form
+msgid "Wallet Balance"
+msgstr "Дансны үлдэгдэл"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_balance_tree
+msgid "Wallet Balances"
+msgstr "Дансны үлдэгдлүүд"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_balance__owner_id
+msgid "Wallet Owner"
+msgstr "Данс эзэмшигч"
+
+#. module: owallet
+#: model:ir.module.category,description:owallet.module_category_owallet
+msgid "Wallet and Accounting Management"
+msgstr "Данс ба нягтлан бодох бүртгэл"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_owallet_balance
+msgid ""
+"Wallet balances are automatically created when users are added to the "
+"system."
+msgstr "Системд хэрэглэгч нэмэгдэхэд дансны үлдэгдэл автоматаар үүснэ."
+
+#. module: owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_wallets
+msgid "Wallets"
+msgstr "Данснууд"
+
+#. module: owallet
+#: model:ir.model.fields.selection,name:owallet.selection__owallet_transaction__type__withdraw
+msgid "Withdraw"
+msgstr "Буцаалт"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_transaction_search
+msgid "Withdrawals"
+msgstr "Буцаалт"
+
+#. module: owallet
+#: model:ir.model.fields,field_description:owallet.field_owallet_bonus__year
+#: model_terms:ir.ui.view,arch_db:owallet.view_owallet_bonus_search
+msgid "Year"
+msgstr "Жил"
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_deposit_wizard_guide_form
+msgid "Your Current Balance"
+msgstr "Таны одоогийн үлдэгдэл"
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_my_bonuses
+msgid "Your bonus history will appear here once calculated by the accountant."
+msgstr "Таны урамшууллын түүх нягтлан бодогч тооцоолсны дараа энд гарч ирнэ."
+
+#. module: owallet
+#: model_terms:ir.actions.act_window,help:owallet.action_my_transactions
+msgid ""
+"Your transaction history will appear here once you make deposits or join "
+"courses."
+msgstr "Та орлого хийх үед юм уу сургалтад хамрагдах үед таны гүйлгээний түүх энд гарч ирнэ."
+
+#. module: owallet
+#: model_terms:ir.ui.view,arch_db:owallet.view_create_deposit_wizard
+msgid "e.g., Bank transfer from account #12345"
+msgstr "Жишээлбэл, 12345 дугаартай данснаас ирсэн банкны шилжүүлэг"
+
+#. module: owallet
+#: model:ir.module.category,name:owallet.module_category_owallet
+#: model:ir.ui.menu,name:owallet.menu_owallet_root
+msgid "oWallet"
+msgstr "oWallet"

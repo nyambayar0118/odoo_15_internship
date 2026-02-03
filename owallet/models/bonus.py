@@ -1,5 +1,5 @@
 from odoo import fields, models, api, exceptions
-import datetime
+from datetime import datetime, timedelta
 
 
 class Bonus(models.Model):
@@ -11,13 +11,13 @@ class Bonus(models.Model):
     year = fields.Integer(
         string='Year',
         required=True,
-        default=lambda self: datetime.datetime.now().year,
+        default=lambda self: datetime.now().year,
     )
 
     month = fields.Integer(
         string='Month',
         required=True,
-        default=lambda self: datetime.datetime.now().month,
+        default=lambda self: datetime.now().month,
     )
 
     amount = fields.Monetary(
@@ -56,7 +56,7 @@ class Bonus(models.Model):
 
     bonus_percentage = fields.Float(
         string='Bonus Percentage',
-        default=10.0,
+        default=70.0,
         help='Percentage of course payments that goes to teacher bonus'
     )
 
@@ -77,6 +77,22 @@ class Bonus(models.Model):
         'Teacher can only have one bonus record per month'
     )]
 
+    bonus_date = fields.Datetime(
+        string='Bonus Date',
+        comupte='_compute_bonus_date',
+        store=False
+    )
+
+    @api.depends('year', 'month')
+    def _compute_bonus_date(self):
+        for record in self:
+            if record.year and record.month:
+                record.bonus_date = datetime(record.year, record.month, 1).date()
+            elif record.year:
+                record.bonus_date = datetime(record.year, 1, 1).date()
+            else:
+                record.bonus_date = False
+
     @api.depends('teacher_id', 'month', 'year')
     def _compute_display_name(self):
         for record in self:
@@ -92,11 +108,11 @@ class Bonus(models.Model):
                 record.amount = 0.0
                 continue
 
-            first_day = datetime.datetime(record.year, record.month, 1)
+            first_day = datetime(record.year, record.month, 1)
             if record.month == 12:
-                last_day = datetime.datetime(record.year + 1, 1, 1) - datetime.timedelta(seconds=1)
+                last_day = datetime(record.year + 1, 1, 1) - timedelta(seconds=1)
             else:
-                last_day = datetime.datetime(record.year, record.month + 1, 1) - datetime.timedelta(seconds=1)
+                last_day = datetime(record.year, record.month + 1, 1) - timedelta(seconds=1)
 
             teacher_courses = self.env['olearn2.course'].sudo().search([
                 ('teacher_id', '=', record.teacher_id.id)
@@ -174,12 +190,17 @@ class Bonus(models.Model):
         if not self.env.user.has_group('owallet.group_accountant'):
             raise exceptions.AccessError("Only accountants can calculate bonuses")
 
-        now = datetime.datetime.now()
+        now = datetime.now()
         current_year = now.year
         current_month = now.month
 
+        master_balance_users = self.env['owallet.balance'].sudo().search([
+            ('is_master', '=', True)
+        ]).mapped('owner_id')
+
         teachers = self.env['res.users'].search([
-            ('groups_id', 'in', [self.env.ref('olearn2.group_teacher').id])
+            ('groups_id', 'in', [self.env.ref('olearn2.group_teacher').id]),
+            ('id', 'not in', master_balance_users.ids),
         ])
 
         created_count = 0

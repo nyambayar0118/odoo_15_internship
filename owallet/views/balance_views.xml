@@ -47,16 +47,15 @@
         <field name="model">owallet.balance</field>
         <field name="arch" type="xml">
             <tree string="Wallet Balances" create="false" delete="false">
-                <field name="owner_id"/>
-                <field name="amount" widget="monetary"/>
-                <field name="currency_id" invisible="1"/>
-                <field name="is_master" invisible="1"/>
                 <field name="owner_id"
                        decoration-info="is_master == True"
                        decoration-success="amount > 1000"
                        decoration-warning="amount > 0 and amount &lt;= 1000"
                        decoration-danger="amount == 0"
                        groups="owallet.group_accountant"/>
+                <field name="amount" widget="monetary"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="is_master"/>
             </tree>
         </field>
     </record>
@@ -100,7 +99,8 @@
                             <field name="currency_id" readonly="1"/>
                         </group>
                         <group>
-                            <field name="is_master" readonly="1"/>
+                            <field name="is_master" readonly="1"
+                                   groups="olearn.group_manager,owallet.group_accountant"/>
                         </group>
                     </group>
 
@@ -293,7 +293,7 @@
     <record id="action_my_wallet" model="ir.actions.act_window">
         <field name="name">My Balance</field>
         <field name="res_model">owallet.balance</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_owallet_balance_form"/>
         <field name="domain">[('owner_id', '=', uid)]</field>
         <field name="context">{'create': False, 'delete': False}</field>
@@ -318,4 +318,23 @@
         </field>
     </record>
 
+    <!-- Server Action to open My Wallet (calls the Python method) -->
+    <record id="action_my_wallet_server" model="ir.actions.server">
+        <field name="name">My Wallet</field>
+        <field name="model_id" ref="model_owallet_balance"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = env['owallet.balance'].action_open_my_wallet()
+        </field>
+    </record>
+
+    <!-- Master Balance Action (Server Action) -->
+    <record id="action_master_balance_server" model="ir.actions.server">
+        <field name="name">Master Balance</field>
+        <field name="model_id" ref="model_owallet_balance"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = env['owallet.balance'].action_open_master_balance()
+        </field>
+    </record>
 </odoo>

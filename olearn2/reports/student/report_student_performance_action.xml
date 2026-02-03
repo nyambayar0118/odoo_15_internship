@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <odoo>
+    <!-- PDF Report Action -->
     <record id="action_report_student_performance" model="ir.actions.report">
         <field name="name">Student Performance Report</field>
-        <field name="model">olearn_v2.course</field>
+        <field name="model">res.users</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">olearn.report_student_performance_template</field>
+        <field name="report_name">olearn2.report_student_performance_template</field>
+        <field name="report_file">olearn2.report_student_performance_template</field>
         <field name="print_report_name">"Student Performance"</field>
+    </record>
+
+    <!-- Server Action to trigger the report -->
+    <record id="action_print_my_performance" model="ir.actions.server">
+        <field name="name">Print My Performance</field>
+        <field name="model_id" ref="model_olearn2_course"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+courses = env['olearn2.course'].sudo().search([('student_ids', 'in', [env.uid])])
+if courses:
+    action = env.ref('olearn2.action_report_student_performance').sudo().report_action(env.user)
+else:
+    action = {'type': 'ir.actions.client', 'tag': 'display_notification', 'params': {'title': 'No Courses', 'message': 'You are not enrolled in any courses.', 'type': 'warning'}}
+]]></field>
     </record>
 </odoo>

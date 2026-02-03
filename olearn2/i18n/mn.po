@@ -1,0 +1,1128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* olearn2
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-03 14:37+0000\n"
+"PO-Revision-Date: 2026-02-03 14:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-arrow-left\"/>\n"
+"                                            Returned"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_kanban
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+msgid ""
+"<i class=\"fa fa-book\"/>\n"
+"                                    Course:"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-calendar\"/>\n"
+"                                    Due:"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Submitted"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_kanban
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                            Viewed"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid ""
+"<i class=\"fa fa-check-circle\"/>\n"
+"                                        Joined"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-clock-o\"/>\n"
+"                                                To Do"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-exclamation-triangle\"/>\n"
+"                                                Overdue"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_kanban
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+msgid ""
+"<i class=\"fa fa-eye-slash\"/>\n"
+"                                            Hidden"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_kanban
+msgid ""
+"<i class=\"fa fa-eye-slash\"/>\n"
+"                                            Not Viewed"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid ""
+"<i class=\"fa fa-graduation-cap\"/>\n"
+"                                        Active Course"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid ""
+"<i class=\"fa fa-graduation-cap\"/>\n"
+"                                        Teaching This Course"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid ""
+"<i class=\"fa fa-sign-in\"/>\n"
+"                                        Join Course"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-star\"/>\n"
+"                                    Score:"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_kanban_student
+msgid ""
+"<i class=\"fa fa-trophy\"/>\n"
+"                                            Graded"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+msgid ""
+"<i class=\"fa fa-trophy\"/>\n"
+"                                    Max Score:"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+msgid ""
+"<i class=\"fa fa-users\"/>\n"
+"                                    Assigned to"
+msgstr ""
+
+#. module: olearn2
+#: model:ir.model.constraint,message:olearn2.constraint_olearn2_lesson_record_unique_lesson_student
+msgid "A student can only have one record per lesson!"
+msgstr "Суралцагч нэг хичээл дээр зөвхөн нэг л бүртгэлтэй байх ёстой!"
+
+#. module: olearn2
+#: model:ir.model.constraint,message:olearn2.constraint_olearn2_task_record_unique_task_student
+msgid "A student can only have one record per task!"
+msgstr "Суралцагч нэг даалгавар дээр зөвхөн нэг л бүртгэлтэй байх ёстой!"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__active
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__active
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "Active"
+msgstr "Идэвхтэй"
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_course_manager
+msgid "All Courses"
+msgstr "Бүх сургалт"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_lesson_manager
+#: model:ir.ui.menu,name:olearn2.menu_lesson_manager
+msgid "All Lessons"
+msgstr "Бүх хичээл"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_task_manager
+#: model:ir.ui.menu,name:olearn2.menu_task_manager
+msgid "All Tasks"
+msgstr "Бүх даалгавар"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_course__active
+msgid "Archive inactive programs"
+msgstr "Идэвхгүй сургалтуудыг архивлах"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "Archived"
+msgstr "Архивлагдсан"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task_record__status__assigned
+msgid "Assigned"
+msgstr "Даалгавар өгсөн"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_tree
+msgid "Assigned To"
+msgstr "Суралцагчийн нэр"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__attachment_name
+msgid "Attachment Name"
+msgstr "Файлын нэр"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "Available to Join"
+msgstr "Хамрагдах боломжтой"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_course_student
+#: model:ir.ui.menu,name:olearn2.menu_course_student
+msgid "Browse Courses"
+msgstr "Сургалт хайх"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__submittable
+msgid "Can Submit"
+msgstr "Явуулах боломжтой"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_student
+msgid "Check back later for new courses to join!"
+msgstr "Шинэ сургалт нэмэгдсний дараа дахин шалгана уу!"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_manager
+msgid "Click <b>Create</b> to add a new course."
+msgstr "<b>Үүсгэх</b> товчийг дарж шинэ сургалт нэмнэ үү."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_manager
+msgid "Click <b>Create</b> to add your first lesson."
+msgstr "<b>Үүсгэх</b> товчийг дарж анхны хичээлээ нэмнэ үү."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_manager
+msgid "Click <b>Create</b> to add your first task."
+msgstr "<b>Үүсгэх</b> товчийг дарж анхны даалгавраа нэмнэ үү."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_teacher
+msgid "Contact your administrator to be assigned to a course."
+msgstr "Администратортой холбогдож сургалтанд хамрагдаарай."
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__content
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__lesson_content
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_form_student
+msgid "Content"
+msgstr "Агуулга"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__cost
+msgid "Cost for this Course"
+msgstr "Сургалтын төлбөр"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+msgid "Cost for this course"
+msgstr "Сургалтын төлбөр"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__course_id
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Course"
+msgstr "Сургалт"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+msgid "Course Name"
+msgstr "Сургалтын нэр"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+msgid "Course description..."
+msgstr "Сургалтын дэлгэрэнгүй..."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.olearn_page_view
+#: model_terms:website.page,arch_db:olearn2.courses_page
+msgid "Courses"
+msgstr "Сургалтууд"
+
+#. module: olearn2
+#: model:ir.model,name:olearn2.model_olearn2_course
+msgid "Courses available on oLearn"
+msgstr "oLearn дээрх хамрагдах боломжтой сургалтууд"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_teacher
+msgid "Create lessons from your course to get started!"
+msgstr "Сургалт цэс дээрээс хичээлүүдийг үүсгэнэ үү!"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_teacher
+msgid "Create tasks from your programs to get started!"
+msgstr "Сургалт цэс дээрээс даалгавруудыг үүсгэнэ үү!"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__create_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__create_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__create_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__create_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__create_uid
+msgid "Created by"
+msgstr "Үүсгэсэн хэрэглэгч"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__create_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__create_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__create_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__create_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__create_date
+msgid "Created on"
+msgstr "Үүсгэсэн огноо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__currency_id
+msgid "Currency"
+msgstr "Мөнгөн тэмдэгт"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__description
+msgid "Description"
+msgstr "Дэлгэрэнгүй"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task__content
+#: model:ir.model.fields,help:olearn2.field_olearn2_task_record__task_content
+msgid "Detailed task description and instructions"
+msgstr "Даалгаврын дэлгэрэнгүй тайлбар болон заавар"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__display_name
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__display_name
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__display_name
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__display_name
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__display_name
+msgid "Display Name"
+msgstr "Харагдах нэр"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__due_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__task_due_date
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_tree
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Due Date"
+msgstr "Дуусах огноо"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task_record__submittable
+msgid "Enable/disable submission for this task"
+msgstr "Энэ даалгаврын хувьд явуулж болох эсэхийг идэвхжүүлэх/идэвхгүй болгох"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_tree
+msgid "Enrolled Students"
+msgstr "Хамрагдсан суралцагчид"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_lesson__type__example
+msgid "Example"
+msgstr "Жишээ"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+msgid "Examples"
+msgstr "Жишээ"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+msgid "Feedback"
+msgstr "Тэмдэглэл"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task_record__status__graded
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+msgid "Graded"
+msgstr "Дүгнэсэн"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__graded_date
+msgid "Graded Date"
+msgstr "Дүгнэсэн огноо"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Grading"
+msgstr "Үнэлгээ"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Group By"
+msgstr "Бүлэглэх"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "Hidden"
+msgstr "Харагдахгүй"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Hidden from Students"
+msgstr "Суралцагчдад харагдахгүй"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__hidden
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__hidden
+msgid "Hidden from students"
+msgstr "Суралцагчдад харагдахгүй"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "Hide from Students"
+msgstr "Суралцагчдад харагдахгүй болгох"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__id
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__id
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__id
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__id
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__id
+msgid "ID"
+msgstr "Дугаар"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__task_content
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+msgid "Instructions"
+msgstr "Заавар"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__joined
+msgid "Is the student in this class?"
+msgstr "Суралцагч энэ сургалтанд байгаа эсэх?"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_record_student
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_record_student
+msgid "Join a program to get started!"
+msgstr "Эхлээд та сургалтанд хамрагдаарай!"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "Joined Courses"
+msgstr "Хамрагдсан сургалтууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course____last_update
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson____last_update
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record____last_update
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task____last_update
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record____last_update
+msgid "Last Modified on"
+msgstr "Сүүлд өөрчлөгдсөн огноо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__write_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__write_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__write_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__write_uid
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__write_uid
+msgid "Last Updated by"
+msgstr "Сүүлд өөрчилсөн хэрэглэгч"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__write_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__write_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__write_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__write_date
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__write_date
+msgid "Last Updated on"
+msgstr "Сүүлд өөрчлөгдсөн огноо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__lesson_id
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_form_student
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_tree
+msgid "Lesson"
+msgstr "Хичээл"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__lesson_count
+msgid "Lesson Count"
+msgstr "Хичээлийн тоо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__name
+msgid "Lesson Name"
+msgstr "Хичээлийн нэр"
+
+#. module: olearn2
+#: model:ir.model,name:olearn2.model_olearn2_lesson_record
+msgid "Lesson Records"
+msgstr "Хичээлийн бүртгэлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__type
+msgid "Lesson Type"
+msgstr "Хичээлийн төрөл"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+msgid "Lesson description and instructions..."
+msgstr "Хичэээлийн дэлгэрэнгүй болон заавар..."
+
+#. module: olearn2
+#: model:ir.model,name:olearn2.model_olearn2_lesson
+msgid "Lesson model"
+msgstr "Хичээлийн загвар"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid "Lessons"
+msgstr "Хичэээлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__lesson_ids
+msgid "Lessons for this course"
+msgstr "Энэ сургалтын хичээлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__lesson_link
+msgid "Link"
+msgstr "Холбоос"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__link
+msgid "Link to content"
+msgstr "Агуулгын холбоос"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_course_manager
+msgid "Manage Courses"
+msgstr "Сургалтуудыг удирдах"
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_manager_section
+msgid "Management"
+msgstr "Удирдах"
+
+#. module: olearn2
+#: model:res.groups,name:olearn2.group_manager
+msgid "Manager"
+msgstr "Менежер"
+
+#. module: olearn2
+#: model:res.groups,comment:olearn2.group_manager
+msgid ""
+"Managers have full access to all programs, lessons, tasks, and can manage all users\n"
+"        "
+msgstr "Менежерүүд бүх сургалт, хичээл, даалгаварт бүрэн хандах эрхтэй бөгөөд бүх хэрэглэгчдийг удирдах боломжтой."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Mark as Done"
+msgstr "Даалгаврыг дууссан гэж тэмдэглэх"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_form_student
+msgid "Mark as Viewed"
+msgstr "Хичээлийг үзсэн гэж тэмдэглэх"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_lesson_record__viewed
+msgid "Mark as viewed when student completes the lesson"
+msgstr "Суралцагч хичээлийг дуусгасны дараа үзсэн гэж тэмдэглэх"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_lesson__type__material
+msgid "Material"
+msgstr "Материал"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+msgid "Materials"
+msgstr "Материал"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_tree
+msgid "Max"
+msgstr "Хамгийн их оноо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__max_score
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__task_max_score
+msgid "Max Score"
+msgstr "Хамгийн их оноо"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_course_teacher
+#: model:ir.ui.menu,name:olearn2.menu_course_teacher
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "My Courses"
+msgstr "Миний сургалтууд"
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_student_section
+msgid "My Learning"
+msgstr "Үндсэн цэс"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_lesson_record_student
+#: model:ir.actions.act_window,name:olearn2.action_lesson_teacher
+#: model:ir.ui.menu,name:olearn2.menu_lesson_record_student
+#: model:ir.ui.menu,name:olearn2.menu_lesson_teacher
+msgid "My Lessons"
+msgstr "Миний хичээлүүд"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+msgid "My Submission"
+msgstr "Миний даалгавар"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_task_record_student
+#: model:ir.actions.act_window,name:olearn2.action_task_teacher
+#: model:ir.ui.menu,name:olearn2.menu_task_record_student
+#: model:ir.ui.menu,name:olearn2.menu_task_teacher
+msgid "My Tasks"
+msgstr "Миний даалгаврууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__name
+msgid "Name"
+msgstr "Нэр"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_manager
+msgid "No active courses available right now."
+msgstr "Одоогоор идэвхтэй сургалт байхгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_student
+msgid "No courses available right now."
+msgstr "Одоогоор сургалт байхгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_manager
+msgid "No lessons found."
+msgstr "Сургалт олдсонгүй."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_record_teacher
+msgid "No student lessons found."
+msgstr "Суралцагчийн хичээлийн бүртгэл олдсонгүй."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_record_teacher
+msgid "No student task records found."
+msgstr "Суралцагчийн даалгаврын бүртгэл олдсонгүй."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_manager
+msgid "No tasks found."
+msgstr "Даалгавар олдсонгүй."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_search
+msgid "Not Viewed"
+msgstr "Үзээгүй"
+
+#. module: olearn2
+#: model:ir.module.category,description:olearn2.module_category_olearn2
+msgid "Online Learning Management System"
+msgstr "Цахим сургалт удирдах систем"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task__lesson_id
+msgid "Optional: Link task to a specific lesson"
+msgstr "Сонголт: Даалгаврыг тодорхой хичээлтэй холбох"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_lesson__sequence
+msgid "Order of lessons in the course"
+msgstr "Сургалт доторх хичээлийн дараалал"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_lesson__type__other
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task__type__other
+msgid "Other"
+msgstr "Бусад"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__overdue
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+msgid "Overdue"
+msgstr "Хоцорсон"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task__type__problem
+msgid "Problem"
+msgstr "Бодлого"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Problems"
+msgstr "Бодлогууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__course_id
+msgid "Program"
+msgstr "Сургалт"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task__type__project
+msgid "Project"
+msgstr "Төсөл"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Provide feedback to the student..."
+msgstr "Суралцагчид тэмдэглэл бичих..."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "Publish to Students"
+msgstr "Суралцагчдад нийтлэх"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task__type__quiz
+msgid "Quiz"
+msgstr "Асуулт"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Quizzes"
+msgstr "Асуултууд"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_lesson__type__reading
+msgid "Reading"
+msgstr "Судалгаа"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__lesson_id
+msgid "Related Lesson"
+msgstr "Хамааралтай хичээл"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_form_student
+msgid "Resources"
+msgstr ""
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Return to Student"
+msgstr "Даалгаврыг суралцагчид буцаах"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task_record__status__returned
+msgid "Returned"
+msgstr "Буцаасан"
+
+#. module: olearn2
+#: model:ir.model.constraint,message:olearn2.constraint_olearn2_task_record_check_score
+msgid "Score cannot be negative!"
+msgstr "Оноо сөрөг утгатай байж болохгүй!"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__sequence
+msgid "Sequence"
+msgstr "Дараалал"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__status
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+msgid "Status"
+msgstr "Төлөв"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__student_id
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__student_id
+#: model:res.groups,name:olearn2.group_student
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_tree
+msgid "Student"
+msgstr "Суралцагч"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__student_count
+msgid "Student Count"
+msgstr "Суралцагчдын тоо"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_form_teacher
+msgid "Student Lesson Record"
+msgstr "Суралцагчийн хичээлийн бүртгэл"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_lesson_record_teacher
+#: model:ir.ui.menu,name:olearn2.menu_lesson_record_teacher
+msgid "Student Lesson Records"
+msgstr "Суралцагчийн хичээлийн бүртгэлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__lesson_record_ids
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+msgid "Student Lessons"
+msgstr "Суралцагчийн хичээлүүд"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Student Submission"
+msgstr "Суралцагчийн илгээсэн даалгавар"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_teacher
+msgid "Student Task"
+msgstr "Суралцагчийн даалгавар"
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_task_record_teacher
+msgid "Student Task Records"
+msgstr "Суралцагчийн даалгаврын бүртгэлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__task_record_ids
+msgid "Student Task records"
+msgstr "Суралцагчийн даалгаврын бүртгэлүүд"
+
+#. module: olearn2
+#: model:ir.actions.act_window,name:olearn2.action_task_record_teacher
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "Student Tasks"
+msgstr "Суралцагчийн даалгаврууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__score
+msgid "Student's Score"
+msgstr "Суралцагчийн оноо"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task_record__submission_text
+msgid "Student's text submission"
+msgstr "Суралцагчийн илгээсэн бичвэр"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__student_ids
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_kanban
+msgid "Students"
+msgstr "Суралцагчид"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__assigned_count
+msgid "Students Assigned"
+msgstr "Даалгавар авсан суралцагчид"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__completed_count
+msgid "Students Completed"
+msgstr "Даалгавар хийсэн суралцагчид"
+
+#. module: olearn2
+#: model:res.groups,comment:olearn2.group_student
+msgid "Students can view and complete their assigned lessons and tasks"
+msgstr "Суралцагчид өөрт оноогдсон хичээл, даалгавруудыг үзэж, гүйцэтгэх боломжтой"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__attachment
+msgid "Submission Attachment"
+msgstr "Даалгаврын хавсралт"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__submission_date
+msgid "Submission Date"
+msgstr "Илгээсэн огноо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__submission_text
+msgid "Submission Text"
+msgstr "Даалгаврын тайлбар"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+msgid "Submit Task"
+msgstr "Даалгавар илгээх"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task_record__status__submitted
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+msgid "Submitted"
+msgstr "Илгээсэн"
+
+#. module: olearn2
+#: model:ir.model,name:olearn2.model_olearn2_task
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__task_id
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_tree
+msgid "Task"
+msgstr "Даалгавар"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__content
+msgid "Task Content"
+msgstr "Даалгаврын агуулга"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__task_count
+msgid "Task Count"
+msgstr "Даалгаврын тоо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__task_count
+msgid "Task Count for this lesson"
+msgstr "Энэ хичээлийн даалгаврын тоо"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__name
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__task_name
+msgid "Task Name"
+msgstr "Даалгаврын нэр"
+
+#. module: olearn2
+#: model:ir.model,name:olearn2.model_olearn2_task_record
+msgid "Task Records"
+msgstr "Даалгаврын бүртгэлүүд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task__type
+msgid "Task Type"
+msgstr "Даалгаврын төрөл"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "Task instructions and requirements..."
+msgstr "Даалгаврын заавар болон шаардлагууд..."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_form
+msgid "Tasks"
+msgstr "Даалгаврууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__task_ids
+msgid "Tasks for this course"
+msgstr "Энэ сургалтын даалгаврууд"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson__task_ids
+msgid "Tasks related to this lesson"
+msgstr "Энэ хичээлтэй холбоотой даалгаврууд"
+
+#. module: olearn2
+#: model:res.groups,name:olearn2.group_teacher
+msgid "Teacher"
+msgstr "Багш"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_task_record__teacher_note
+msgid "Teacher Feedback"
+msgstr "Багшийн тэмдэглэл"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task_record__teacher_note
+msgid "Teacher's comments on the submission"
+msgstr "Даалгаврын талаар багшийн сэтгэгдэл"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_course__teacher_id
+msgid "Teachers"
+msgstr "Багш"
+
+#. module: olearn2
+#: model:res.groups,comment:olearn2.group_teacher
+msgid ""
+"Teachers can create and manage lessons, tasks, programs, and view student "
+"progress"
+msgstr "Багш нар сургалт, хичээл, даалгавруудыг үүсгэж, удирдах боломжтой ба суралцагчдын төлвийг харах боломжтой."
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_teacher_section
+msgid "Teaching"
+msgstr "Зааж байгаа"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_search
+msgid "To Do"
+msgstr "Хийх ёстой"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__lesson_type
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_tree
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Type"
+msgstr "Төрөл"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_lesson__link
+#: model:ir.model.fields,help:olearn2.field_olearn2_lesson_record__lesson_link
+msgid "URL or path to lesson materials"
+msgstr "Хичээлийн материалыг үзэх URL холбоос"
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_lesson__type__video
+msgid "Video"
+msgstr "Бичлэг"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+msgid "Videos"
+msgstr "Бичлэг"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.olearn_page_view
+#: model_terms:website.page,arch_db:olearn2.courses_page
+msgid "View Available Courses"
+msgstr "Хамрагдах боломжтой сургалтуудыг харах"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__viewed
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_record_search
+msgid "Viewed"
+msgstr "Үзсэн"
+
+#. module: olearn2
+#: model:ir.model.fields,field_description:olearn2.field_olearn2_lesson_record__viewed_date
+msgid "Viewed Date"
+msgstr "Үзсэн огноо"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_search
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Visible to Students"
+msgstr "Суралцагчдад харагдаж байгаа"
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_lesson__hidden
+msgid ""
+"When unchecked, lesson will be automatically assigned to all enrolled "
+"students"
+msgstr "Идэвхгүй үед, хичээл нь бүх бүртгэлтэй суралцагчдад автоматаар оноогдоно."
+
+#. module: olearn2
+#: model:ir.model.fields,help:olearn2.field_olearn2_task__hidden
+msgid ""
+"When unchecked, task will be automatically assigned to all enrolled students"
+msgstr "Идэвхгүй үед, даалгавар нь бүх бүртгэлтэй суралцагчдад автоматаар оноогдоно."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "With Lessons"
+msgstr "Хичээлтэй"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_course_search
+msgid "Without Lessons"
+msgstr "Хичээлгүй"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_record_form_student
+msgid "Write your submission here..."
+msgstr "Өөрийн даалгаврын тайлбарыг энд бичнэ үү..."
+
+#. module: olearn2
+#: model:ir.model.fields.selection,name:olearn2.selection__olearn2_task__type__writing
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_search
+msgid "Writing"
+msgstr "Зохион бичлэг"
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_record_student
+msgid "You don't have any lessons yet."
+msgstr "Танд одоогоор оноосон хичээл байхгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_record_student
+msgid "You don't have any tasks yet."
+msgstr "Танд одоогоор оноосон даалгавар байхгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_course_teacher
+msgid "You have no active courses yet."
+msgstr "Танд одоогоор идэвхтэй сургалт байхгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_lesson_teacher
+msgid "You haven't created any lesson yet."
+msgstr "Та одоогоор ямар ч хичээл үүсгээгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.actions.act_window,help:olearn2.action_task_teacher
+msgid "You haven't created any tasks yet."
+msgstr "Та одоогоор ямар ч даалгавар үүсгээгүй байна."
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+msgid "e.g., Introduction to Python"
+msgstr "Жишээлбэл, Python удиртгал хичээл"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_form
+msgid "e.g., Python Exercise 1"
+msgstr "Жишээлбэл, Python дасгал 1"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_lesson_form
+msgid "https://... or file path"
+msgstr "https://... эсвэл файл"
+
+#. module: olearn2
+#: model:ir.ui.menu,name:olearn2.menu_olearn2_root
+msgid "oLearn - New"
+msgstr "oLearn - Шинэ"
+
+#. module: olearn2
+#: model:ir.module.category,name:olearn2.module_category_olearn2
+msgid "oLearn2"
+msgstr "oLearn2"
+
+#. module: olearn2
+#: model_terms:ir.ui.view,arch_db:olearn2.view_task_kanban
+msgid "students"
+msgstr "суралцагчид"
